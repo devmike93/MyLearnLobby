@@ -10,6 +10,7 @@ Base = declarative_base()
 
 time_format = "%Y-%m-%dT%H:%M:%S.%f"
 
+
 class BaseModel:
     """This is the base model for all other classes in this project
 
@@ -27,8 +28,10 @@ class BaseModel:
     """
 
     id = Column(String(60), primary_key=True)
-    created_at = Column(DateTime, nullable=False, default=datetime.now(datetime.utc))
-    updated_at = Column(DateTime, nullable=False, default=datetime.now(datetime.utc))
+    created_at = Column(DateTime, nullable=False,
+                        default=datetime.now(datetime.utc))
+    updated_at = Column(DateTime, nullable=False,
+                        default=datetime.now(datetime.utc))
 
     def __init__(self, *args, **kwargs) -> None:
         """
@@ -55,7 +58,7 @@ class BaseModel:
         return "[{:s}] ({:s}) {}".format(
             self.__class__.__name__, self.id, self.__dict__
         )
-    
+
     def save(self) -> None:
         """Updates the updated_at attribute with the current datetime"""
         from models import storage
@@ -67,7 +70,7 @@ class BaseModel:
         """Deletes the instance from storage"""
         from models import storage
         storage.delete(self)
-    
+
     def to_dict(self) -> dict:
         """ Returns a dictionary containing all keys/values of
         __dict__ of the instance

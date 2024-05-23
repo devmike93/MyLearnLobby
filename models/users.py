@@ -9,11 +9,17 @@ import os
 
 
 class User(BaseModel, Base):
-    """
-    
+    """This is the user model for the project
     Attrs:
+        first_name: str - first name of the user
+        last_name: str - last name of the user
+        email: str - email of the user
+        password: str - password of the user
 
     Methods:
+        __init__(self, *args, **kwargs) - initializes the User class
+        hash_password(self, password: str) -
+            hash the password using hashlib; sha256 algorithm and salting
     """
     __tablename__ = "users"
     first_name = Column(String(128), nullable=False)
@@ -29,7 +35,6 @@ class User(BaseModel, Base):
         """
         super().__init__(*args, **kwargs)
         self.password = self.hash_password(self.password)
-        
 
     def hash_password(self, password: str) -> str:
         """Hash the password using hashlib; sha256 algorithm and salting
