@@ -1,1 +1,0 @@
-PROJECT_MYSQL_USER=project_dev_user_test PROJECT_MYSQL_PWD=project_dev_pwd_test PROJECT_MYSQL_HOST=localhost PROJECT_MYSQL_DB=project_dev_db_test DROP_DB=False

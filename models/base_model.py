@@ -28,10 +28,8 @@ class BaseModel:
     """
 
     id = Column(String(60), primary_key=True)
-    created_at = Column(DateTime, nullable=False,
-                        default=datetime.now(datetime.utc))
-    updated_at = Column(DateTime, nullable=False,
-                        default=datetime.now(datetime.utc))
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow())
+    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow())
 
     def __init__(self, *args, **kwargs) -> None:
         """
@@ -45,12 +43,12 @@ class BaseModel:
             if kwargs.get("id", None) is None:
                 self.id = str(uuid.uuid4())
             if kwargs.get("created_at", None) is None:
-                self.created_at = datetime.now(datetime.utc)
+                self.created_at = datetime.utcnow()
             if kwargs.get("updated_at", None) is None:
-                self.updated_at = datetime.now(datetime.utc)
+                self.updated_at = datetime.utcnow()
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.now(datetime.utc)
+            self.created_at = datetime.utcnow()
             self.updated_at = self.created_at
 
     def __str__(self) -> str:
@@ -62,7 +60,7 @@ class BaseModel:
     def save(self) -> None:
         """Updates the updated_at attribute with the current datetime"""
         from models import storage
-        self.updated_at = datetime.now(datetime.utc)
+        self.updated_at = datetime.utcnow()
         storage.new(self)
         storage.save()
 
@@ -79,4 +77,6 @@ class BaseModel:
         new_dict = self.__dict__.copy()
         new_dict["created_at"] = new_dict["created_at"].strftime(time_format)
         new_dict["updated_at"] = new_dict["updated_at"].strftime(time_format)
+        if "_sa_instance_state" in new_dict:
+            del new_dict["_sa_instance_state"]
         return new_dict

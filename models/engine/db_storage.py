@@ -7,6 +7,7 @@ from models.users import User
 from sqlalchemy import create_engine
 from os import getenv
 
+
 classes = {"User": User}
 
 
@@ -70,15 +71,12 @@ class DBStorage:
         or all objects if cls is None
         """
         objs_dict = {}
-        if cls is None:
-            for _class in classes:
-                objs_list = self.__session.query(classes[_class]).all()
-                for obj in objs_list:
-                    objs_dict[obj.__class__.__name__ + '.' + obj.id] = obj
-        else:
-            objs_list = self.__session.query(classes[cls]).all()
-            for obj in objs_list:
-                objs_dict[obj.__class__.__name__ + '.' + obj.id] = obj
+        for _class in classes:
+            if cls is None or cls is classes[_class] or cls is _class:
+                list_objs = self.__session.query(classes[_class]).all()
+                for obj in list_objs:
+                    key = obj.__class__.__name__ + "." + obj.id
+                    objs_dict[key] = obj
         return objs_dict
 
     def get(self, cls, id):
@@ -100,6 +98,7 @@ class DBStorage:
     def reload(self):
         """Create all tables in the database and the current database session"""
         Base.metadata.create_all(self.__engine)
+        # print(Base.metadata.tables)
         session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()

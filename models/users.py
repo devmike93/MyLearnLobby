@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is the user model for the project"""
 
-from base_model import BaseModel, Base
+from models.base_model import BaseModel, Base
 import binascii
 import hashlib
 from sqlalchemy import Column, String
@@ -34,7 +34,8 @@ class User(BaseModel, Base):
         Sets other attributes if kwargs is not empty
         """
         super().__init__(*args, **kwargs)
-        self.password = self.hash_password(self.password)
+        if self.password:
+            self.password = self.hash_password(self.password)
 
     def hash_password(self, password: str) -> str:
         """Hash the password using hashlib; sha256 algorithm and salting
