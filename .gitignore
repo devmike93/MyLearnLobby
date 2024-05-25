@@ -1,3 +1,6 @@
 generate_authors.sh
 .venv/
 __pycache__/
+*.pyc
+*$py.class
+
