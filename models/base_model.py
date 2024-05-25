@@ -79,4 +79,7 @@ class BaseModel:
         new_dict["updated_at"] = new_dict["updated_at"].strftime(time_format)
         if "_sa_instance_state" in new_dict:
             del new_dict["_sa_instance_state"]
+        # Convert datetime objects to string in ISO format for start_date for course
+        if "start_date" in new_dict:
+            new_dict["start_date"] = new_dict["start_date"].strftime(time_format)
         return new_dict
