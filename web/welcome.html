@@ -10,9 +10,10 @@
     <title>Welcome to MyLearnLobby!</title>
   </head>
   <body class="landing">
-    <nav class="navbar navbar-expand-sm bg-none boldtext">
+    <section class="spacermv">
+    <nav class="navbar navbar-expand-lg boldtext">
         <div class="container">
-            <a href="#" class="navbar-brand" style="color: rgb(255, 159, 14)">MyLearnlobby</a>
+            <a href="welcome.html" class="navbar-brand nav-link" style="color: rgb(255, 159, 14)">MyLearnlobby</a>
 
             <button
                 class="navbar-toggler"
@@ -26,10 +27,10 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a href="#tasks" class="nav-link">Login</a>
+                        <a href="#loginmodal" class="nav-link">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#future" class="nav-link">Sign Up</a>
+                        <a href="#signmodal" class="nav-link">Sign Up</a>
                     </li>
                 </ul>
             </div>
@@ -37,7 +38,7 @@
     </nav>
     
 
-    <section class="bg-none text-light p-5 text center text-sm-start">
+    <section class="text-light text center text-sm-start">
         <div class="container">
             <div class="d-sm-flex align-items-center justify-content-between">
                 <div>
@@ -47,14 +48,14 @@
                     <p class="my-4 boldtext">
                         Bring all your courses and learning resources together in ONE place!
                     </p>
-                    <button class="btn btn-primary btn-lg">Get started!</button>
+                    <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#signup">Get started!</button>
                 </div>
                 <img class="img-fluid w-50 d-none d-sm-block" src="img/showcase.png" alt="" />
             </div>
         </div>
     </section>
-
-    <section class="footer boldtext">
+</section>
+    <footer class="footer boldtext justify-content-between">
     <nav class="navbar navbar-light bg-none">
         <div class="container">
             <div id="footernav">
@@ -66,6 +67,6 @@
             </div>
         </div>
     </nav>
-    </section>
+    </footer>
   </body>
 </html>
