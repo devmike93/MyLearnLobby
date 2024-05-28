@@ -434,6 +434,10 @@ form button:hover {
         color: #fff;
         font-size: 25px;
     }
+
+    .showcase {
+        margin: 5vh 10px 5vh 10px;
+    }
     
 }
 
