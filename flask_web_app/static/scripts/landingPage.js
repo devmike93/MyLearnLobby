@@ -33,7 +33,7 @@ signupLoginLink.forEach(link => {
     });
 });
 
-// Open signup form directly
+// Open signup form directly from "Get Started" Button in LandingPage
 openSignupBtn.addEventListener("click", () => {
     document.body.classList.add("show-popup");
     formPopup.classList.add("show-signup");
