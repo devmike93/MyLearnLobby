@@ -4,11 +4,15 @@
 from models.base_model import Base
 from sqlalchemy.orm import sessionmaker, scoped_session
 from models.users import User
+from models.courses import Course
+from models.tasks import Task
+from models.resources import Resource
+from models.notes import Note
 from sqlalchemy import create_engine
 from os import getenv
 
 
-classes = {"User": User}
+classes = {"User": User, "Course": Course, "Task": Task, "Resource": Resource, "Note": Note}
 
 
 class DBStorage:
@@ -52,6 +56,10 @@ class DBStorage:
                                        PROJECT_MYSQL_DB), pool_pre_ping=True)
         if DROP_DB == "True":
             Base.metadata.drop_all(self.__engine)
+    @property
+    def session(self):
+        """Return the current session"""
+        return self.__session
 
     def new(self, obj):
         """Add the object to the current database session"""
@@ -101,7 +109,7 @@ class DBStorage:
         # print(Base.metadata.tables)
         session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(session_factory)
-        self.__session = Session()
+        self.__session = Session
 
     def close(self):
         """Close the current session"""

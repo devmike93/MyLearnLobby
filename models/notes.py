@@ -9,9 +9,12 @@ class Note(BaseModel, Base):
     """This is the note model for the project
     
     Attrs:
-        
+        title: str - title of the note
+        content: str - content of the note
+        course_id: str - id of the course that the note belongs to
 
     Methods:
+        __init__(self, *args, **kwargs) - initializes the Note Object
     """
 
     __tablename__ = "notes"

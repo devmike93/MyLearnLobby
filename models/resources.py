@@ -15,6 +15,7 @@ class Resource(BaseModel, Base):
         course_id: str - id of the course that the resource belongs to
 
     Methods:
+        __init__(self, *args, **kwargs) - initializes the Resource Object
     """
 
     __tablename__ = "resources"

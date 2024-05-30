@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .visually-hidden {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../static/scripts/processSignUpForm.js?{{ cache_id }}"></script>
+    <title>Sign Up</title>
+</head>
+<body>
+    <h2>Sign Up</h2>
+
+    <form action="/signup" method="post">
+        <label for="first_name" class="visually-hidden">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name" placeholder="First Name" required><br>
+
+        <label for="last_name" class="visually-hidden">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name" placeholder="Last Name" required><br>
+
+        <label for="email" class="visually-hidden">Email:</label><br>
+        <input type="email" id="email" name="email" required placeholder="Email"><br>
+
+        <label for="password" class="visually-hidden">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Password" required><br>
+
+        <label for="password_v" class="visually-hidden">Password:</label><br>
+        <input type="password" id="password_v" name="password_verify" placeholder="Verify the password" required><br>
+    
+        <p>already have an account <a href="/LogInForm">Log in</a></p>
+
+        <input type="submit" value="Create a new account">
+    </form>
+</body>
+</html>

@@ -9,8 +9,13 @@ class Task(BaseModel, Base):
     """ This is the task model for the project
 
     Attrs:
-
+        title: str - title of the task
+        description: str - description of the task
+        done: bool - status of the task
+        course_id: str - id of the course that the task belongs to
     Methods:
+        __init__(self, *args, **kwargs) - initializes the Task Object
+        validate_description(self, key, description) - validates the description
     """
     __tablename__ = "tasks"
     title = Column(String(256), nullable=False)

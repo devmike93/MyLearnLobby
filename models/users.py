@@ -25,7 +25,7 @@ class User(BaseModel, Base):
     __tablename__ = "users"
     first_name = Column(String(128), nullable=False)
     last_name = Column(String(128), nullable=False)
-    email = Column(String(128), nullable=False)
+    email = Column(String(128), nullable=False, unique=True)
     password = Column(String(128), nullable=False)
     courses = relationship(
         "Course", backref="user", cascade="all, delete, delete-orphan"
@@ -44,6 +44,8 @@ class User(BaseModel, Base):
     def hash_password(self, password: str) -> str:
         """Hash the password using hashlib; sha256 algorithm and salting
         """
+        print(type(password))
+        print(password)
         # Create a slat from a random bytes String hashed with sha256
         salt = hashlib.sha256(os.urandom(60)).hexdigest()
         # Hash the password with the salt
@@ -55,3 +57,20 @@ class User(BaseModel, Base):
         # and then to String
         hashed_password_hexString = binascii.hexlify(hashed_password).decode('ascii')
         return salt + hashed_password_hexString
+    
+    def verify_password(self, password: str) -> bool:
+        """Verify the password of the user
+        """
+        # Get the salt from the hashed password
+        salt = self.password[:64]
+        # Get the hashed password from the hashed password
+        hashed_password = self.password[64:]
+        # Hash the password with the salt
+        current_hashed_password = hashlib.pbkdf2_hmac('sha256',
+                                                  password.encode('utf-8'),
+                                                  salt.encode('ascii'),
+                                                  100000)
+        # Convert the hashed password to hexadecimal representations
+        # and then to String
+        current_hashed_password_hexString = binascii.hexlify(current_hashed_password).decode('ascii')
+        return hashed_password == current_hashed_password_hexString

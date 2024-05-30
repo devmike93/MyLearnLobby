@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .visually-hidden {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../static/scripts/processLogInForm.js?{{ cache_id }}"></script>
+    <title>Log In</title>
+</head>
+<body>
+    <h2>Log In</h2>
+
+    <form action="/login" method="post">
+
+        <label for="email" class="visually-hidden">Email:</label><br>
+        <input type="email" id="email" name="email" required placeholder="Email"><br>
+
+        <label for="password" class="visually-hidden">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Password" required><br>
+
+        <p>Don't have an account <a href="/SignUpForm">Sign Up</a></p>
+        <input type="submit" value="Log In">
+    </form>
+</body>
+</html>
