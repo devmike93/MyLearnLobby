@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('form').on('submit', function(event) {
+    $('#login-form').on('submit', function(event) {
         let password = $('#password').val().trim();
         let email = $('#email').val().trim();
 
