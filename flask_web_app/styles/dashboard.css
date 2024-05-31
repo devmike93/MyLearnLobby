@@ -113,7 +113,7 @@ body {
 /***********Main Body***********/
 
 main {
-    padding: 20px;
+    margin: auto 20px auto 20px ;
 }
 
 .task-controls {
@@ -154,40 +154,54 @@ main {
 }
 *********/
 
-.task-details {
+h2 {
+    color:rgb(255, 159, 14);
+}
 
+h3 {
+    color:rgb(255, 159, 14);
+}
+
+.task-details {
     border: 1px solid #000;
     border-radius: 10px;
+    max-width: 1000px;
     padding: 20px;
-}
-
-.task-details h2{
-    color:rgb(255, 159, 14);
-    padding: 10px auto 20px auto;
-}
-
-
-.task-columns {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-gap: 1em;
 }
 
-.task-column {
+.task-details > div {
     border: 1px solid #000;
+    border-radius: 7px;
     padding: 10px;
 }
 
-.task-column h3 {
-    margin-top: 0;
+.task-details > div:nth-child(1) {
+    grid-column: 1/span 3;
 }
 
-.task-column ul {
+.task-details > div:nth-child(3) {
+    grid-column: 2/span 2;
+}
+
+.notes {
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+/* .task-column h3 {
+    margin-top: 0;
+} */
+
+/* .task-column ul {
     list-style: none;
     padding: 0;
-}
+} */
 
-.task-column ul li {
+/* .task-column ul li {
     margin: 5px 0;
 }
 
@@ -197,13 +211,13 @@ main {
 
 .task-column ul .disabled.selected {
     text-decoration: line-through;
-}
+} */
 
-.progress-bar {
+/* .progress-bar {
     width: 100%;
     height: 100px;
     background: conic-gradient(#000 25%, #fff 0);
-}
+} */
 
 .notes {
     border: 1px solid #000;
