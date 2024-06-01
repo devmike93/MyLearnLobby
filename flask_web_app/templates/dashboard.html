@@ -6,11 +6,13 @@
     <title>MyDashboard</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
     <link rel="stylesheet" href="../styles/dashboard.css">
+    <script src="../static/scripts/todolist.js"></script>
+
 </head>
 <body>
     <header>
         <div class="navbar">
-            <a href="index.html" class="logo">
+            <a href="landingPage.html" class="logo">
                 <h2>MyLearnLobby</h2>
             </a>
             <div class="user-section">
@@ -41,25 +43,24 @@
                 <div class="descript">
                     <h3>Description</h3>
                     <div class="des-content">
-                    <p>Task description goes here.</p>
+                    <p>Froala Text Input Module Goes Here.</p>
                     </div>
                 </div>
-                <div class="todolist">
-                    <h3>To Do List</h3>
-                    <div class="todo-content">
-                    <!-- <ul>
-                        <li>not selected</li>
-                        <li>selected</li>
-                        <li>indeterminate</li>
-                        <li class="disabled">disabled</li>
-                        <li class="disabled selected">disabled selected</li>
-                        <li class="disabled indeterminate">disabled indeterminate</li>
-                    </ul> -->
-                    </div>
+                <div class="todo-app">
+                    <h3>To-Do List</h3>
+                        <div class="row">
+                        <input type="'text" id="input-box" placeholder="Add your text">
+                        <button onclick="addListItem()">Add</button>
+                        </div>
+                    <ul id="list-container">
+                        <li class="checked">Task 1</li>
+                    
+                    </ul>
                 </div>
                 <div class="resources">
                     <h3>Resources</h3>
                     <div class="res-content">
+                        Froala Text Input Module Goes Here.
                     <!-- <ul>
                         <li><a href="#">https://Item One/link</a></li>
                         <li><a href="#">https://Item Two/link</a></li>
@@ -70,8 +71,12 @@
         </section>
         <h2>Notes</h2>
         <section class="notes">
-            <p>Lorem Ipsum.</p>
+            <p>Froala Text Input Module Goes Here.</p>
         </section>
     </main>
+    <footer>
+        Footer in construction
+    </footer>
+<script src="../static/scripts/todolist.js"></script>
 </body>
 </html>

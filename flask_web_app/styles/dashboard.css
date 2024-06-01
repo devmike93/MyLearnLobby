@@ -183,14 +183,114 @@ h3 {
     grid-column: 1/span 3;
 }
 
+.task-details > div:nth-child(2) {
+    grid-column: 4/span 1;
+}
+
 .task-details > div:nth-child(3) {
-    grid-column: 2/span 2;
+    grid-column: 1/span 3;
 }
 
 .notes {
     border: 1px solid #000;
     border-radius: 10px;
 }
+
+/* to do list section */
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: none;
+    padding: 10px;
+}
+
+.todo-app{
+    width: 100%;
+    max-width:fit-content;
+    background: none;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todo-app h3{
+    color:rgb(255, 159, 14);
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todo-app .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.todo-app input{
+    flex:1;
+    border:none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+}
+
+.todo-app .row button{
+    border:none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.todo-app li{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position:relative;
+}
+.todo-app ul li::before{
+    content: '';
+    position:absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    /* background-image: url(images/unchecked.png); */
+    background-size: cover;
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+}
+.todo-app ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+.todo-app ul li.checked::before{
+    background-image: url(images/checked.png);
+}
+
+.todo-app ul li span{
+    position:absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #444;
+    line-height: 40px;
+    text-align: center;
+}
+.todo-app ul li span:hover{
+    background: #edeef0;
+}
+
 
 /* .task-column h3 {
     margin-top: 0;
@@ -223,6 +323,14 @@ h3 {
     border: 1px solid #000;
     padding: 10px;
     margin-top: 20px;
+}
+
+footer{
+    bottom:0;
+    position:relative;
+    padding: 10px;
+    margin-top: 30px;
+    background-color: #999;
 }
 
 @media (max-width: 576px) {
