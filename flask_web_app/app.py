@@ -6,7 +6,7 @@ from models import storage
 from models.users import User
 from os import environ
 from flask import session
-import redis
+# import redis
 import uuid
 import requests
 from flask_cors import CORS
@@ -16,14 +16,14 @@ app.secret_key = environ.get("FLASK_SECRET_KEY")
 
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
-Configure Redis for storing the session data on the server-side
-app.config["SESSION_TYPE"] = "redis"
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_USE_SIGNER"] = True
-app.config["SESSION_REDIS"] = redis.from_url("redis://127.0.0.1:6379")
+# Configure Redis for storing the session data on the server-side
+# app.config["SESSION_TYPE"] = "redis"
+# app.config["SESSION_PERMANENT"] = False
+# app.config["SESSION_USE_SIGNER"] = True
+# app.config["SESSION_REDIS"] = redis.from_url("redis://127.0.0.1:6379")
 
 # Create and initialize the Flask-Session object AFTER `app` has been configured
-Session(app)
+# Session(app)
 
 
 # @app.route("/manage_sessions/<user_id>", methods=["GET"], strict_slashes=False)
