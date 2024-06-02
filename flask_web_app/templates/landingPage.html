@@ -3,24 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Learn Lobby</title>
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="../styles/landingPage.css">
+    <script src="../static/scripts/landingPage.js" defer></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../static/scripts/request_form.js?{{ cache_id }}"></script>
-    <title>MyLearnLobby</title>
+    <script src="../static/scripts/processLogInForm.js?{{ cache_id }}"></script>
+    <script src="../static/scripts/processSignUpForm.js?{{ cache_id }}"></script>
 </head>
 <body>
-  <header>
-    <div>
-      <p>Logo</p>
-    </div>
-    <div>
-      <button id="signUP_bt">Sign up</button>
-      <button id="logIN_bt">Log in</button>
-    </div>
-  </header>
-  <main>
-    <section>
-      <h1>Welcome To My Learn Lobby</h1>
+    <header>
+        <nav class="navbar">
+            <span class="hamburger-btn material-symbols-rounded">menu</span>
+            <a href="landingPage.html" class="logo">
+                <h2>MyLearnLobby</h2>
+            </a>
+            <ul class="links">
+                <span class="close-btn material-symbols-rounded">close</span>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+            <button class="login-btn">LOG IN</button>
+        </nav>
+    </header>
+    <hr>
+    <section class="showcase">
+        <div class="greeting">
+            <h2>Welcome to MyLearnLobby!</h2>
+            <p> Bring all your courses and learning resources together in ONE place!</p>
+            <button id="openSignupBtn">Get started!</button>
+        </div>
+        <div>
+            <img src="../images/showcase.png" alt="">
+        </div>
     </section>
-  </main>
+
+    
+    <!--Login and SignUp Popup Form-->
+    <div class="blur-bg-overlay"></div>
+    <div class="form-popup">
+        <span class="close-btn material-symbols-rounded">close</span>
+        <div class="form-box login">
+            <div class="form-details">
+                <h2>Welcome Back</h2>
+                <p>Please log in using your personal information.</p>
+            </div>
+            <div class="form-content">
+                <h2>Log In</h2>
+                <form id="login-form" action="#">
+                    <div class="input-field">
+                        <input type="text" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+                    <a href="#" class="forgot-pass-link">Forgot password?</a>
+                    <button type="submit">Log In</button>
+                </form>
+                <div class="bottom-link">
+                    Don't have an account?
+                    <a href="#" id="signup-link">Signup</a>
+                </div>
+            </div>
+        </div>
+        <div class="form-box signup">
+            <div class="form-details">
+                <h2>Create Account</h2>
+                <p> Please sign up using your personal information.</p>
+            </div>
+            <div class="form-content">
+                <h2>Sign Up</h2>
+                <form id="signup-form" action="#">
+                    <div class="input-field">
+                        <input id="first_name" type="text" required>
+                        <label>Enter your first name</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="last_name" type="text" required>
+                        <label>Enter your surname</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="email" type="text" required>
+                        <label>Enter your email</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="password" type="password" required>
+                        <label>Create password</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="password_v" type="password" required>
+                        <label>Verify the password</label>
+                    </div>
+                    <div class="policy-text">
+                        <input type="checkbox" id="policy">
+                        <label for="policy">
+                            I agree to the
+                            Terms & Conditions.
+                        </label>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <div class="bottom-link">
+                    Already have an account? 
+                    <a href="#" id="login-link">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
