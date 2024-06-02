@@ -16,7 +16,7 @@ app.secret_key = environ.get("FLASK_SECRET_KEY")
 
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
-# Configure Redis for storing the session data on the server-side
+Configure Redis for storing the session data on the server-side
 app.config["SESSION_TYPE"] = "redis"
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_USE_SIGNER"] = True
