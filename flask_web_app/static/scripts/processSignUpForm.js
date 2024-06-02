@@ -20,14 +20,18 @@ $(document).ready(function() {
                 "password_v": password_v
             }
             $.ajax({
-                url: "http://localhost:5001/api/v1/signup",
+                url: "http://localhost:5000/SignUpForm",
                 method: "post",
+                xhrFields: {
+                withCredentials: true
+                },
                 data: JSON.stringify(formData),
                 contentType: 'application/json',
                 complete: function(jqXHR, textStatus) {
                     if (jqXHR.status === 201) {
-                        alert(`meassage: ${jqXHR.responseJSON.message}, user_id: ${jqXHR.responseJSON.user_id}`);
-                        //
+                        alert(`meassage: ${jqXHR.responseJSON.message}`);
+                        // Redirect to the profile page
+                        window.location.replace(`http://localhost:5000/Profile/${jqXHR.responseJSON.user_id}`);
                     } else {
                         alert(jqXHR.responseJSON.error);
                     }

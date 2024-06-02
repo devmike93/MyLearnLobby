@@ -4,7 +4,7 @@
 from models.base_model import BaseModel, Base
 import binascii
 import hashlib
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Boolean
 from sqlalchemy.orm import relationship
 import os
 
@@ -27,6 +27,7 @@ class User(BaseModel, Base):
     last_name = Column(String(128), nullable=False)
     email = Column(String(128), nullable=False, unique=True)
     password = Column(String(128), nullable=False)
+    loged_in = Column(Boolean, default=False)
     courses = relationship(
         "Course", backref="user", cascade="all, delete, delete-orphan"
     )
@@ -44,8 +45,8 @@ class User(BaseModel, Base):
     def hash_password(self, password: str) -> str:
         """Hash the password using hashlib; sha256 algorithm and salting
         """
-        print(type(password))
-        print(password)
+        # print(type(password))
+        # print(password)
         # Create a slat from a random bytes String hashed with sha256
         salt = hashlib.sha256(os.urandom(60)).hexdigest()
         # Hash the password with the salt
