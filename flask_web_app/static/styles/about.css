@@ -1,0 +1,256 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+header {
+  display: flex;
+  padding: 15px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#logo {
+  height: 50px;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333333;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+nav a:hover,
+nav a:active {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ece45f;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-get-started,
+.btn-get-started:active,
+.btn-get-started:focus,
+.btn-send,
+.btn-send:active,
+.btn-send:focus {
+  background: linear-gradient(45deg, #0191df, #00ffde);
+  text-decoration: none;
+  border: 0px;
+  border-radius: 50px;
+  color: white;
+  padding: 5px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+.btn-get-started:hover,
+.btn-get-started:visited,
+.btn-send:hover {
+  background: linear-gradient(45deg, #4ebffc, #69fce9);
+  text-decoration: none;
+  outline: none;
+  color: white;
+}
+
+.btn-get-started i,
+.btn-contact i {
+  margin-left: 8px;
+}
+
+.btn-contact,
+.btn-contact:active,
+.btn-contact:focus {
+  background-color: #ece45f;
+  text-decoration: none;
+  border: 0px;
+  border-radius: 50px;
+  color: white;
+  padding: 5px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+.btn-contact:hover,
+.btn-contact:visited {
+  background-color: #f8f274;
+  text-decoration: none;
+  outline: none;
+}
+
+.btn-close,
+.btn-close:active,
+.btn-close:focus {
+  background-color: #4e4e4e;
+  text-decoration: none;
+  border: 0px;
+  border-radius: 50px;
+  color: white;
+  padding: 5px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+.btn-close:hover {
+  background-color: #727272;
+}
+
+#home {
+  background-image: url("../images/background.png");
+  background-size: cover;
+  background-position: center;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#home h1 {
+  margin-bottom: 20px;
+  font-weight: 800;
+  text-align: center;
+}
+
+#home h4 {
+  font-weight: 100;
+  color: gray;
+  text-align: center;
+}
+
+#home h4,
+#home .btn-get-started {
+  margin-bottom: 30px;
+}
+
+#features {
+  margin-top: 50px;
+}
+
+#features .row {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+#features .row .little_bar {
+  background: #ece45f;
+  width: 50px;
+  height: 5px;
+  margin-bottom: 15px;
+  border-radius: 50px;
+}
+
+#features .row h3 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+#features .row p {
+  font-size: 18px;
+}
+
+.img-feature {
+  width: -webkit-fill-available;
+}
+
+#features,
+#about {
+  background-image: url("../images/background.png");
+}
+
+#about {
+  padding-top: 50px;
+}
+
+#about .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+#about .row .about-head {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#about .row .about-head h2,
+#about .row .about-head h3 {
+  font-weight: 700;
+}
+
+#about .row .about-head p {
+  font-size: 18px;
+}
+
+#about .about-description {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+#about .row .little_bar {
+  background: linear-gradient(45deg, #4ebffc, #69fce9);
+  width: 50px;
+  height: 5px;
+  margin-bottom: 15px;
+  border-radius: 50px;
+}
+
+Footer a,
+#about .about-description a,
+#about .view-project a {
+  color: #0bc6e2;
+}
+
+Footer a:hover,
+#about .about-description a:hover,
+#about .view-project a:hover {
+  color: #5ce1f5;
+}
+
+.team-card {
+  box-shadow: 0 0px 21px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
