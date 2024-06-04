@@ -1,99 +1,123 @@
 /* General Styles */
+* {
+  font-family: "Barlow", sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: "Barlow", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    display: flex;
-    padding: 15px 40px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  padding: 15px 40px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #logo {
-    height: 80px;
+  height: 80px;
 }
 
 nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #333333;
-    font-size: 16px;
-    font-weight: bold;
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333333;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.left_section{
-    height: max-content;
-    display: flex;
-    align-items: center;
-
+nav a:hover,
+nav a:active {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ece45f;
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.left_section h2{
-    height: min-content;
-    margin: 0;
-    font-weight: bolder;
+.left_section {
+  height: max-content;
+  display: flex;
+  align-items: center;
 }
 
-.decorative_col{
-    width: 5px;
-    margin: 0 10px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: rgb(236 228 95);
+.left_section h2 {
+  height: min-content;
+  margin: 0;
+  font-weight: bolder;
+}
+
+.decorative_col {
+  width: 5px;
+  margin: 0 10px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgb(236 228 95);
 }
 
 .right_section .row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .right_section .row:nth-child(3) {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .right_section .row i {
-    font-size: 20px;
-    color: gray;
-
+  font-size: 20px;
+  color: gray;
 }
 
 .right_section .row .field {
-    margin: 0 20px;
-    font-size: 1.5em;
-    font-weight: 700;
-    color: gray;
+  margin: 0 20px;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: gray;
 }
 
-.right_section .row .course_description{
-    color: gray;
+.right_section .row .course_description {
+  color: gray;
 }
 
-.btn-gradient, .btn-gradient:active, .btn-gradient:focus{
-    background: linear-gradient(45deg, #0191df, #00ffde);
-    text-decoration: none;
-    border: 0px;
-    border-radius: 50px;
-    color: white;
-    padding: 5px 30px;
-    font-size: 16px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    outline: none;
+.btn-get-started,
+.btn-get-started:active,
+.btn-get-started:focus {
+  background: linear-gradient(45deg, #0191df, #00ffde);
+  text-decoration: none;
+  border: 0px;
+  border-radius: 50px;
+  color: white;
+  padding: 5px 30px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  outline: none;
+  width: fit-content;
 }
 
- .btn-gradient:hover, .btn-gradient:visited {
-    background: linear-gradient(45deg, #4ebffc, #69fce9);
-    text-decoration: none;
-    outline: none;
+.btn-get-started:hover,
+.btn-get-started:visited {
+  background: linear-gradient(45deg, #4ebffc, #69fce9);
+  text-decoration: none;
+  outline: none;
+  color: white;
 }
 
-.btn-gradient i{
-    margin-left: 8px;
+.btn-get-started i {
+  margin-left: 8px;
+}
+
+Footer a {
+  color: #0bc6e2;
+}
+
+Footer a:hover {
+  color: #5ce1f5;
 }
