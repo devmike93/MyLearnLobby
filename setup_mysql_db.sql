@@ -15,17 +15,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Drop database
-DROP DATABASE IF EXISTS mll_dev_db;
-
--- Create database + user if doesn't exist
-CREATE DATABASE IF NOT EXISTS mll_dev_db;
-CREATE USER IF NOT EXISTS 'mll_dev'@'localhost';
-SET PASSWORD FOR 'mll_dev'@'localhost' = 'mll_dev_pwd';
-GRANT ALL ON mll_dev_db.* TO 'mll_dev'@'localhost';
-GRANT SELECT ON performance_schema.* TO 'mll_dev'@'localhost';
-FLUSH PRIVILEGES;
-
 USE mll_dev_db;
 
 --
