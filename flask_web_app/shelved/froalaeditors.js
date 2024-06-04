@@ -8,8 +8,10 @@ var editor = new FroalaEditor('#descfroala', {
         },
     },
 
+    height: 50,
+
     //
-    
+
     //https://froala.com/wysiwyg-editor/docs/concepts/save/button/
 
     // Set the save param.

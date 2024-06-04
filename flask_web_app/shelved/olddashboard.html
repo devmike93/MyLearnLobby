@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyDashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="../static/styles/dashboard.css">
+    <script src="../static/scripts/todolist.js"></script>
+    <!-- froala -->
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
+
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="landingPage.html" class="logo">
+                <h2>MyLearnLobby</h2>
+            </a>
+            <div class="user-section">
+                <input type="text" placeholder="Get Username jquery/js">    
+                <button class="hamburger-btn"></button>
+                </input>
+            </div>
+    </header>
+    <div class="heading">MyDashboard</div>
+    <div class="dashnav">
+        <span class="hamburger-btn material-symbols-rounded">menu</span>
+        <div class="dashlinks">
+            <span class="close-btn material-symbols-rounded">close</span>
+            <button class="dashnav-button active">Learning View</button>
+            <button class="dashnav-button">Future Learning</button>
+            <button class="dashnav-button">Tasks</button>
+            <button class="dashnav-button">Notes</button>
+            <button class="dashnav-button">Calendar</button>
+        </div>
+    </div>
+    <main>
+        <div class="task-controls">
+            <button class="add-task">Add New Task +</button>
+            <button class="next-task">Next Task</button>
+        </div>
+        <h2>Task Overview</h2>
+        <section class="task-details">
+            <h4>Current Task Title</h4>
+                <div class="descript">
+                    <h3>Description</h3>
+                    <p>Add a description to your task:</p>
+                    <div class="des-content">
+                        <textarea name="desc_content" id="descfroala"></textarea>
+                    </div>
+                    <div>
+                        <button id="submitDesc" class="submit">Save</button>
+                    </div>
+                </div>
+                <div class="todo-app">
+                    <h3>To-Do List</h3>
+                        <div class="row">
+                        <input type="'text" id="input-box" placeholder="Add your text">
+                        <button onclick="addListItem()">Add</button>
+                        </div>
+                    <ul id="list-container">
+                        <li class="checked">Task 1</li>
+                    
+                    </ul>
+                </div>
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <p>Add a resource link:</p>
+                    <div class="res-content">
+                        <div id="resfroala"></div>
+                    </div>
+                    <div>
+                        <button id="submitRes" class="submit">Save</button>
+                </div>
+        </section>
+        <h2>Notes</h2>
+        <section class="notes">
+                <p>Add a Note to your Task:</p>
+                <div class="notes-content">
+                    <div id="notesfroala"></div>
+                </div>
+                <div  >
+                    <button id="submitNotes" class="submit">Save</button>
+                </div>
+        </section>
+    </main>
+    <footer>
+        Footer in construction
+    </footer>
+<script src="../static/scripts/todolist.js"></script>
+<script src="../static/scripts/froalaeditors.js"></script>
+</body>
+</html>
