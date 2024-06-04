@@ -37,14 +37,25 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>My profile</title>
   </head>
   <body>
     <header>
-      <img src="../static/images/logo3.jpg" alt="My Learn Lobby" id="logo" />
+      <img
+        src="../static/images/logo3.jpg"
+        width="150"
+        alt="My Learn Lobby"
+        id="logo"
+      />
       <nav>
-        <a href="#">Home</a>
-        <a href="#">DASHBOARD</a>
+        <a href="dashboard.html">Home</a>
+        <a href="dashboard.html">DASHBOARD</a>
       </nav>
     </header>
     <div class="container mt-4 mb-4">
@@ -63,7 +74,7 @@
                 <span class="field">My Name</span>
               </div>
               <div class="col-3">
-                <button class="btn-gradient">Edit</button>
+                <button class="btn-get-started">Edit</button>
               </div>
             </div>
             <div class="row">
@@ -74,7 +85,7 @@
                 <span class="field">Email</span>
               </div>
               <div class="col-3">
-                <button class="btn-gradient">Edit</button>
+                <button class="btn-get-started">Edit</button>
               </div>
             </div>
             <div class="row">
@@ -93,9 +104,9 @@
                 </p>
               </div>
             </div>
-            <button class="btn-gradient" type="submit">
-              GO TO DASHBOARD <i class="fa-solid fa-arrow-right"></i>
-            </button>
+            <a class="btn-get-started" href="dashboard.html">
+              GO TO THE DASHBOARD <i class="fa-solid fa-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -105,8 +116,10 @@
       class="flex-shrink-0 py-3 bg-light text-white-50"
     >
       <div class="container text-center">
-        <medium>&copy; 2024 <a href="https://mylearnlobby.me">MyLearnLobby</a>. All rights
-          reserved.</medium>
+        <medium
+          >&copy; 2024 <a href="http://mylearnlobby.me">MyLearnLobby</a>. All
+          rights reserved.</medium
+        >
       </div>
     </footer>
   </body>
