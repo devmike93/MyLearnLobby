@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Event listeners for navigation buttons
     if (addCourseBtn) {
         addCourseBtn.addEventListener("click", () => {
-            window.location.href = "addCoursePage.html"; // Change this to the actual URL of the add course page
+            window.location.href = "addCourse.html"; // Change this to the actual URL of the add course page
         });
     } else {
         console.error("Add Course button not found.");
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (tasksBtn) {
         tasksBtn.addEventListener("click", () => {
-            window.location.href = "tasksPage.html"; // Change this to the actual URL of the tasks page
+            window.location.href = "tasks.html"; // Change this to the actual URL of the tasks page
         });
     } else {
         console.error("Tasks button not found.");
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (notesBtn) {
         notesBtn.addEventListener("click", () => {
-            window.location.href = "notesPage.html"; // Change this to the actual URL of the notes page
+            window.location.href = "notes.html"; // Change this to the actual URL of the notes page
         });
     } else {
         console.error("Notes button not found.");
