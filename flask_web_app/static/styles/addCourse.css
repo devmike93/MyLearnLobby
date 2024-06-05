@@ -1,0 +1,279 @@
+/* shared styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    min-height: calc(100vh - 40px);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(135deg, #1da1f2, #981ceb);
+}
+
+/*navbar */
+
+.navbar {
+    display: flex;
+    padding: 22px 0;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.navbar .hamburger-btn {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.navbar .logo {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar .logo h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.7rem;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.navbar .links a {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.1s ease;
+}
+
+.navbar .links a:hover {
+    color: #19e8ff;
+}
+
+.navbar .logout-btn {
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #275360;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.navbar .logout-btn:hover {
+    background: #ddd;
+}
+
+main {
+    margin: auto 20px auto 20px ;
+}
+
+/* single elements */
+h2 {
+    font-size: 30px;
+    color:rgb(255, 159, 14);
+}
+
+main > h2 {
+    margin: 20px 0 20px 0;
+}
+
+h3 {
+    color:rgb(255, 159, 14);
+}
+
+/****************************END OF SHARED STYLES ************************/
+
+/************** Forms************/
+
+.course-container{
+    display: flex;
+    margin: auto auto 40px auto;
+}
+
+.form-popup {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    pointer-events: none;
+    /* max-width: 720px; */
+    background: #fff;
+    border: 2px solid #fff;
+    /* transform: translate(-50%, -70%); */
+}
+
+.form-popup .form-box {
+    display: flex;
+}
+
+.form-box .form-description {
+    width: 100%;
+    color: #fff;
+    max-width: 330px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+
+.add-course .form-description {
+    padding: 0 40px;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(135deg, #1da1f2, #981ceb);
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 29px;
+}
+
+.row-flex {
+    position:relative;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: left;
+    margin: 10px 0 10px 0;
+}
+
+.form-content .row-flex  p{
+    width: 200px;
+    /* align-items: left; */
+    /* justify-content: left; */
+    border: 1px solid black;
+    font-weight: 600;
+}
+
+.form-box .form-content {
+    width: 100%;
+    padding: 35px;
+}
+
+form .input-field {
+    position: relative;
+    height: 30px;
+    width: 300px;
+    margin: 0 30px 0 30px;
+}
+
+.input-field input {
+    height: 100%;
+    width: 100%;
+    background: none;
+    outline: none;
+    font-size: 0.95rem;
+    padding: 0 15px;
+    border: 1px solid #717171;
+    border-radius: 3px;
+}
+
+.input-field input:focus {
+    border: 1px solid #00bcd4;
+}
+
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #4a4646;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) {
+    padding: 16px 15px 0;
+}
+
+.input-field input:is(:focus, :valid)~label {
+    transform: translateY(-120%);
+    color: #00bcd4;
+    font-size: 0.75rem;
+}
+
+.form-box a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.form-box a:hover {
+    text-decoration: underline;
+}
+
+form :where(.forgot-pass-link, .policy-text) {
+    display: inline-flex;
+    margin-top: 13px;
+    font-size: 0.95rem;
+}
+
+.form-content form button {
+    width: 500px;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 14px 0;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 20px 0;
+    background: #00bcd4;
+    transition: 0.2s ease;
+    position: relative;
+    justify-content: center;
+}
+
+form button:hover {
+    background: #0097a7;
+}
+
+.form-content .bottom-link {
+    text-align: center;
+}
+
+/* .form-popup .signup,
+.form-popup.show-signup .login {
+    display: none;
+} */
+
+/* .form-popup.show-signup .signup {
+    display: flex;
+} */
+
+
+
+
+/*********** media queries ***********/
+
+@media (max-width: 560px) {
+    
+}
