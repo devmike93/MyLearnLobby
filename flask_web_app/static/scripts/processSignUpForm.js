@@ -20,7 +20,8 @@ $(document).ready(function() {
                 "password_v": password_v
             }
             $.ajax({
-                url: "http://mylearnlobby.me/SignUpForm",
+                // url: "http://mylearnlobby.me/SignUpForm",
+                url: "http://localhost/SignUpForm",
                 method: "post",
                 data: JSON.stringify(formData),
                 contentType: 'application/json',
@@ -28,7 +29,8 @@ $(document).ready(function() {
                     if (jqXHR.status === 201) {
                         alert(`meassage: ${jqXHR.responseJSON.message}`);
                         // Redirect to the profile page
-                        window.location.replace(`http://mylearnlobby.me/Profile/${jqXHR.responseJSON.user_id}`);
+                        // window.location.href = `http://mylearnlobby.me/Profile/${jqXHR.responseJSON.user_id}`;
+                        window.location.href = `http://localhost/Profile/${jqXHR.responseJSON.user_id}`;
                     } else {
                         alert(jqXHR.responseJSON.error);
                     }
