@@ -5,78 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyDashboard</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
-    <link rel="stylesheet" href="../styles/dashboard.css">
-    <script src="../static/scripts/todolist.js"></script>
-
+    <link rel="stylesheet" href="../static/styles/dashboard.css">
+    
+    <script src="../static/scripts/dashboard.js"></script>
 </head>
 <body>
     <header>
-        <div class="navbar">
+        <nav class="navbar">
+            <span class="hamburger-btn material-symbols-rounded">menu</span>
             <a href="landingPage.html" class="logo">
                 <h2>MyLearnLobby</h2>
             </a>
-            <div class="user-section">
-                <input type="text" placeholder="Get Username jquery/js">    
-                <button class="hamburger-btn"></button>
-                </input>
-            </div>
+            <ul class="links">
+                <span class="close-btn material-symbols-rounded">close</span>
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="tasks.html">Tasks</a></li>
+                <li><a href="note.html">Notes</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+            <button class="logout-btn">Log Out</button>
+        </nav>
     </header>
-    <div class="heading">MyDashboard</div>
-    <div class="dashnav">
-        <span class="hamburger-btn material-symbols-rounded">menu</span>
-        <div class="dashlinks">
-            <span class="close-btn material-symbols-rounded">close</span>
-            <button class="dashnav-button active">Learning View</button>
-            <button class="dashnav-button">Future Learning</button>
-            <button class="dashnav-button">Tasks</button>
-            <button class="dashnav-button">Notes</button>
-            <button class="dashnav-button">Calendar</button>
-        </div>
-    </div>
     <main>
+        <h2>MyDashboard</h2>
         <div class="task-controls">
-            <button class="add-task">Add New Task +</button>
-            <button class="next-task">Next Task</button>
+            <button class="add-course" id="addCourseBtn">Add New Course +</button>
+            <button class="tasks" id="tasksBtn">Tasks</button>
+            <button class="notes" id="notesBtn" >Notes</button>
         </div>
-        <h2>Current Task Title</h2>
-        <section class="task-details">
-                <div class="descript">
-                    <h3>Description</h3>
-                    <div class="des-content">
-                    <p>Froala Text Input Module Goes Here.</p>
-                    </div>
-                </div>
-                <div class="todo-app">
-                    <h3>To-Do List</h3>
-                        <div class="row">
-                        <input type="'text" id="input-box" placeholder="Add your text">
-                        <button onclick="addListItem()">Add</button>
-                        </div>
-                    <ul id="list-container">
-                        <li class="checked">Task 1</li>
-                    
-                    </ul>
-                </div>
-                <div class="resources">
-                    <h3>Resources</h3>
-                    <div class="res-content">
-                        Froala Text Input Module Goes Here.
-                    <!-- <ul>
-                        <li><a href="#">https://Item One/link</a></li>
-                        <li><a href="#">https://Item Two/link</a></li>
-                        <li><a href="#">https://Item Three/link</a></li>
-                    </ul> -->
-                    </div>
-                </div>
+        <section class="course-details">
+            <h3>Course Title:</h3>
+            <div id="courseName">{coursename for database query}</div>
+            <p>There number of tasks contained in this course are:</p>
+            <div id="taskCount">{number from database query}</div>
+            <div class="slidecontainer">
+                <p>Progress:</p>
+                <input type="range" min="0" max="100" value="0" id="myRange">
+            </div>
+            <button id="openCourse" class="submit">Open Course View</button>
         </section>
-        <h2>Notes</h2>
-        <section class="notes">
-            <p>Froala Text Input Module Goes Here.</p>
+        
+        <section class="course-details">
+            <h3>Course Title:</h3>
+            <div id="courseName">{coursename for database query}</div>
+            <p>There number of tasks contained in this course are:</p>
+            <div id="taskCount">{number from database query}</div>
+            <div class="slidecontainer">
+                <p>Progress:</p>
+                <input type="range" min="0" max="100" value="50" id="myRange">
+            </div>
+            <button id="openCourse" class="submit">Open Course View</button>
         </section>
     </main>
-    <footer>
-        Footer in construction
-    </footer>
-<script src="../static/scripts/todolist.js"></script>
 </body>
+<!-- <footer>
+    Footer in construction
+</footer> -->
 </html>

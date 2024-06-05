@@ -14,7 +14,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 app.secret_key = environ.get("FLASK_SECRET_KEY")
 
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
+CORS(app)
 
 # Configure Redis for storing the session data on the server-side
 # app.config["SESSION_TYPE"] = "redis"
