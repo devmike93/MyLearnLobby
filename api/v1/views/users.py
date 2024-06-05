@@ -64,3 +64,33 @@ def login():
     storage.save()
     return jsonify({"message": "User logged in successfully", "user_id": existing_user.id}), 200
 
+@app_views.route('/user/<user_id>', methods=['PUT'], strict_slashes=False)
+def update(user_id):
+    """ Update the information of a user"""
+    user = storage.get(User, user_id)
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+
+    if not request.get_json():
+        abort(400, description="Not a JSON")
+
+    data = request.get_json()
+    attrs = ['first_name', 'email', 'password']
+
+    for key, value in data.items():
+        # if key == 'password':
+        #     value = user.hash_password(value)
+        if key in attrs:
+            setattr(user, key, value)
+    storage.save()
+    return jsonify({"message": "User updated successfully", "user_id": user.id}), 200
+
+@app_views.route('/user/<user_id>', methods=['DELETE'], strict_slashes=False)
+def delete(user_id):
+    """ Delete a user"""
+    user = storage.get(User, user_id)
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    storage.delete(user)
+    storage.save()
+    return jsonify({"message": "User deleted successfully"}), 200

@@ -2,7 +2,7 @@
 """This is the course model for the project"""
 
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, DateTime, ForeignKey
+from sqlalchemy import Column, String, DateTime, ForeignKey, Integer
 from sqlalchemy.orm import validates, relationship
 
 class Course(BaseModel, Base):
@@ -28,6 +28,10 @@ class Course(BaseModel, Base):
     goals = Column(String(1024), nullable=False)
     start_date = Column(DateTime, nullable=True)
     excepted_end_date = Column(DateTime, nullable=True)
+    link = Column(String(1024), nullable=False)
+    type = Column(String(256), nullable=False)
+    progress = Column(Integer, nullable=False, default=0)
+    counter = Column(Integer, nullable=False, default=100)
     user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
     tasks = relationship("Task", backref="course",
                          cascade="all, delete, delete-orphan")

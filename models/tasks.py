@@ -2,7 +2,7 @@
 """This is the task model for the project"""
 
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, Boolean, ForeignKey
+from sqlalchemy import Column, String, Boolean, ForeignKey, Integer
 from sqlalchemy.orm import validates
 
 class Task(BaseModel, Base):
@@ -21,6 +21,7 @@ class Task(BaseModel, Base):
     title = Column(String(256), nullable=False)
     description = Column(String(1024), nullable=True)
     done = Column(Boolean, nullable=False, default=False)
+    counter = Column(Integer, nullable=False, default=0)
     course_id = Column(String(60), ForeignKey("courses.id"), nullable=False)
 
     def __init__(self, *args, **kwargs) -> None:
