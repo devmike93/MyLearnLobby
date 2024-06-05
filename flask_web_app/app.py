@@ -59,11 +59,6 @@ def sign_up():
     # headers = {'Content-type': 'application/json'}
     response = requests.post(url, json=data)
     response_dict = response.json()  # get the response as a dictionary
-    user_id = response_dict.get("user_id", None)
-    # if user_id:
-    #     user_obj = storage.get(User, user_id)   # Get the user object
-    #     user_obj.loged_in = True
-    #     storage.save()  # Save the user object after login in
     return jsonify(response_dict), response.status_code
 
 
@@ -83,16 +78,6 @@ def log_in():
     # headers = {'Content-type': 'application/json'}
     response = requests.post(url, json=data)
     response_dict = response.json()  # get the response as a dictionary
-    # user_id = response_dict.get("user_id", None)
-    # if user_id:
-    #     user_obj = storage.get(User, user_id)
-    #     if user_obj.loged_in is True:
-    #         return jsonify({"message": "User already logged in.....", "user_id": user_id})
-    #     else:
-    #         user_obj.loged_in = True
-    #         storage.save()
-    #         return jsonify({"message": "User logged in successfully", "user_id": user_id})
-    # else:
     return jsonify(response_dict), response.status_code
 
 
@@ -108,3 +93,24 @@ def profile(user_id):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000", threaded=True)
+
+@app.route("/Logout/<user_id>", methods=["GET"], strict_slashes=False)
+def logout(user_id):
+    """ Log out a user"""
+    user_obj = storage.get(User, user_id)
+    if user_obj and user_obj.loged_in is True:
+        user_obj.loged_in = False
+        storage.save()
+        return jsonify({"message": "User logged out successfully"}), 200
+    else:
+        return jsonify({"error": "User is not logged in"}), 400
+    
+@app.route("/Dashboard", methods=["GET"], strict_slashes=False)
+def dashboard():
+    """ Render a dashboard html form"""
+    # Check if the user is logged in
+    # if "user_id" in session:
+    #     return render_template("dashboard.html", cache_id=uuid.uuid4())
+    # else:
+    #     return redirect(url_for("landing_page"))
+    return render_template("dashboard.html", cache_id=uuid.uuid4())
