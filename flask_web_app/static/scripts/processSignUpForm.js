@@ -4,7 +4,7 @@ $(document).ready(function() {
         let password_v = $('#password_v').val().trim();
 
         if (password !== password_v) {
-            alert('Passwords do not match!');
+            alert('Passwords do not match..........!');
             event.preventDefault();
         }
         // Send the AJAX request

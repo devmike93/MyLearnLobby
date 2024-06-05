@@ -17,7 +17,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             complete: function(jqXHR, textStatus) {
                 if (jqXHR.status === 200) {
-                    alert(`meassage: ${jqXHR.responseJSON.message}, user_id: ${jqXHR.responseJSON.user_id}`);
+                    // alert(`meassage: ${jqXHR.responseJSON.message}, user_id: ${jqXHR.responseJSON.user_id}`);
                     // Redirect to the profile page
                     // window.location.href = `http://mylearnlobby.me/Profile/${jqXHR.responseJSON.user_id}`;
                     window.location.href = `http://localhost/Profile/${jqXHR.responseJSON.user_id}`;

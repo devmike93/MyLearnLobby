@@ -4,8 +4,9 @@
     <meta lang="en" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
-    <!-- <script src="../static/scripts/processSignUpForm.js?{{ cache_id }}"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../static/scripts/profile.js?{{ cache_id }}"></script>
 
     <link
       rel="stylesheet"
@@ -45,17 +46,17 @@
     />
     <title>My profile</title>
   </head>
-  <body>
+  <body  user_id="{{ user_id }}">
     <header>
       <img
-        src="../images/logo3.jpg"
+        src="../static/images/logo3.jpg"
         width="150"
         alt="My Learn Lobby"
         id="logo"
       />
       <nav>
-        <a href="dashboard.html">Home</a>
-        <a href="dashboard.html">DASHBOARD</a>
+        <a href="">Home</a>
+        <a href="http://localhost/Dashboard">DASHBOARD</a>
       </nav>
     </header>
     <div class="container mt-4 mb-4">
@@ -64,6 +65,9 @@
           <div class="col left_section">
             <div class="decorative_col"></div>
             <h2>My Profile</h2>
+            <div class="col-4">
+                <button class="btn-get-started btn-logout">Log Out</button>
+            </div>
           </div>
           <div class="col right_section">
             <div class="row">
@@ -71,10 +75,10 @@
                 <i class="fa-regular fa-circle-user"></i>
               </div>
               <div class="col-4">
-                <span class="field">My Name</span>
+                <span id="name" class="field"></span>
               </div>
               <div class="col-3">
-                <button class="btn-get-started">Edit</button>
+                <button class="btn-get-started move-right btn-edit-name">Edit</button>
               </div>
             </div>
             <div class="row">
@@ -82,10 +86,10 @@
                 <i class="fa-regular fa-envelope"></i>
               </div>
               <div class="col-4">
-                <span class="field">Email</span>
+                <span id="email" class="field"></span>
               </div>
               <div class="col-3">
-                <button class="btn-get-started">Edit</button>
+                <button class="btn-get-started move-right btn-edit-email">Edit</button>
               </div>
             </div>
             <div class="row">
@@ -99,12 +103,12 @@
             <div class="row">
               <div class="col-8">
                 <p class="course_description">
-                  3 essential courses/resources await your exploration. Please
+                  <span id="number_of_courses"></span> essential courses/resources await your exploration. Please
                   proceed to the dashboard to commence your study journey.
                 </p>
               </div>
             </div>
-            <a class="btn-get-started" href="dashboard.html">
+            <a class="btn-get-started" href="http://localhost/Dashboard">
               GO TO THE DASHBOARD <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>

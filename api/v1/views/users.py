@@ -21,8 +21,8 @@ def signup():
 
     if not all([user_first_name, user_last_name, user_email, user_password]):
         return jsonify({"error": "Missing data"}), 400
-    if user_password != user_v_password:
-        return jsonify({"error": "Passwords do not match...."}), 400
+    # if user_password != user_v_password:
+    #     return jsonify({"error": "Passwords do not match...."}), 400
     # more check to verify the email syntax and if it exits in any mail server
 
     # check if user already have an account
@@ -35,7 +35,7 @@ def signup():
                     password=user_password,
                     loged_in=True)
     new_user.save()
-    return jsonify({"message": "User created successfully", "user_id": new_user.id}), 201
+    return jsonify({"message": "Your account has been created successfully", "user_id": new_user.id}), 201
 
 @app_views.route('/login', methods=['POST'], strict_slashes=False)
 def login():
@@ -64,12 +64,20 @@ def login():
     storage.save()
     return jsonify({"message": "User logged in successfully", "user_id": existing_user.id}), 200
 
-@app_views.route('/user/<user_id>', methods=['PUT'], strict_slashes=False)
+@app_views.route("/users/<user_id>", methods=["GET"], strict_slashes=False)
+def get_user(user_id):
+    """ Get a user by id"""
+    user = storage.get(User, user_id)
+    if not user:
+        return abort(404, description="User not found")
+    return jsonify(user.to_dict()), 200
+
+@app_views.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
 def update(user_id):
     """ Update the information of a user"""
     user = storage.get(User, user_id)
     if not user:
-        return jsonify({"error": "User not found"}), 404
+        abort(404, description="User not found")
 
     if not request.get_json():
         abort(400, description="Not a JSON")

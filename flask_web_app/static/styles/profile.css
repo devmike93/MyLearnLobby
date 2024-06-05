@@ -110,6 +110,9 @@ nav a:active {
   color: white;
 }
 
+.move-right {
+  margin-left: 160px;
+}
 .btn-get-started i {
   margin-left: 8px;
 }

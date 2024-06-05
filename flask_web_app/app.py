@@ -15,6 +15,11 @@ app = Flask(__name__)
 app.secret_key = environ.get("FLASK_SECRET_KEY")
 
 CORS(app)
+@app.teardown_appcontext
+def close_db(error):
+    """Close Storage"""
+    storage.close()
+
 
 # Configure Redis for storing the session data on the server-side
 # app.config["SESSION_TYPE"] = "redis"
@@ -86,13 +91,12 @@ def profile(user_id):
     """ Render a profile html form"""
     # Check if the user is logged in
     user_obj = storage.get(User, user_id)
+    print(user_obj)
+    print(user_obj.loged_in)
     if user_obj and user_obj.loged_in is True:
         return render_template("profile.html", user_id=user_id, cache_id=uuid.uuid4())
     else:
         return redirect(url_for("landing_page"))
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port="5000", threaded=True)
 
 @app.route("/Logout/<user_id>", methods=["GET"], strict_slashes=False)
 def logout(user_id):
@@ -101,9 +105,9 @@ def logout(user_id):
     if user_obj and user_obj.loged_in is True:
         user_obj.loged_in = False
         storage.save()
-        return jsonify({"message": "User logged out successfully"}), 200
+        return redirect(url_for("landing_page"))
     else:
-        return jsonify({"error": "User is not logged in"}), 400
+        return jsonify({"error": "User is not logged in", "message": "error"}), 400
     
 @app.route("/Dashboard", methods=["GET"], strict_slashes=False)
 def dashboard():
@@ -114,3 +118,7 @@ def dashboard():
     # else:
     #     return redirect(url_for("landing_page"))
     return render_template("dashboard.html", cache_id=uuid.uuid4())
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port="5000")

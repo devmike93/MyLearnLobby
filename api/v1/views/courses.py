@@ -47,7 +47,7 @@ def get_courses(user_id):
     """Get all courses"""
     user_obj = storage.get(User, user_id)
     if not user_obj:
-        return jsonify({"error": "User not found"}), 404
+        abort(404, description="User not found")
     if user_obj.loged_in is False:
         return jsonify({"error": "User not logged in"}), 403
     courses = user_obj.courses
