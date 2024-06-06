@@ -35,28 +35,78 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //Add input fields to goals and tasks up to 10
-    function setupAddInputFunctionality(buttonId, containerId) {
+    function setupAddInputFunctionality(buttonId, containerId, inputName, maxInputs) {
         const addButton = document.getElementById(buttonId);
         const inputContainer = document.getElementById(containerId);
-        let inputCount = 1; // Start with 1 because there's already one input field
+        let inputCount = inputContainer.querySelectorAll('input').length
 
         addButton.addEventListener("click", () => {
-            if (inputCount < 10) {
+            if (inputCount < maxInputs) {
                 const newInputField = document.createElement("div");
                 newInputField.className = "input-field";
                 newInputField.innerHTML = `
-                    <input type="text" name="${buttonId === 'addGoals' ? 'goals' : 'tasks'}" required>
-                    <label>${buttonId === 'addGoals' ? 'Enter what you want to achieve' : 'Enter your task'}</label>
+                    <input type="text" name="${inputName}" required>
+                    <label>Enter ${inputName === 'goals' ? 'what you want to achieve' : 'your task'}</label>
                 `;
-                inputContainer.appendChild(newInputField);
+                addButton.insertAdjacentElement('afterend', newInputField);;
                 inputCount++;
             } else {
-                alert("Maximum of 10 input fields reached.");
+                alert(`Maximum of ${maxInputs} input fields reached.`);
             }
         });
     }
 
-    setupAddInputFunctionality("addGoals", "goals-container");
-    setupAddInputFunctionality("addTasks", "tasks-container");
+    function validateForm() {
+        const form = document.getElementById('course-form');
+        const inputs = form.querySelectorAll('input[required]');
+        for (let input of inputs) {
+            if (input.value.trim() === "") {
+                alert('Please fill out all fields before submitting.');
+                return false;
+            }
+        }
+        return true;
+    }
 
+    function setupFormSubmission(formId) {
+        const form = document.getElementById(formId);
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            if (!validateForm()) return;
+
+            const formData = new FormData(form);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                if (!formObject[key]) {
+                    formObject[key] = value;
+                } else {
+                    if (!Array.isArray(formObject[key])) {
+                        formObject[key] = [formObject[key]];
+                    }
+                    formObject[key].push(value);
+                }
+            });
+
+            fetch('/submit_course_details', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formObject)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Form submitted successfully.');
+                } else {
+                    alert('Error submitting form.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    }
+
+    setupAddInputFunctionality("addGoals", "goals-container", "goals", 10);
+    setupAddInputFunctionality("addTasks", "tasks-container", "tasks", 10);
+    setupFormSubmission("course-form");
 });
