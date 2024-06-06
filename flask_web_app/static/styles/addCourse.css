@@ -113,26 +113,20 @@ h3 {
 /************** Forms************/
 
 .course-container{
-    display: flex;
-    margin: auto auto 40px auto;
+    margin: auto auto 40px 25vh;
 }
 
 .form-popup {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    pointer-events: none;
-    /* max-width: 720px; */
+    max-width:fit-content;
     background: #fff;
     border: 2px solid #fff;
-    /* transform: translate(-50%, -70%); */
 }
 
 .form-popup .form-box {
     display: flex;
 }
 
-.form-box .form-description {
+.form-description {
     width: 100%;
     color: #fff;
     max-width: 330px;
@@ -156,6 +150,21 @@ h3 {
     margin-bottom: 29px;
 }
 
+.form-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 35px;
+    box-sizing: border-box;
+
+    
+    max-width:fit-content;
+    background: #fff;
+    border: 2px solid #fff;
+}
+
 .row-flex {
     position:relative;
     display:flex;
@@ -165,23 +174,16 @@ h3 {
     margin: 10px 0 10px 0;
 }
 
-.form-content .row-flex  p{
-    width: 200px;
-    /* align-items: left; */
-    /* justify-content: left; */
+.row-flex  p{
+    width: 35%;
     border: 1px solid black;
     font-weight: 600;
-}
-
-.form-box .form-content {
-    width: 100%;
-    padding: 35px;
 }
 
 form .input-field {
     position: relative;
     height: 30px;
-    width: 300px;
+    width: 500px;
     margin: 0 30px 0 30px;
 }
 
@@ -197,7 +199,7 @@ form .input-field {
 }
 
 .input-field input:focus {
-    border: 1px solid #00bcd4;
+    border: 2px solid #00bcd4;
 }
 
 .input-field label {
@@ -210,15 +212,21 @@ form .input-field {
     transition: 0.2s ease;
 }
 
-.input-field input:is(:focus, :valid) {
+/* .input-field input:is(:focus, :valid) {
     padding: 16px 15px 0;
-}
+} */
 
 .input-field input:is(:focus, :valid)~label {
-    transform: translateY(-120%);
+    /* transform: translateY(-120%); */
     color: #00bcd4;
     font-size: 0.75rem;
 }
+
+/* New class for appended fields */
+.stop-row{
+    flex-direction: column;
+}
+
 
 .form-box a {
     color: #00bcd4;
@@ -229,13 +237,8 @@ form .input-field {
     text-decoration: underline;
 }
 
-form :where(.forgot-pass-link, .policy-text) {
-    display: inline-flex;
-    margin-top: 13px;
-    font-size: 0.95rem;
-}
 
-.form-content form button {
+.submitBtn {
     width: 500px;
     color: #fff;
     border: none;
@@ -249,31 +252,62 @@ form :where(.forgot-pass-link, .policy-text) {
     background: #00bcd4;
     transition: 0.2s ease;
     position: relative;
+}
+
+.addBtn{
+    color: #fff;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 2px solid #00bcd4;
+    cursor: pointer;
+    background: #00bcd4;
+    margin: 0 10px;
+    transition: 0.2s ease;
     justify-content: center;
 }
+
 
 form button:hover {
     background: #0097a7;
 }
 
-.form-content .bottom-link {
-    text-align: center;
-}
-
-/* .form-popup .signup,
-.form-popup.show-signup .login {
-    display: none;
-} */
-
-/* .form-popup.show-signup .signup {
-    display: flex;
-} */
-
-
-
-
 /*********** media queries ***********/
 
-@media (max-width: 560px) {
+@media (max-width: 768px) {
+    .form-box .form-description {
+        display: none;
+    }
+
+    .course-container{
+        margin: auto auto 40px auto;
+    }
+
+    .row-flex {
+        position:relative;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        margin: 10px 0 10px 0;
+    }
     
+    .input-field input, .input-field label {
+        width: 100%;
+        padding: 0 15px;
+        margin: 10px 0;
+    }
+
+    .row-flex  p{
+        margin-top: 10px;
+    }
+
+    .submitBtn {
+        width: 300px;
+        margin: 20px 20% 0 20%;
+    }
+    
+    .addBtn{
+        width:300px;
+        margin: 10px 20%;
+    }
 }
