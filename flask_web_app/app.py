@@ -118,6 +118,30 @@ def dashboard():
     # else:
     #     return redirect(url_for("landing_page"))
     return render_template("dashboard.html", cache_id=uuid.uuid4())
+    
+    
+@app.route("/Tasks", methods=["GET"], strict_slashes=False)
+def tasks():
+    """ Render a tasks html form"""
+    return render_template("tasks.html", cache_id=uuid.uuid4())
+
+
+@app.route("/Notes", methods=["GET"], strict_slashes=False)
+def notes():
+    """ Render a notes html form"""
+    return render_template("notes.html", cache_id=uuid.uuid4())
+    
+    
+@app.route("/addCourse", methods=["GET"], strict_slashes=False)
+def addCours():
+    """ Render a add course html form"""
+    return render_template("addCourse.html", cache_id=uuid.uuid4())
+
+
+@app.route("/about", methods=["GET"], strict_slashes=False)
+def about():
+    """ Render a add course html form"""
+    return render_template("about/index.html", cache_id=uuid.uuid4())
 
 
 if __name__ == "__main__":
