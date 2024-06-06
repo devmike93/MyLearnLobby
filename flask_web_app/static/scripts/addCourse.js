@@ -156,6 +156,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(data => {
                 // Handle response from server if needed
                 console.log(data);
+                // Redirect to another page upon successful submission
+                window.location.href = "courseview.html";
             })
             .catch(error => {
                 // Handle errors if any
