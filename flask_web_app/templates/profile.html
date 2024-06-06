@@ -30,6 +30,8 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="../static/styles/profile.css" />
+    <link rel="stylesheet" href="../static/styles/header.css" />
+    <link rel="stylesheet" href="../static/styles/footer.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -44,31 +46,39 @@
       href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel='shortcut icon' href="../images/icon.png" />
+    <link rel="shortcut icon" href="../static/images/icon.png" />
     <title>My profile</title>
   </head>
-  <body  user_id="{{ user_id }}">
+  <body user_id="{{ user_id }}">
+    <!-- Start HEADER -->
     <header>
-      <img
-        src="../static/images/logo3.jpg"
-        width="150"
-        alt="My Learn Lobby"
-        id="logo"
-      />
-      <nav>
-        <a href="">Home</a>
-        <a href="http://mylearnlobby.me/Dashboard">DASHBOARD</a>
-      </nav>
+      <a class="navbar-brand" href="#">
+        <img
+          src="../static/images/logo.jpg"
+          width="150"
+          class="d-inline-block align-top"
+          alt="mylearnlobby"
+        />
+      </a>
+      <div class="user-section">
+        <div class="username">
+          <i class="fa-solid fa-user"></i>
+          <label>username here</label>
+        </div>
+        <div class="row">
+          <button class="btn-logout" title="Logout">
+            Log Out
+          </button>
+        </div>
+      </div>
     </header>
+    <!-- End HEADER -->
     <div class="container mt-4 mb-4">
       <div class="tab-content p-3">
         <div class="row">
           <div class="col left_section">
             <div class="decorative_col"></div>
             <h2>My Profile</h2>
-            <div class="col-4">
-                <button class="btn-get-started btn-logout">Log Out</button>
-            </div>
           </div>
           <div class="col right_section">
             <div class="row">
@@ -79,7 +89,9 @@
                 <span id="name" class="field"></span>
               </div>
               <div class="col-3">
-                <button class="btn-get-started move-right btn-edit-name">Edit</button>
+                <button class="btn-get-started move-right btn-edit-name">
+                  Edit
+                </button>
               </div>
             </div>
             <div class="row">
@@ -90,7 +102,9 @@
                 <span id="email" class="field"></span>
               </div>
               <div class="col-3">
-                <button class="btn-get-started move-right btn-edit-email">Edit</button>
+                <button class="btn-get-started move-right btn-edit-email">
+                  Edit
+                </button>
               </div>
             </div>
             <div class="row">
@@ -104,8 +118,9 @@
             <div class="row">
               <div class="col-8">
                 <p class="course_description">
-                  <span id="number_of_courses"></span> essential courses/resources await your exploration. Please
-                  proceed to the dashboard to commence your study journey.
+                  <span id="number_of_courses"></span> essential
+                  courses/resources await your exploration. Please proceed to
+                  the dashboard to commence your study journey.
                 </p>
               </div>
             </div>
@@ -128,4 +143,5 @@
       </div>
     </footer>
   </body>
-</html>
+</html>/localhost
+

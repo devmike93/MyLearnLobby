@@ -1,0 +1,156 @@
+*{
+    font-family: "Barlow", sans-serif;
+  }
+  
+  body {
+    font-family: "Barlow", sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+  
+  header {
+    display: flex;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  #logo {
+    height: 50px;
+  }
+  
+  nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  nav a:hover,
+  nav a:active {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #ece45f;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .btn-logout,
+  .btn-logout:active,
+  .btn-logout:focus,
+  .btn-get-started,
+  .btn-get-started:active,
+  .btn-get-started:focus,
+  .btn-send,
+  .btn-send:active,
+  .btn-send:focus {
+    background: linear-gradient(45deg, #0191df, #00ffde);
+    text-decoration: none;
+    border: 0px;
+    border-radius: 50px;
+    color: white;
+    padding: 5px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    outline: none;
+  }
+
+  .btn-logout:hover,
+  .btn-logout:visited,
+  .btn-get-started:hover,
+  .btn-get-started:visited,
+  .btn-send:hover {
+    background: linear-gradient(45deg, #4ebffc, #69fce9);
+    text-decoration: none;
+    outline: none;
+    color: white;
+  }
+  
+  .btn-logout i,
+  .btn-get-started i,
+  .btn-contact i {
+    margin-left: 8px;
+  }
+  
+  .btn-contact,
+  .btn-contact:active,
+  .btn-contact:focus {
+    background-color: #ece45f;
+    text-decoration: none;
+    border: 0px;
+    border-radius: 50px;
+    color: white;
+    padding: 5px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    outline: none;
+  }
+  
+  .btn-contact:hover,
+  .btn-contact:visited {
+    background-color: #f8f274;
+    text-decoration: none;
+    outline: none;
+  }
+  
+  .btn-close,
+  .btn-close:active,
+  .btn-close:focus {
+    background-color: #4e4e4e;
+    text-decoration: none;
+    border: 0px;
+    border-radius: 50px;
+    color: white;
+    padding: 5px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    outline: none;
+  }
+  
+  .btn-close:hover {
+    background-color: #727272;
+  }
+
+  .decorative_col {
+    width: 5px;
+    margin: 0 10px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(236 228 95);
+  }
+
+  .user-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .user-section  label{
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 20px;
+  }
+  
+  .user-section i{
+      font-size: 18px;
+  }
+  
+  .user-section .username
+  {
+      margin-bottom: 10px;
+  }
+  
+  .user-section .btn-get-started{
+      margin-right: 10px;
+  }
