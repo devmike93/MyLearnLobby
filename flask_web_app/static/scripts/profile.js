@@ -1,11 +1,11 @@
 $(document).ready(function() {
     let user_id = $("body").attr('user_id');
 
-    let url_users_api = `http://localhost/api/v1/users/${user_id}`;
-    // let url_users_api = `http://mylearnlobby.me/api/v1/users/${user_id}`
+    //let url_users_api = `http://localhost/api/v1/users/${user_id}`;
+    let url_users_api = `http://mylearnlobby.me/api/v1/users/${user_id}`
 
-    let url_courses_api = `http://localhost/api/v1/${user_id}/courses`;
-    // let url_courses_api = 'http://mylearnlobby.me/api/v1/${user_id}/courses'
+    //let url_courses_api = `http://localhost/api/v1/${user_id}/courses`;
+    let url_courses_api = 'http://mylearnlobby.me/api/v1/${user_id}/courses'
 
 
 
@@ -129,6 +129,6 @@ $(document).ready(function() {
     //     });
     // });
     $(".btn-logout").click(function() {
-    window.location.href = `http://localhost/Logout/${user_id}`;
+    window.location.href = `http://mylearnlobby.me/Logout/${user_id}`;
     });
 });
