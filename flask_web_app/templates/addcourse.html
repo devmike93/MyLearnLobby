@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                 
-                            <div class="row-flex">
+                            <div id="initGoal" class="row-flex">
                                 <p>Goals:</p>
                                 <button type="button" id="addGoals" class="addBtn"> Add + </button>
                                 <div id="goals-container" class="input-field">
@@ -80,14 +80,24 @@
                                 </div>
                             </div>
                             
-                            <div class="row-flex">
+                            <div id="initTask" class="row-flex">
                                 <p>Tasks:</p>
                                 <button type="button" id="addTasks" class="addBtn"> Add + </button>
                                 <div id="tasks-container" class="input-field">
                                     <input type="text" name="tasks" required>
-                                    <label>Enter your task</label>
+                                    <label>Enter a task to complete</label>
                                 </div>
                             </div>
+
+                            <div id="initRes" class="row-flex">
+                                <p>Resources:</p>
+                                <button type="button" id="addResources" class="addBtn"> Add + </button>
+                                <div id="res-container" class="input-field">
+                                    <input type="text" name="tasks" required>
+                                    <label>Enter a link to a Resource</label>
+                                </div>
+                            </div>
+
                             <button class="submitBtn"  type="submit">Submit</button>
                         </form>
                     </div>

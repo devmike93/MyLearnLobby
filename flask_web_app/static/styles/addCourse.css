@@ -176,8 +176,8 @@ h3 {
 
 .row-flex  p{
     width: 35%;
-    border: 1px solid black;
     font-weight: 600;
+    padding: 5px 0;
 }
 
 form .input-field {
@@ -212,21 +212,55 @@ form .input-field {
     transition: 0.2s ease;
 }
 
-/* .input-field input:is(:focus, :valid) {
-    padding: 16px 15px 0;
-} */
-
-.input-field input:is(:focus, :valid)~label {
-    /* transform: translateY(-120%); */
+.input-field input:is(:focus)~label {
     color: #00bcd4;
     font-size: 0.75rem;
 }
 
-/* New class for appended fields */
-.stop-row{
-    flex-direction: column;
+.input-field input:is(:valid)~label {
+    display: none;
 }
 
+/***** New classes for appended fields *****/
+.appended{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 30px;
+    width: 500px;
+    margin: 10px;
+    margin:10px 0;
+}
+
+.appended input {
+    height: 100%;
+    width: 100%;
+    background: none;
+    outline: none;
+    font-size: 0.95rem;
+    padding: 0 10px;
+    border: 1px solid #717171;
+    border-radius: 3px;
+}
+
+.appended input:is(:focus)~label {
+    color: #00bcd4;
+    font-size: 0.75rem;
+}
+
+.appended input:is(:valid)~label {
+    display: none;
+}
+
+.appended label {
+    position: absolute;
+    padding-left: 10px;
+    padding-top: 5px;
+    color: #4a4646;
+    pointer-events: none;
+    transition: 0.2s ease;
+}
+/*******End of Appended Fields********/
 
 .form-box a {
     color: #00bcd4;
