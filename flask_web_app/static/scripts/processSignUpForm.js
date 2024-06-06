@@ -2,9 +2,17 @@ $(document).ready(function() {
     $('#signup-form').on('submit', function(event) {
         let password = $('#password').val().trim();
         let password_v = $('#password_v').val().trim();
+        // alert(password)
+        // alert(password_v)
 
         if (password !== password_v) {
-            alert('Passwords do not match..........!');
+            // alert('Passwords do not match..........!');
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Passwords do not match!",
+                footer: '<a href="#"></a>'
+            });
             event.preventDefault();
         }
         // Send the AJAX request
@@ -20,17 +28,21 @@ $(document).ready(function() {
                 "password_v": password_v
             }
             $.ajax({
-                // url: "http://mylearnlobby.me/SignUpForm",
-                url: "http://localhost/SignUpForm",
+                url: "http://mylearnlobby.me/SignUpForm",
+                // url: "http://localhost/SignUpForm",
                 method: "post",
                 data: JSON.stringify(formData),
                 contentType: 'application/json',
                 complete: function(jqXHR, textStatus) {
                     if (jqXHR.status === 201) {
-                        alert(`meassage: ${jqXHR.responseJSON.message}`);
-                        // Redirect to the profile page
-                        // window.location.href = `http://mylearnlobby.me/Profile/${jqXHR.responseJSON.user_id}`;
-                        window.location.href = `http://localhost/Profile/${jqXHR.responseJSON.user_id}`;
+                        Swal.fire({
+                            title: "",
+                            text: `${jqXHR.responseJSON.message}`,
+                            icon: "success"
+                        }).then(() => {
+                            // window.location.href = `http://localhost/Profile/${jqXHR.responseJSON.user_id}`;
+                            window.location.href = `http://mylearnlobby.me/Profile/${jqXHR.responseJSON.user_id}`;
+                        });
                     } else {
                         alert(jqXHR.responseJSON.error);
                     }

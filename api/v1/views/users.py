@@ -52,7 +52,7 @@ def login():
     # check if user exists
     existing_user = storage.session.query(User).filter_by(email=user_email).first()
     if not existing_user:
-        return jsonify({"error": "User does not exist"}), 400
+        return jsonify({"error": "This account does not exist"}), 400
 
     # check if password is correct
     if existing_user.verify_password(user_password) is False:

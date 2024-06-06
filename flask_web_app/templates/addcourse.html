@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../static/styles/addCourse.css">
     
     <script src="../static/scripts/addCourse.js"></script>
-    <link rel='shortcut icon' href="../images/icon.png" />
 </head>
 <body>
     <header>
@@ -20,15 +19,80 @@
             <ul class="links">
                 <span class="close-btn material-symbols-rounded">close</span>
                 <li><a href="dashboard.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
                 <li><a href="tasks.html">Tasks</a></li>
-                <li><a href="note.html">Notes</a></li>
+                <!-- <li><a href="notes.html">Notes</a></li> -->
                 <li><a href="aboutus.html">About Us</a></li>
             </ul>
             <button class="logout-btn">Log Out</button>
         </nav>
     </header>
     <main>
-        
+        <h2>Add A New Course +</h2>
+        <div class="course-container">
+            <div class="form-popup">
+                <div class="form-box add-course">
+                    <div class="form-description">
+                        <h2>Get Started</h2>
+                        <p>Enter the details of your new course:</p>
+                    </div>
+
+                    <div class="form-content">
+                        <h2>Course Details</h2>
+                        <form id="course-form" action="/add_input">
+                            <div class="row-flex">
+                                <p>Title:</p>
+                                <div id="title-container" class="input-field">
+                                    <input type="text" name="title" required>
+                                    <label>Enter a title</label>
+                                </div>
+                            </div>
+                            <div class="row-flex">
+                                <p>Description:</p>
+                                <div id="description-container" class="input-field">
+                                    <input type="text" name="description" required>
+                                    <label>Enter a Description</label>
+                                </div>
+                            </div>
+                
+                            <div class="row-flex">
+                                <p>Start Date:</p>
+                                <div id="start-date-container" class="input-field">
+                                    <input type="date" name="start-date" required> 
+                                    <!-- <label>Enter a Start Date</label> -->
+                                </div>
+                            </div>
+                
+                            <div class="row-flex">
+                                <p>End Date:</p>
+                                <div id="end-date-container" class="input-field">
+                                    <input type="date" name="end-date" required> 
+                                    <!-- <label>Enter an End Date</label> -->
+                                </div>
+                            </div>
+                
+                            <div class="row-flex">
+                                <p>Goals:</p>
+                                <button type="button" id="addGoals" class="addBtn"> Add + </button>
+                                <div id="goals-container" class="input-field">
+                                    <input type="text" name="goals" required>
+                                    <label>Enter what you want to achieve</label>
+                                </div>
+                            </div>
+                            
+                            <div class="row-flex">
+                                <p>Tasks:</p>
+                                <button type="button" id="addTasks" class="addBtn"> Add + </button>
+                                <div id="tasks-container" class="input-field">
+                                    <input type="text" name="tasks" required>
+                                    <label>Enter your task</label>
+                                </div>
+                            </div>
+                            <button class="submitBtn"  type="submit">Submit</button>
+                        </form>
+                    </div>
+            </div>
+        </div>
 </body>
 <!-- <footer>
     Footer in construction

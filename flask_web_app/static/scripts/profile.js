@@ -1,11 +1,12 @@
 $(document).ready(function() {
     let user_id = $("body").attr('user_id');
 
-    //let url_users_api = `http://localhost/api/v1/users/${user_id}`;
-    let url_users_api = `http://mylearnlobby.me/api/v1/users/${user_id}`
 
-    //let url_courses_api = `http://localhost/api/v1/${user_id}/courses`;
-    let url_courses_api = 'http://mylearnlobby.me/api/v1/${user_id}/courses'
+    // let url_users_api = `http://localhost/api/v1/users/${user_id}`;
+    let url_users_api = `http://mylearnlobby.me/api/v1/users/${user_id}`;
+
+    // let url_courses_api = `http://localhost/api/v1/${user_id}/courses`;
+    let url_courses_api = `http://mylearnlobby.me/api/v1/${user_id}/courses`;
 
 
 
@@ -15,23 +16,23 @@ $(document).ready(function() {
             // The user object is now a JavaScript object that you can use
             show_username(user.first_name);
             show_email(user.email);
-            Swal.fire({
-                title: `Welcome ${user.first_name} :)`,
-                showClass: {
-                    popup: `
-                        animate__animated
-                        animate__fadeInUp
-                        animate__faster
-                    `
-                },
-                hideClass: {
-                    popup: `
-                    animate__animated
-                    animate__fadeOutDown
-                    animate__faster
-                    `
-                }
-            });
+            // Swal.fire({
+            //     title: `Welcome ${user.first_name} :)`,
+            //     showClass: {
+            //         popup: `
+            //             animate__animated
+            //             animate__fadeInUp
+            //             animate__faster
+            //         `
+            //     },
+            //     hideClass: {
+            //         popup: `
+            //         animate__animated
+            //         animate__fadeOutDown
+            //         animate__faster
+            //         `
+            //     }
+            // });
         })
 
         .catch(error => {
@@ -116,19 +117,8 @@ $(document).ready(function() {
     });
 
     // log out a user
-    // $(".btn-logout").click(function() {
-    //     // fetch(`http://localhost/Logout/${user_id}`)
-    //     fetch(`http://localhost/Logout/${user_id}`)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         if (data.message === 'Log out') {
-               
-    //             window.location.replace('http://localhost/');
-    //             window.location.reload(true);
-    //         }
-    //     });
-    // });
     $(".btn-logout").click(function() {
-    window.location.href = `http://mylearnlobby.me/Logout/${user_id}`;
+        // window.location.href = `http://localhost/Logout/${user_id}`;
+        window.location.href = `http://mylearnlobby.me/Logout/${user_id}`;
     });
 });
