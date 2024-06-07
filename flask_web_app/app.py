@@ -109,15 +109,15 @@ def logout(user_id):
     else:
         return jsonify({"error": "User is not logged in", "message": "error"}), 400
     
-@app.route("/Dashboard", methods=["GET"], strict_slashes=False)
-def dashboard():
+@app.route("/Dashboard/<user_id>", methods=["GET"], strict_slashes=False)
+def dashboard(user_id):
     """ Render a dashboard html form"""
     # Check if the user is logged in
-    # if "user_id" in session:
-    #     return render_template("dashboard.html", cache_id=uuid.uuid4())
-    # else:
-    #     return redirect(url_for("landing_page"))
-    return render_template("dashboard.html", cache_id=uuid.uuid4())
+    user_obj = storage.get(User, user_id)
+    if user_obj and user_obj.loged_in is True:
+        return render_template("dashboard.html", user_id=user_id, cache_id=uuid.uuid4())
+    else:
+        return redirect(url_for("landing_page"))
     
     
 @app.route("/Tasks", methods=["GET"], strict_slashes=False)
