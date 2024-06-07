@@ -245,31 +245,8 @@ font-size: 30px;
     width: max-content;
 }
 
-.card {
-    height: fit-content;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    border: 1px solid black;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-.card h3 {
-color: #333;
-}
-.card .field {
-margin-bottom: 10px;
-}
-.card .field label {
-font-weight: bold;
-color: #555;
-}
-.card .field p {
-margin: 0;
-}
-.progress-bar {
-background-color: #007bff;
-}
+
+
 
 /* goals and tasks lists */
 .list-section {
@@ -294,16 +271,7 @@ padding: 10px;
 border-radius: 5px;
 }
   
-.course-card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: #f8f9fa;
-}
-.progress {
-    height: 20px;
-}
+
 .tasks-list {
     list-style: none;
     padding: 0;
@@ -314,14 +282,16 @@ border-radius: 5px;
 }
 
 
-  .courses{
+.courses{
       margin: 20px 0px;
       padding: 0 0px;
       display: flex;
       flex-direction: column;
       row-gap: 20px;
-  }
-  .course-details {
+}
+
+.course-details {
+    height: fit-content;
     background-color: #f3f3f3;
     border: 1px solid #275360;
     border-radius: 10px;
@@ -329,49 +299,54 @@ border-radius: 5px;
     padding: 20px;
     margin: 0 0px;
     display: flex;
+    flex-direction: column;
     column-gap: 3em;
     align-items: center;
-  }
-  
-  .course-details h3 .course-title{
-  font-weight: 200;
-  margin-left: 10px;
-  }
-  
-  .course-details .row .field{
-      display: flex;
-      align-items: center;
-      column-gap: 10px;
-      margin: 0 0px;
-  }
-  
-  .course-details .field label{
-      margin: 0 0px;
-      font-weight: 700;
-  }
-  
-  
-  .course-details .field p {
-      font-size: 1rem;
-      margin: 0 0px;
-    }
+}
+
+.course-details h3 .course-title{
+    font-weight: 200;
+    margin-left: 10px;
+}
+
+.course-details, .row-field, .field{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    margin: 0 0px;
+}
+
+.course-details .field label{
+    margin: 0 0px;
+    font-weight: 700;
+}
+
+.course-details .field p {
+    font-size: 1rem;
+    margin: 0 0px;
+}
+
+.cours-progress {
+    margin-left: 20px;
+}
+
+.course-progress p {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 10px 0px;
+}
+
+.progress-bar {
+    background-color: #007bff;
+}
     
-  
-  .cours-progress {
-  margin-left: 20px;
-  }
-  
-  .cours-progress p {
-      font-size: 1rem;
-      font-weight: 700;
-      margin: 0 0 10px 0px;
-  }
-  
-  Footer a {
+
+
+Footer a {
     color: #0bc6e2;
-  }
-  
-  Footer a{
+}
+
+Footer a{
     color: #5ce1f5;
-  }
-  
+}
