@@ -142,6 +142,7 @@ app.route("/AddCourseForm/<user_id>", methods=["GET"], strict_slashes=False)
 def add_course(user_id):
     """ Render a add course html form"""
     # Check if the user is logged in
+    print("Add course route")
     user_obj = storage.get(User, user_id)
     if user_obj and user_obj.loged_in is True:
         return render_template("addcourse.html", user_id=user_id, cache_id=uuid.uuid4())

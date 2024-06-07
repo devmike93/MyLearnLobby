@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Go to add course page
     // url_to_add_course = `http://localhost/AddCourseForm/${user_id}`;
     url_to_add_course = `http://mylearnlobby.me/AddCourseForm/${user_id}`;
-    // log out a user
     $("#addCourseBtn").click(function() {
         window.location.href = url_to_add_course;
     });
