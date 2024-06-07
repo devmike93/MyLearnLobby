@@ -1,75 +1,258 @@
-.left_section {
-    height: max-content;
-    display: flex;
-    align-items: center;
+*{
+    font-family: "Barlow", sans-serif;
   }
   
-  .left_section h2 {
-    height: min-content;
+  body {
+    font-family: "Barlow", sans-serif;
     margin: 0;
-    font-weight: bolder;
+    padding: 0;
+    scroll-behavior: smooth;
   }
   
-  .sub-header {
+  header {
     display: flex;
-    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
     align-items: center;
-    margin-bottom: 50px;
+    justify-content: space-between;
   }
   
-  /****************************END OF SHARED STYLES ************************/
-  .menu {
+  #logo {
+    height: 50px;
+  }
+  
+  nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  nav a:hover,
+  nav a:active {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #ece45f;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .btn-logout,
+  .btn-logout:active,
+  .btn-logout:focus,
+  .nav-button,
+  .nav-button:active,
+  .nav-button:focus,
+  .btn-send,
+  .btn-send:active,
+  .btn-send:focus {
+    background: linear-gradient(45deg, #0191df, #00ffde);
+    text-decoration: none;
+    border: 0px;
+    border-radius: 50px;
+    color: white;
+    padding: 5px 30px;
+    font-size: 16px;
+    font-weight: 700;
     display: flex;
-    justify-content: space-between;
-    column-gap: 10px;
     align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .menu{
-  margin-bottom: 50px;
-  }
-  
-  .menu .menu-button {
-    width: -webkit-fill-available;
-  }
-    
-  .menu-button {
-    border: 2px solid #275360;
     outline: none;
-    background: #fff;
-    color: #275360;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.15s ease;
-  }
-  
-  .menu-button:hover {
-    border-color: #0191df;
-    color:  #0191df;
-    cursor: pointer;
-  }
-  
-  .btn-get-started
-  {
-      height: fit-content;
-      width: max-content;
-  }
-  
-  p {
-    font-size: 20px;
   }
 
+  .btn-logout:hover,
+  .btn-logout:visited,
+  .nav-button:hover,
+  .nav-button:visited,
+  .btn-send:hover {
+    background: linear-gradient(45deg, #4ebffc, #69fce9);
+    text-decoration: none;
+    outline: none;
+    color: white;
+  }
+  
+  .btn-logout i,
+  .nav-button i,
+  .btn-contact i {
+    margin-left: 8px;
+  }
+  
+  .btn-contact,
+  .btn-contact:active,
+  .btn-contact:focus {
+    background-color: #ece45f;
+    text-decoration: none;
+    border: 0px;
+    border-radius: 50px;
+    color: white;
+    padding: 5px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    outline: none;
+  }
+  
+  .btn-contact:hover,
+  .btn-contact:visited {
+    background-color: #f8f274;
+    text-decoration: none;
+    outline: none;
+  }
+  
+  .btn-close,
+  .btn-close:active,
+  .btn-close:focus {
+    background-color: #4e4e4e;
+    text-decoration: none;
+    border: 0px;
+    border-radius: 50px;
+    color: white;
+    padding: 5px 30px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    outline: none;
+  }
+  
+  .btn-close:hover {
+    background-color: #727272;
+  }
+
+  .decorative_col {
+    width: 5px;
+    margin: 0 10px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(236 228 95);
+  }
+
+  .user-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .user-section  label{
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 20px;
+  }
+  
+  .user-section i{
+      font-size: 18px;
+  }
+  
+  .user-section .username
+  {
+      margin-bottom: 10px;
+  }
+  
+  .user-section .nav-button{
+      margin-right: 10px;
+  }
+
+/********************END OF NAVIGATION SECTION ******************/
+
+
+.left_section {
+height: max-content;
+display: flex;
+align-items: center;
+}
+
+.left_section h2 {
+height: min-content;
+margin: 0;
+font-weight: bolder;
+}
+
+.sub-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 50px;
+}
+
+/****************************END OF SHARED STYLES ************************/
+.menu {
+display: flex;
+justify-content: space-between;
+column-gap: 10px;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.menu{
+margin-bottom: 50px;
+}
+
+.menu .menu-button {
+width: -webkit-fill-available;
+}
+
+.menu-button {
+border: 2px solid #275360;
+outline: none;
+background: #fff;
+color: #275360;
+font-size: 1rem;
+font-weight: 600;
+padding: 10px 18px;
+border-radius: 10px;
+cursor: pointer;
+transition: 0.15s ease;
+}
+
+.menu-button:hover {
+border-color: #0191df;
+color:  #0191df;
+cursor: pointer;
+}
+
+.nav-button
+{
+    height: fit-content;
+    width: max-content;
+}
+
+main {
+    min-height: calc(100vh);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    box-sizing: border-box;
+    background-image: linear-gradient(135deg, #1da1f2, #981ceb);
+}
+
+
+.course-selection p {
+font-size: 30px;
+}
+
+.tasks {
+    position: relative;
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    margin: 0;
+}
+
+.tasks-button-box {
+    width: max-content;
+}
 
 .card {
-background-color: #f9f9f9;
-border-radius: 10px;
-padding: 20px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-margin-bottom: 20px;
+    height: fit-content;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 .card h3 {
 color: #333;
@@ -87,14 +270,20 @@ margin: 0;
 .progress-bar {
 background-color: #007bff;
 }
+
+/* goals and tasks lists */
 .list-section {
+    width: 100%;
 margin-bottom: 20px;
 }
 .list-section h4 {
-color: #007bff;
-margin-bottom: 10px;
+    position: relative;
+    flex-direction: column;
+    color: black;
+    margin-bottom: 10px;
 }
 .list-section ul {
+    width: 100%;
 list-style-type: none;
 padding: 0;
 }
@@ -105,27 +294,27 @@ padding: 10px;
 border-radius: 5px;
 }
   
-  /* .course-card {
+.course-card {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
     background-color: #f8f9fa;
-  }
-  .progress {
+}
+.progress {
     height: 20px;
-  }
-  .tasks-list {
+}
+.tasks-list {
     list-style: none;
     padding: 0;
-  }
-  .tasks-list li {
+}
+.tasks-list li {
     padding: 10px;
     border-bottom: 1px solid #ddd;
-  } */
+}
 
 
-  /* .courses{
+  .courses{
       margin: 20px 0px;
       padding: 0 0px;
       display: flex;
@@ -176,5 +365,13 @@ border-radius: 5px;
       font-size: 1rem;
       font-weight: 700;
       margin: 0 0 10px 0px;
-  } */
+  }
+  
+  Footer a {
+    color: #0bc6e2;
+  }
+  
+  Footer a{
+    color: #5ce1f5;
+  }
   
