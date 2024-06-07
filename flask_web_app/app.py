@@ -131,17 +131,22 @@ def notes():
     """ Render a notes html form"""
     return render_template("notes.html", cache_id=uuid.uuid4())
     
-    
-@app.route("/addCourse", methods=["GET"], strict_slashes=False)
-def addCours():
-    """ Render a add course html form"""
-    return render_template("addCourse.html", cache_id=uuid.uuid4())
 
 
 @app.route("/about", methods=["GET"], strict_slashes=False)
 def about():
     """ Render a add course html form"""
     return render_template("about/index.html", cache_id=uuid.uuid4())
+
+app.route("/AddCourseForm/<user_id>", methods=["GET"], strict_slashes=False)
+def add_course(user_id):
+    """ Render a add course html form"""
+    # Check if the user is logged in
+    user_obj = storage.get(User, user_id)
+    if user_obj and user_obj.loged_in is True:
+        return render_template("addcourse.html", user_id=user_id, cache_id=uuid.uuid4())
+    else:
+        return redirect(url_for("landing_page"))
 
 
 if __name__ == "__main__":
