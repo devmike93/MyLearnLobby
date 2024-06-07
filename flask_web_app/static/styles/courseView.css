@@ -1,0 +1,180 @@
+.left_section {
+    height: max-content;
+    display: flex;
+    align-items: center;
+  }
+  
+  .left_section h2 {
+    height: min-content;
+    margin: 0;
+    font-weight: bolder;
+  }
+  
+  .sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  
+  /****************************END OF SHARED STYLES ************************/
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .menu{
+  margin-bottom: 50px;
+  }
+  
+  .menu .menu-button {
+    width: -webkit-fill-available;
+  }
+    
+  .menu-button {
+    border: 2px solid #275360;
+    outline: none;
+    background: #fff;
+    color: #275360;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.15s ease;
+  }
+  
+  .menu-button:hover {
+    border-color: #0191df;
+    color:  #0191df;
+    cursor: pointer;
+  }
+  
+  .btn-get-started
+  {
+      height: fit-content;
+      width: max-content;
+  }
+  
+  p {
+    font-size: 20px;
+  }
+
+
+.card {
+background-color: #f9f9f9;
+border-radius: 10px;
+padding: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin-bottom: 20px;
+}
+.card h3 {
+color: #333;
+}
+.card .field {
+margin-bottom: 10px;
+}
+.card .field label {
+font-weight: bold;
+color: #555;
+}
+.card .field p {
+margin: 0;
+}
+.progress-bar {
+background-color: #007bff;
+}
+.list-section {
+margin-bottom: 20px;
+}
+.list-section h4 {
+color: #007bff;
+margin-bottom: 10px;
+}
+.list-section ul {
+list-style-type: none;
+padding: 0;
+}
+.list-section ul li {
+background-color: #e9ecef;
+margin-bottom: 5px;
+padding: 10px;
+border-radius: 5px;
+}
+  
+  /* .course-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+  }
+  .progress {
+    height: 20px;
+  }
+  .tasks-list {
+    list-style: none;
+    padding: 0;
+  }
+  .tasks-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  } */
+
+
+  /* .courses{
+      margin: 20px 0px;
+      padding: 0 0px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+  }
+  .course-details {
+    background-color: #f3f3f3;
+    border: 1px solid #275360;
+    border-radius: 10px;
+    max-width: -webkit-fill-available;
+    padding: 20px;
+    margin: 0 0px;
+    display: flex;
+    column-gap: 3em;
+    align-items: center;
+  }
+  
+  .course-details h3 .course-title{
+  font-weight: 200;
+  margin-left: 10px;
+  }
+  
+  .course-details .row .field{
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      margin: 0 0px;
+  }
+  
+  .course-details .field label{
+      margin: 0 0px;
+      font-weight: 700;
+  }
+  
+  
+  .course-details .field p {
+      font-size: 1rem;
+      margin: 0 0px;
+    }
+    
+  
+  .cours-progress {
+  margin-left: 20px;
+  }
+  
+  .cours-progress p {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 10px 0px;
+  } */
+  
