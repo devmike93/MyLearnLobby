@@ -63,7 +63,7 @@ $(document).ready(function() {
         let field = button.closest('.row').find('#name');
         let currentValue = field.text();
 
-        if (button.text() === 'Edit') {
+        if (button.text().includes('Edit')) {
             // Transition from viewing to editing
             field.replaceWith(`<input type="text" class="name" value="${currentValue}" />`);
             button.text('Save');
