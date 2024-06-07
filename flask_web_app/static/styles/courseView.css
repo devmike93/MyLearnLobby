@@ -207,6 +207,10 @@ cursor: pointer;
 transition: 0.15s ease;
 }
 
+.menu-button.addCoursebtn{
+    margin-left: 50px;
+}
+
 .menu-button:hover {
 border-color: #0191df;
 color:  #0191df;
