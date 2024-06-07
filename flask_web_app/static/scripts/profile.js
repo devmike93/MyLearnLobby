@@ -58,6 +58,7 @@ $(document).ready(function() {
 
     // editing the user's profile (name)
     $('.btn-edit-name').click(function() {
+        console.log('Button clicked');  // This line is for debugging
         let button = $(this);
         let field = button.closest('.row').find('#name');
         let currentValue = field.text();
