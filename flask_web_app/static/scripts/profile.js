@@ -58,7 +58,7 @@ $(document).ready(function() {
 
     // editing the user's profile (name)
     $('.btn-edit-name').click(function() {
-        console.log('Button clicked');  // This line is for debugging
+        // console.log('Button clicked');  // This line is for debugging
         let button = $(this);
         let field = button.closest('.row').find('#name');
         let currentValue = field.text();
@@ -93,7 +93,7 @@ $(document).ready(function() {
         let field = button.closest('.row').find('#email');
         let currentValue = field.text();
 
-        if (button.text() === 'Edit') {
+        if (button.text().includes('Edit')) {
             // Transition from viewing to editing
             field.replaceWith(`<input type="text" class="email" value="${currentValue}" />`);
             button.text('Save');
