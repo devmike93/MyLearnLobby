@@ -138,7 +138,7 @@ def about():
     """ Render a add course html form"""
     return render_template("about/index.html", cache_id=uuid.uuid4())
 
-app.route("/AddCourseForm/<user_id>", methods=["GET"], strict_slashes=False)
+@app.route("/AddCourseForm/<user_id>", methods=["GET"], strict_slashes=False)
 def add_course(user_id):
     """ Render a add course html form"""
     # Check if the user is logged in
