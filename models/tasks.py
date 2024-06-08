@@ -21,7 +21,7 @@ class Task(BaseModel, Base):
     title = Column(String(256), nullable=False)
     description = Column(String(1024), nullable=True)
     done = Column(Boolean, nullable=False, default=False)
-    counter = Column(Integer, nullable=False, default=0)
+    # counter = Column(Integer, nullable=False, default=0)
     course_id = Column(String(60), ForeignKey("courses.id"), nullable=False)
 
     def __init__(self, *args, **kwargs) -> None:
