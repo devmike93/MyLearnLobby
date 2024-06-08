@@ -134,46 +134,46 @@ document.addEventListener("DOMContentLoaded", () => {
         return true;
     }
 
-    function submitForm() {
-        if (validateForm()) {
-            var formData = new FormData(document.getElementById("course-form"));
+    // function submitForm() {
+    //     if (validateForm()) {
+    //         var formData = new FormData(document.getElementById("course-form"));
     
-            // Collect data from appended fields
-            var appendedDivs = document.querySelectorAll(".appended");
-            appendedDivs.forEach(function(div) {
-                var inputs = div.querySelectorAll("input[type='text']");
-                inputs.forEach(function(input) {
-                    var prefix = div.id.replace(/\d+/g, ''); // Extract prefix from the div ID
-                    formData.append(prefix + "[" + input.name + "]", input.value);
-                });
-            });
+    //         // Collect data from appended fields
+    //         var appendedDivs = document.querySelectorAll(".appended");
+    //         appendedDivs.forEach(function(div) {
+    //             var inputs = div.querySelectorAll("input[type='text']");
+    //             inputs.forEach(function(input) {
+    //                 var prefix = div.id.replace(/\d+/g, ''); // Extract prefix from the div ID
+    //                 formData.append(prefix + "[" + input.name + "]", input.value);
+    //             });
+    //         });
     
-            fetch("/add_input", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Handle response from server if needed
-                console.log(data);
-                // Redirect to another page upon successful submission
-                window.location.href = "courseview.html";
-            })
-            .catch(error => {
-                // Handle errors if any
-                console.error('Error:', error);
-            });
-        } else {
-            console.error("Please fill out all fields before submitting.");
-            alert("Please fill out all fields before submitting.");
-        }
-    }
+    //         fetch("/add_input", {
+    //             method: "POST",
+    //             body: formData
+    //         })
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             // Handle response from server if needed
+    //             console.log(data);
+    //             // Redirect to another page upon successful submission
+    //             window.location.href = "courseview.html";
+    //         })
+    //         .catch(error => {
+    //             // Handle errors if any
+    //             console.error('Error:', error);
+    //         });
+    //     } else {
+    //         console.error("Please fill out all fields before submitting.");
+    //         alert("Please fill out all fields before submitting.");
+    //     }
+    // }
         
     // Event listener for button click
-    document.querySelector(".submitBtn").addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent default form submission
-        submitForm(); // Call the submitForm function
-    });
+    // document.querySelector(".submitBtn").addEventListener("click", function(event) {
+    //     event.preventDefault(); // Prevent default form submission
+    //     submitForm(); // Call the submitForm function
+    // });
 
     // function validateForm() {
     //     const form = document.getElementById('course-form');
