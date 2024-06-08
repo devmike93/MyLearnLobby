@@ -3,7 +3,7 @@ $(document).ready(function() {
     user_id = $("body").attr('user_id');
     url_addcourses_api = `http://mylearnlobby.me/api/v1/${user_id}/courses`
     // url_addcourses_api = `http://localhost/api/v1/${user_id}/courses`
-    dashboard_url = `http://mylearnlobby.me/dashboard/${user_id}`
+    dashboard_url = `http://mylearnlobby.me/Dashboard/${user_id}`
 
     // Event listener for the form submission
     $("#course-form").on('submit', function(event) {
@@ -57,6 +57,7 @@ $(document).ready(function() {
                 text: data.message,
                 icon: "success"
             })
+        }).then(() => {
             window.location.href = dashboard_url;
         })
         .catch(error => {    
