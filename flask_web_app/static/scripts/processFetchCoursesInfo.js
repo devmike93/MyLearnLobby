@@ -36,6 +36,7 @@ $(document).ready(function() {
                 if (response.status === 200) {
                     let data = await response.json();
                     courseTasksList = data;
+                    console.log("Course Tasks List: ", courseTasksList);
                     // alert(data.message);
                 } else {
                     throw new Error(`Error creating a task: ${response.status}`);
