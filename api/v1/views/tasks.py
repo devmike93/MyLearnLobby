@@ -14,13 +14,15 @@ def create_task(course_id):
     """Create a task"""
     course_obj = storage.get(Course, course_id)
     if not course_obj:
-        return jsonify({"error": "Course not found"}), 404
+        abort(404, description="Course not found")
+    if not request.get_json():
+        abort(400, description="Not a JSON")
+
     # get the data from the request form
     data = request.get_json()
     task_title = data.get('title')
     task_description = data.get('description')
     task_done = data.get('done')
-    task_counter = data.get('counter')
 
     if not all([task_title]):
         return jsonify({"error": "Missing data"}), 400
@@ -28,7 +30,6 @@ def create_task(course_id):
     new_task = Task(title=task_title,
                     description=task_description,
                     done=task_done,
-                    counter=task_counter,
                     course_id=course_id)
     new_task.save()
     return jsonify({"message": "Task created successfully", "task_id": new_task.id}), 201

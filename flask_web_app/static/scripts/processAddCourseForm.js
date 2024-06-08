@@ -5,6 +5,7 @@ $(document).ready(function() {
     // url_addcourses_api = `http://localhost/api/v1/${user_id}/courses`
     dashboard_url = `http://mylearnlobby.me/Dashboard/${user_id}`
 
+
     // Event listener for the form submission
     $("#course-form").on('submit', function(event) {
         // Prevent the form from submitting normally
@@ -52,6 +53,8 @@ $(document).ready(function() {
         })
         .then(data => {
             // alert(data.message);
+            course_id = data.course_id;
+            create_tasks_objs(course_id, course_tasks_list);
             Swal.fire({
                 title: "",
                 text: data.message,
@@ -81,5 +84,33 @@ $(document).ready(function() {
 
     // Return the array of input values
     return values;
+    }
+
+    // Create tasks objects
+    function create_tasks_objs (course_id, course_tasks_list) {
+        // url_addtasks_api = `http://localhost/api/v1/<course_id>/tasks`
+        url_addtasks_api = `http://mylearnlobby.me/api/v1/${course_id}/tasks`
+        course_tasks_list.forEach(task_title => {
+            fetch(url_addtasks_api, {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify({title: task_title})
+            })
+            .then(response => {
+                if (response.status === "201") {
+                    return response.json();
+                } else {
+                    throw new Error("Error creating a task")
+                }
+            })
+            .then(data => {
+                alert(data.message)
+            })
+            .catch(error => {
+                console.error("Error", error);
+            });
+        });
     }
 });
