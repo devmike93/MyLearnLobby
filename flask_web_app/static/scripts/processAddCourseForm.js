@@ -87,30 +87,29 @@ $(document).ready(function() {
     }
 
     // Create tasks objects
-    function create_tasks_objs (course_id, course_tasks_list) {
-        // url_addtasks_api = `http://localhost/api/v1/<course_id>/tasks`
-        url_addtasks_api = `http://mylearnlobby.me/api/v1/${course_id}/tasks`
-        course_tasks_list.forEach(task_title => {
-            fetch(url_addtasks_api, {
-                method: "POST",
-                headers: {
-                "Content-Type": "application/json"
-                },
-                body: JSON.stringify({title: task_title})
-            })
-            .then(response => {
-                if (response.status === "201") {
-                    return response.json();
+    async function create_tasks_objs(course_id, course_tasks_list) {
+        let url_addtasks_api = `http://mylearnlobby.me/api/v1/${course_id}/tasks`;
+
+        for (let task_title of course_tasks_list) {
+            try {
+                let response = await fetch(url_addtasks_api, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ title: task_title })
+                });
+
+                if (response.status === 201) {
+                    let data = await response.json();
+                    alert(data.message);
                 } else {
-                    throw new Error("Error creating a task")
+                    throw new Error(`Error creating a task: ${response.status}`);
                 }
-            })
-            .then(data => {
-                alert(data.message)
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error("Error", error);
-            });
-        });
+            }
+        }
     }
+
 });
