@@ -42,14 +42,16 @@ $(document).ready(function() {
             },
             body: JSON.stringify(formData)
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === "201") {
-                alert(data.message);
-                // window.location.href = "/profile";
+        .then(response => {
+            if (response.status === 201) {
+                return response.json();
             } else {
-                alert("Error adding course.");
+                throw new Error("Error adding course.");
             }
+        })
+        .then(data => {
+            alert(data.message);
+            // window.location.href = "/profile";
         })
         .catch(error => {    
             console.error('Error:', error);

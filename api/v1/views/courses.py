@@ -25,7 +25,7 @@ def create_course(user_id):
     # Convert the list of course goals to a string
     course_goals = '\n'.join(data.get('goals'))
     course_start_date = data.get('start_date')
-    course_excepted_end_date = data.get('excepted_end_date')
+    course_excepted_end_date = data.get('end_date')
     course_resources = '\n'.join(data.get('resources'))
 
     if not all([course_title, course_goals]):
