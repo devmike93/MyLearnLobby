@@ -102,7 +102,7 @@ $(document).ready(function() {
 
                 if (response.status === 201) {
                     let data = await response.json();
-                    alert(data.message);
+                    // alert(data.message);
                 } else {
                     throw new Error(`Error creating a task: ${response.status}`);
                 }
