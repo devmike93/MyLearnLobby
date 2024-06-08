@@ -13,19 +13,20 @@ def create_course(user_id):
     """Create a course"""
     user_obj = storage.get(User, user_id)
     if not user_obj:
-        return jsonify({"error": "User not found"}), 404
+        abort(404, description="User not found")
     if user_obj.loged_in is False:
-        return jsonify({"error": "User not logged in"}), 403
+        return jsonify({"error": "You are not logged in"}), 403
+    if not request.get_json():
+        abort(400, description="Not a JSON")
     # get the daata from the request form
     data = request.get_json()
     course_title = data.get('title')
     course_description = data.get('description')
-    course_goals = data.get('goals')
+    # Convert the list of course goals to a string
+    course_goals = '\n'.join(data.get('goals'))
     course_start_date = data.get('start_date')
     course_excepted_end_date = data.get('excepted_end_date')
-    course_link = data.get('link')
-    course_type = data.get('type')
-    course_counter = data.get('counter')
+    course_resources = '\n'.join(data.get('resources'))
 
     if not all([course_title, course_goals]):
         return jsonify({"error": "Missing data"}), 400
@@ -35,9 +36,7 @@ def create_course(user_id):
                         goals=course_goals,
                         start_date=course_start_date,
                         excepted_end_date=course_excepted_end_date,
-                        link=course_link,
-                        type=course_type,
-                        counter=course_counter,
+                        resources=course_resources,
                         user_id=user_id)
     new_course.save()
     return jsonify({"message": "Course created successfully", "course_id": new_course.id}), 201

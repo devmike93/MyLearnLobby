@@ -1,0 +1,76 @@
+$(document).ready(function() { 
+    // Get the user ID from the body attribute
+    user_id = $("body").attr('user_id');
+    url_addcourses_api = `http://mylearnlobby.me/api/v1/${user_id}/courses`
+    // url_addcourses_api = `http://localhost/api/v1/${user_id}/courses`
+
+    // Event listener for the form submission
+    $("#course-form").on('submit', function(event) {
+        // Prevent the form from submitting normally
+        event.preventDefault();
+
+        // Get the course data
+        let course_title = $('#title').val().trim();
+        let course_description = $('#description').val().trim();
+        let course_start_date = $('#start_date').val().trim();
+        let course_end_date = $('#end_date').val().trim();
+        let course_goals_list = getInputValues('goals');
+        let course_tasks_list = getInputValues('tasks');
+        let course_resources_list = getInputValues('resources');
+
+        // Check if any of the required fields are empty
+        if (course_title === "" || course_description === "" || course_start_date === "" || course_end_date === "" || course_goals_list.length === 0 || course_tasks_list.length === 0 || course_resources_list.length === 0) {
+            console.error("Please fill out all fields before submitting.");
+            alert("Please fill out all fields before submitting.");
+            return;
+        }
+
+        // Create a new FormData object
+        let formData = {
+            title: course_title,
+            description: course_description,
+            start_date: course_start_date,
+            end_date: course_end_date,
+            goals: course_goals_list,
+            resources: course_resources_list
+        };
+
+        fetch(url_addcourses_api, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "201") {
+                alert(data.message);
+                // window.location.href = "/profile";
+            } else {
+                alert("Error adding course.");
+            }
+        })
+        .catch(error => {    
+            console.error('Error:', error);
+        });
+
+    });
+
+
+    function getInputValues(inputName) {
+    // Select all input fields with the specific name attribute
+    const inputs = document.querySelectorAll(`input[name="${inputName}"]`);
+
+    // Initialize an array to store the input values
+    const values = [];
+
+    // Iterate over the input fields and store their values in the array
+    inputs.forEach(input => {
+        values.push(input.value);
+    });
+
+    // Return the array of input values
+    return values;
+    }
+});

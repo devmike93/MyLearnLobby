@@ -31,11 +31,11 @@ class Course(BaseModel, Base):
     resources = Column(String(1024), nullable=False)
     # type = Column(String(256), nullable=False)
     # progress = Column(Integer, nullable=False, default=0)
-    # counter = Column(Integer, nullable=False, default=100)
+    counter = Column(Integer, nullable=False, default=0)
     user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
     tasks = relationship("Task", backref="course",
                          cascade="all, delete, delete-orphan")
-    resourse = relationship("Resource", backref="course",
+    resource = relationship("Resource", backref="course",
                             cascade="all, delete, delete-orphan")
     notes = relationship("Note", backref="course")
 
