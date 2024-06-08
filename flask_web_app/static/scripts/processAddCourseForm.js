@@ -56,9 +56,9 @@ $(document).ready(function() {
                 title: "",
                 text: data.message,
                 icon: "success"
-            })
-        }).then(() => {
+            }).then(() => {
             window.location.href = dashboard_url;
+            })
         })
         .catch(error => {    
             console.error('Error:', error);
