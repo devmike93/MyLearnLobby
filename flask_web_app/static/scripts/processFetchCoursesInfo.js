@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     coursesList = []
 
-    fetch(url)
+    fetch(url_get_courses_api)
         .then(response => { response.json(); })
         .then(data => {
             coursesList = data.courses_list;
