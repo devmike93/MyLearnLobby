@@ -7,6 +7,7 @@ $(document).ready(function() {
     fetch(url_get_courses_api)
         .then(response => { return response.json(); })
         .then(data => {
+            console.log("Data: ", data);
             coursesList = data.courses_list;
         }).then(() => {
             console.log("Courses List: ", coursesList);
