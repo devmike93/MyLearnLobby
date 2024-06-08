@@ -2,9 +2,9 @@ $(document).ready(function() {
     const user_id = $("body").attr('user_id');
     const url_get_courses_api = `http://mylearnlobby.me/api/v1/${user_id}/courses`
 
+    let coursesList = [];
     getAllCourses(url_get_courses_api)
     .then(data => {
-        coursesList = data;
         console.log("Courses List: ", coursesList);
     })
     .catch(error => {
@@ -12,7 +12,6 @@ $(document).ready(function() {
     });
 
     async function getAllCourses(url) {
-        let coursesList = [];
         try {
             const response = await fetch(url);
             const data = await response.json();
