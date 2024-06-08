@@ -30,5 +30,8 @@ class Task(BaseModel, Base):
 
     @validates("description")
     def validate_description(self, key, description):
-        assert len(description) <= 1024, "Description must be 1024 characters or less"
-        return description
+        if description is not None:
+            assert len(description) <= 1024, "Description must be 1024 characters or less"
+            return description
+        
+        return None
