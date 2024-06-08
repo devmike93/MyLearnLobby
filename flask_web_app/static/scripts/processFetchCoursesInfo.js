@@ -5,7 +5,7 @@ $(document).ready(function() {
     coursesList = []
 
     fetch(url_get_courses_api)
-        .then(response => { response.json(); })
+        .then(response => { return response.json(); })
         .then(data => {
             coursesList = data.courses_list;
         }).then(() => {
