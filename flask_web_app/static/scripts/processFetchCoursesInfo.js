@@ -49,6 +49,16 @@ $(document).ready(function() {
     }
     // Create a course block
     function createCourseBlock(course, courseTasksList) {
+        let courseStartDateObj = new Date(course.start_date);
+        let courseEndDateObj = new Date(course.excepted_end_date);
+        start_date_month = courseStartDateObj.toLocaleString('default', { month: 'long' });
+        start_date_day = courseStartDateObj.toLocaleDateString('default', { day: '2-digit' });
+        start_date_year = courseStartDateObj.toLocaleDateString('default', { year: 'numeric' });
+
+        end_date_month = courseEndDateObj.toLocaleString('default', { month: 'long' });
+        end_date_day = courseEndDateObj.toLocaleDateString('default', { day: '2-digit' });
+        end_date_year = courseEndDateObj.toLocaleDateString('default', { year: 'numeric' });
+
         let tasksCompleted = 0;
         for (let task of courseTasksList) {
             if (task.done === true) {
@@ -76,11 +86,11 @@ $(document).ready(function() {
                     </div>
                     <div class="row field">
                         <label>Starts at:</label>
-                        <p>${course.start_date}</p>
+                        <p>${start_date_month} - ${start_date_day} - ${start_date_year}</p>
                     </div>
                     <div class="row field">
                         <label>Ends at:</label>
-                        <p>${course.excepted_end_date}</p>
+                        <p>${end_date_month} - ${end_date_day} - ${end_date_year}</p>
                     </div>
                     </div>
                     <div class="col cours-progress">
