@@ -14,7 +14,8 @@ $(document).ready(function() {
         .then(response => response.json())
         .then(user => {
             // The user object is now a JavaScript object that you can use
-            show_username(user.first_name);
+            show_firstname(user.first_name);
+            show_lastname(user.last_name);
             show_email(user.email);
             // Swal.fire({
             //     title: `Welcome ${user.first_name} :)`,
@@ -46,8 +47,11 @@ $(document).ready(function() {
         show_number_of_courses(number_of_courses);
     })
 
-    function show_username (user_name) {
-        $("#name").text(user_name);
+    function show_firstname (first_name) {
+        $("#firstname").text(first_name);
+    }
+    function show_lastname (last_name) {
+        $("#lastname").text(last_name);
     }
     function show_email (email) {
         $("#email").text(email);
