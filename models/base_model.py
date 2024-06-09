@@ -82,4 +82,6 @@ class BaseModel:
         # Convert datetime objects to string in ISO format for start_date for course
         if "start_date" in new_dict:
             new_dict["start_date"] = new_dict["start_date"].strftime(time_format)
+        if "excepted_end_date" in new_dict:
+            new_dict["excepted_end_date"] = new_dict["excepted_end_date"].strftime(time_format)
         return new_dict
