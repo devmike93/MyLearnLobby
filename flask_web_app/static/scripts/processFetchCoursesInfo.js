@@ -65,7 +65,7 @@ $(document).ready(function() {
                 tasksCompleted += 1;
             }
         }
-        let progressPercentage = (tasksCompleted / courseTasksList.length) * 100;
+        let progressPercentage = (course.counter / 100) * 100;
         let courseDetailsHTML = `
         <div class="course-details">
                 <div class="col">
