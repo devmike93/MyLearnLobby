@@ -112,7 +112,12 @@ margin-left: 20px;
     margin: 0 0 10px 0px;
 }
 
-input[type=text] {
-border: 2px solid #275360;
+input[type=number] {
+  border: 1px solid #f3f3f3;
   border-radius: 10px;
+}
+
+input[type="number"]:focus,
+input[type="number"]:hover {
+  border: 2px solid #275360;
 }
