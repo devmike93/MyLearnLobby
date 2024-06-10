@@ -79,14 +79,16 @@ def update_course(course_id):
     course_obj = storage.get(Course, course_id)
     if not course_obj:
         return jsonify({"error": "Course not found"}), 404
+    if not request.get_json():
+        abort(400, description="Not a JSON")
     data = request.get_json()
     course_obj.title = data.get('title', course_obj.title)
     course_obj.description = data.get('description', course_obj.description)
     course_obj.goals = data.get('goals', course_obj.goals)
     course_obj.start_date = data.get('start_date', course_obj.start_date)
     course_obj.excepted_end_date = data.get('excepted_end_date', course_obj.excepted_end_date)
-    course_obj.link = data.get('link', course_obj.link)
-    course_obj.type = data.get('type', course_obj.type)
+    # course_obj.link = data.get('link', course_obj.link)
+    # course_obj.type = data.get('type', course_obj.type)
     course_obj.counter = data.get('counter', course_obj.counter)
     storage.save()
     return jsonify({"message": "Course updated successfully"}), 200

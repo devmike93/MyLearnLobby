@@ -59,6 +59,9 @@ $(document).ready(function() {
         end_date_day = courseEndDateObj.toLocaleDateString('default', { day: '2-digit' });
         end_date_year = courseEndDateObj.toLocaleDateString('default', { year: 'numeric' });
 
+        let progressBarId = `progress-bar-${course.id}`;
+        let progressInputId = `progress-input-${course.id}`;
+
         let tasksCompleted = 0;
         for (let task of courseTasksList) {
             if (task.done === true) {
@@ -97,6 +100,7 @@ $(document).ready(function() {
                     <p>Progress:</p>
                     <div class="progress">
                         <div
+                        id="${progressBarId}"
                         class="progress-bar"
                         role="progressbar"
                         style="width: ${progressPercentage}%"
@@ -108,7 +112,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                     <div class="col">
-                    <p>I have done <input type="number" id="progressInput" min="0" max="100" value="${course.counter}"></input>% of this course</p>
+                    <p>I have done <input type="number" id="${progressInputId}" min="0" max="100" value="${course.counter}"></input>% of this course</p>
                     </div>
                     </div>
                 </div>
@@ -121,6 +125,38 @@ $(document).ready(function() {
         // Find the div with the class 'col courses' and append the HTML content
         let coursesDiv = document.querySelector('.col.courses');
         coursesDiv.innerHTML += courseDetailsHTML; // Use '+=' to append
+
+        // Attach event listener to the number input field
+        let progressInput = document.getElementById(progressInputId);
+        let progressBar = document.getElementById(progressBarId);
+
+        progressInput.addEventListener('input', function(event) {
+            let newProgress = event.target.value;
+            progressBar.style.width = newProgress + '%';
+            progressBar.setAttribute('aria-valuenow', newProgress);
+            progressBar.textContent = newProgress + '%';
+
+            let url_update_course_api = `http://mylearnlobby.me/api/v1/courses/${course.id}`;
+            fetch(url_update_course_api, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ counter: newProgress })
+            })
+            .then(response => {
+                if (!response.ok) { // Check if response went through
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Counter updated:', data);
+            })
+            .catch(error => {
+                console.error('Error updating counter:', error);
+            });
+        });
     }
 
 });
