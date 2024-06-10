@@ -149,6 +149,16 @@ def add_course(user_id):
     else:
         return redirect(url_for("landing_page"))
 
+@app.route("/OpenCourseView/<user_id>/<course_id>", methods=["GET"], strict_slashes=False)
+def open_course_view(user_id, course_id):
+    """ Render a course view html form"""
+    # Check if the user is logged in
+    user_obj = storage.get(User, user_id)
+    if user_obj and user_obj.loged_in is True:
+        return render_template("courseView.html", user_id=user_id, course_id=course_id, cache_id=uuid.uuid4())
+    else:
+        return redirect(url_for("landing_page"))
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")

@@ -117,7 +117,7 @@ $(document).ready(function() {
                     </div>
                 </div>
                 </div>
-                <button id="openCourse" course_id=${course.id} class="btn-get-started">
+                <button id="openCourse" course_id=${course.id} class="btn-get-started" onclick="OpenCourseView('${user_id}', '${course.id}')">
                 Open Course View
                 </button>
             </div>
@@ -195,4 +195,8 @@ function updateProgress(inputElement, courseId) {
     .catch(error => {
         console.error('Error updating counter:', error);
     });
+}
+
+function openCourseView(user_id, courseId) {
+    window.location.href = `http://mylearnlobby.me/OpenCourseView/${user_id}/${courseId}`;
 }
