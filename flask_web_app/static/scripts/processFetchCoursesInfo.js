@@ -175,7 +175,7 @@ function updateProgress(inputElement, courseId) {
     progressBar.textContent = newProgress + '%';
 
 
-    let url_update_course_api = `http://mylearnlobby.me/api/v1/courses/${course.id}`;
+    let url_update_course_api = `http://mylearnlobby.me/api/v1/courses/${courseId}`;
     fetch(url_update_course_api, {
         method: 'PUT',
         headers: {
