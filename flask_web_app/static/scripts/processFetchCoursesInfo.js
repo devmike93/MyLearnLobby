@@ -112,7 +112,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                     <div class="col">
-                    <p>I have done <input type="number" id="${progressInputId}" min="0" max="100" value="${course.counter}" onclick="updateProgress(this, ${course.id})"></input>% of this course</p>
+                    <p>I have done <input type="number" id="${progressInputId}" min="0" max="100" value="${course.counter}" onclick="updateProgress(this, '${course.id}')"></input>% of this course</p>
                     </div>
                     </div>
                 </div>
