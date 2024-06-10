@@ -28,7 +28,7 @@
 
 .right_section .row .field {
   margin: 0 20px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 700;
   color: gray;
 }
@@ -62,9 +62,6 @@
   color: white;
 }
 
-.move-right {
-  margin-left: 160px;
-}
 .btn-get-started i {
   margin-left: 8px;
 }
