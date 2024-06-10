@@ -117,7 +117,7 @@ $(document).ready(function() {
                     </div>
                 </div>
                 </div>
-                <button id="openCourse" course_id=${course.id} class="btn-get-started" onclick="OpenCourseView('${user_id}', '${course.id}')">
+                <button id="openCourse" course_id=${course.id} class="btn-get-started" onclick="openCourseView('${user_id}', '${course.id}')">
                 Open Course View
                 </button>
             </div>
