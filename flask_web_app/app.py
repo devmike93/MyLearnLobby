@@ -155,7 +155,7 @@ def open_course_view(user_id, course_id):
     # Check if the user is logged in
     user_obj = storage.get(User, user_id)
     if user_obj and user_obj.loged_in is True:
-        return render_template("courseView.html", user_id=user_id, course_id=course_id, cache_id=uuid.uuid4())
+        return render_template("courseview.html", user_id=user_id, course_id=course_id, cache_id=uuid.uuid4())
     else:
         return redirect(url_for("landing_page"))
 
