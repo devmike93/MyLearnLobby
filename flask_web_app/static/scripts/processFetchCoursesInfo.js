@@ -107,6 +107,9 @@ $(document).ready(function() {
                         ${progressPercentage}%
                         </div>
                     </div>
+                    <div class="col">
+                        <p>I have done <input type="number" id="progressInput" min="0" max="100" ></input>% of this course</p>
+                    </div>
                     </div>
                 </div>
                 </div>
