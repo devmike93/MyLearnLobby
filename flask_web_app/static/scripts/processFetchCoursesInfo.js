@@ -108,7 +108,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                     <div class="col">
-                    <p>I have done <input type="number" id="progressInput" min="0" max="100" ></input>% of this course</p>
+                    <p>I have done <input type="number" id="progressInput" min="0" max="100" value="${course.counter}"></input>% of this course</p>
                     </div>
                     </div>
                 </div>
