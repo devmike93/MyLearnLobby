@@ -112,7 +112,7 @@ $(document).ready(function() {
                         </div>
                     </div>
                     <div class="col">
-                    <p>I have done <input type="number" id="${progressInputId}" min="0" max="100" value="${course.counter}"></input>% of this course</p>
+                    <p>I have done <input type="number" id="${progressInputId}" min="0" max="100" value="${course.counter}" onclick="updateProgress(this, ${course.id})"></input>% of this course</p>
                     </div>
                     </div>
                 </div>
@@ -128,41 +128,72 @@ $(document).ready(function() {
 
         // Attach event listener to the number input field
         // Immediately Invoked Function Expression (IIFE) to create a new scope
-        (function(course) {
-            let progressBarId = `progress-bar-${course.id}`;
-            let progressInputId = `progress-input-${course.id}`;
-            let progressBar = document.getElementById(progressBarId);
-            let progressInput = document.getElementById(progressInputId);
+        // (function(course) {
+        //     let progressBarId = `progress-bar-${course.id}`;
+        //     let progressInputId = `progress-input-${course.id}`;
+        //     let progressBar = document.getElementById(progressBarId);
+        //     let progressInput = document.getElementById(progressInputId);
 
-            progressInput.addEventListener('input', function(event) {
-                let newProgress = event.target.value;
-                progressBar.style.width = newProgress + '%';
-                progressBar.setAttribute('aria-valuenow', newProgress);
-                progressBar.textContent = newProgress + '%';
+        //     progressInput.addEventListener('input', function(event) {
+        //         let newProgress = event.target.value;
+        //         progressBar.style.width = newProgress + '%';
+        //         progressBar.setAttribute('aria-valuenow', newProgress);
+        //         progressBar.textContent = newProgress + '%';
 
-                let url_update_course_api = `http://mylearnlobby.me/api/v1/courses/${course.id}`;
-                fetch(url_update_course_api, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ counter: newProgress })
-                })
-                .then(response => {
-                    if (!response.ok) { // Check if response went through
-                        throw new Error('Network response was not ok: ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Counter updated:', data);
-                })
-                .catch(error => {
-                    console.error('Error updating counter:', error);
-                });
-            });
-        })(course); // Pass the current course object to the IIFE
+        //         let url_update_course_api = `http://mylearnlobby.me/api/v1/courses/${course.id}`;
+        //         fetch(url_update_course_api, {
+        //             method: 'PUT',
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //             },
+        //             body: JSON.stringify({ counter: newProgress })
+        //         })
+        //         .then(response => {
+        //             if (!response.ok) { // Check if response went through
+        //                 throw new Error('Network response was not ok: ' + response.statusText);
+        //             }
+        //             return response.json();
+        //         })
+        //         .then(data => {
+        //             console.log('Counter updated:', data);
+        //         })
+        //         .catch(error => {
+        //             console.error('Error updating counter:', error);
+        //         });
+        //     });
+        // })(course); // Pass the current course object to the IIFE
 
     }
+
+    function updateProgress(inputElement, courseId) {
+        let newProgress = inputElement.value;
+        let progressBar = document.getElementById(`progress-bar-${courseId}`);
+        progressBar.style.width = newProgress + '%';
+        progressBar.setAttribute('aria-valuenow', newProgress);
+        progressBar.textContent = newProgress + '%';
+
+    
+        let url_update_course_api = `http://mylearnlobby.me/api/v1/courses/${course.id}`;
+        fetch(url_update_course_api, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ counter: newProgress })
+        })
+        .then(response => {
+            if (!response.ok) { // Check if response went through
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Counter updated:', data);
+        })
+        .catch(error => {
+            console.error('Error updating counter:', error);
+        });
+    }
+
 
 });
