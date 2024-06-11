@@ -4,7 +4,7 @@
   
   body {
     font-family: "Barlow", sans-serif;
-    margin: 0;
+    margin: 20;
     padding: 0;
     scroll-behavior: smooth;
   }
@@ -359,7 +359,7 @@ Footer a{
 /*  */
 .info-box {
   background-color: #fff;
-  border: 2px solid rgb(0, 89, 255);
+  /* border: 2px solid rgb(0, 89, 255); */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -469,7 +469,7 @@ input[type="checkbox"]::before{
   font-size: 1.7rem;
   text-align: center;
   border: 2px solid grey;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   color: transparent;
 }
 
@@ -477,7 +477,7 @@ input[type="checkbox"]:checked::before{
   color: white;
   background-color: green;
   border: 2px solid green;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .scroll {
