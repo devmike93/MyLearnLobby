@@ -389,7 +389,7 @@ Footer a{
 
 .desc {
   display: flex;
-  column-gap: 20px;
+  column-gap: 40px;
 }
 
 .addBtn, .delBtn {
@@ -465,6 +465,7 @@ input[type="checkbox"] {
 input[type="checkbox"]::before{
   content: "\2713";
   display:inline-block;
+  line-height: 1;
   /* width: 2rem; */
   font-size: 1.7rem;
   text-align: center;
