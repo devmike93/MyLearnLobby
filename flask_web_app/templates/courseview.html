@@ -123,66 +123,68 @@
   <!-- <div class="course-title">
     <h3 id="course-title">Course Title</h3>
   </div> -->
-  <h2 id="course-title">Course Title</h2>
-  <p>Progress</p>
-  <div class="info-box">
-    <progress id="course-progress" value="0" max="100"></progress>
-  </div>
-  <h3 id="course-description">Course Description</h3>
-  <div class="desc">
+  <div class="wrapper">
+    <h2 id="course-title">Course Title</h2>
+    <p>Progress</p>
     <div class="info-box">
-        <p id="course-description">Course Description</p>
+      <progress id="course-progress" value="0" max="100"></progress>
+    </div>
+    <h3 id="course-description">Course Description</h3>
+    <div class="desc">
+      <div class="info-box">
+          <p id="course-description">Course Description</p>
+      </div>
+      <div class="info-box">
+        <p>Start Date: <span id="start-date">YYYY-MM-DD</span></p>
+        <p>End Date: <span id="end-date">YYYY-MM-DD</span></p>
+      </div>
+    </div>
+    <div class="course-goals">
+          <h3 id="course-goals">My Goals</h3>
     </div>
     <div class="info-box">
-      <p>Start Date: <span id="start-date">YYYY-MM-DD</span></p>
-      <p>End Date: <span id="end-date">YYYY-MM-DD</span></p>
-    </div>
-  </div>
-  <div class="course-goals">
-        <h3 id="course-goals">My Goals</h3>
-  </div>
-  <div class="info-box">
-    <ul id="goals-list">
-      <!-- List of tasks will go here -->
-      <li>Goal 1</li>
-    </ul>
-  </div>
-
-  <div class="course-tasks">
-      <h3 id="course-tasks">Tasks</h3>
-  </div>
-  
-  <section class="task-box">
-    <div class="col-4">
-      <button class="btn-logout">Add Task</button>
-    </div>
-    <div class="scroll">
-      <ul id="tasks-list">
+      <ul id="goals-list">
         <!-- List of tasks will go here -->
-
-        <li class="disabled">Dummy list</li>
-        <li><input type="checkbox"> Task 1</li>
-        <li><input type="checkbox"> Task 2</li>
-        <li><input type="checkbox"> Task 3</li>
+        <li>Goal 1</li>
       </ul>
     </div>
-    <div class="input">
-      <!-- javascript is using a prompt instead -->
 
-      <!-- <input
-      type="text"
-      class="input-field"
-      id="taskInput"
-      placeholder="Add a new task"
-      /> -->
+    <div class="course-tasks">
+        <h3 id="course-tasks">Tasks</h3>
     </div>
-    <!-- future implementation -->
-    <!-- <div class="del-container">
-      <button class="delBtn">Delete All</button>
-    </div> -->
-  </section>
+    
+    <section class="task-box">
+      <div class="col-6">
+        <button class="btn-logout">Add Task</button>
+      </div>
+      <div class="scroll">
+        <ul id="tasks-list">
+          <!-- List of tasks will go here -->
 
-  <!-- Add task modal -->
+          <li class="disabled">Dummy list</li>
+          <li><input type="checkbox"> Task 1</li>
+          <li><input type="checkbox"> Task 2</li>
+          <li><input type="checkbox"> Task 3</li>
+        </ul>
+      </div>
+      <div class="input">
+        <!-- javascript is using a prompt instead -->
+
+        <!-- <input
+        type="text"
+        class="input-field"
+        id="taskInput"
+        placeholder="Add a new task"
+        /> -->
+      </div>
+      <!-- future implementation -->
+      <!-- <div class="del-container">
+        <button class="delBtn">Delete All</button>
+      </div> -->
+    </section>
+  </div>
+
+    <!-- Add task modal -->
   
 
   
