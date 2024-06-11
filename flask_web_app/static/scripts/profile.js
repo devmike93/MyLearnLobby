@@ -95,7 +95,7 @@ $(document).ready(function() {
     $('.btn-edit-lastname').click(function() {
         // console.log('Button clicked');  // This line is for debugging
         let button = $(this);
-        let field = button.closest('.row').find('lastname');
+        let field = button.closest('.row').find('#lastname');
         let currentValue = field.text();
 
         if (button.text().includes('Edit')) {
