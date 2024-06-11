@@ -20,7 +20,8 @@ h2 {
 
 p {
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400; 
+  text-align: justify;
 }
 
 #about .row {
@@ -48,8 +49,8 @@ p {
   font-size: 18px;
 }
 
-#about .about-description {
-  margin-bottom: 20px;
+#about .description {
+  margin-top: 10px;
   font-size: 18px;
 }
 
