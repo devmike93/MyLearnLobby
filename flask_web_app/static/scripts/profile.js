@@ -60,22 +60,22 @@ $(document).ready(function() {
         $("#number_of_courses").text(number_of_courses);
     }
 
-    // editing the user's profile (name)
-    $('.btn-edit-name').click(function() {
+    // editing the user's profile (first name)
+    $('.btn-edit-firstname').click(function() {
         // console.log('Button clicked');  // This line is for debugging
         let button = $(this);
-        let field = button.closest('.row').find('#name');
+        let field = button.closest('.row').find('#firstname');
         let currentValue = field.text();
 
         if (button.text().includes('Edit')) {
             // Transition from viewing to editing
-            field.replaceWith(`<input type="text" class="name" value="${currentValue}" />`);
+            field.replaceWith(`<input type="text" class="firstname" value="${currentValue}" />`);
             button.text('Save');
         } else {
             // Transition from editing to viewing
-            let input = button.closest('.row').find('input.name');
+            let input = button.closest('.row').find('input.firstname');
             let newValue = input.val();
-            input.replaceWith(`<span id="name" class="field">${newValue}</span>`);
+            input.replaceWith(`<span id="firstname" class="field">${newValue}</span>`);
             button.text('Edit');
 
             // Update the user in the server
@@ -86,6 +86,37 @@ $(document).ready(function() {
                 },
                 body: JSON.stringify({
                     first_name: newValue
+                })
+            });
+        }
+    });
+
+// editing the user's profile (last name)
+    $('.btn-edit-lastname').click(function() {
+        // console.log('Button clicked');  // This line is for debugging
+        let button = $(this);
+        let field = button.closest('.row').find('lastname');
+        let currentValue = field.text();
+
+        if (button.text().includes('Edit')) {
+            // Transition from viewing to editing
+            field.replaceWith(`<input type="text" class="lastname" value="${currentValue}" />`);
+            button.text('Save');
+        } else {
+            // Transition from editing to viewing
+            let input = button.closest('.row').find('input.lastname');
+            let newValue = input.val();
+            input.replaceWith(`<span id="lastname" class="field">${newValue}</span>`);
+            button.text('Edit');
+
+            // Update the user in the server
+            fetch(url_users_api, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    last_name: newValue
                 })
             });
         }
