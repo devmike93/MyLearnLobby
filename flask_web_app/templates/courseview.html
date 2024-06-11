@@ -120,33 +120,29 @@
           <h2>Course View</h2>
         </div>
   </div>
-  <div class="course-title">
+  <!-- <div class="course-title">
     <h3 id="course-title">Course Title</h3>
-  </div>
-  <div class="info-box">
-    <h3 id="course-title">Course Title</h3>
-  </div>
-  <div class="course-progress">
-    <h3 id="course-progress">Progress</h3>
-  </div>
+  </div> -->
+  <h2 id="course-title">Course Title</h2>
+  <h3>Progress</h3>
   <div class="info-box">
     <progress id="course-progress" value="0" max="100"></progress>
   </div>
-  <div class="course-description">
-      <h3 id="course-description">Course Description</h3>
-  </div>
-  <div class="info-box">
-      <p id="course-description">Course Description</p>
-  </div>
-  <div class="info-box">
-    <p>Start Date: <span id="start-date">YYYY-MM-DD</span></p>
-    <p>End Date: <span id="end-date">YYYY-MM-DD</span></p>
+  <h3 id="course-description">Course Description</h3>
+  <div class="desc">
+    <div class="info-box">
+        <p id="course-description">Course Description</p>
+    </div>
+    <div class="info-box">
+      <p>Start Date: <span id="start-date">YYYY-MM-DD</span></p>
+      <p>End Date: <span id="end-date">YYYY-MM-DD</span></p>
+    </div>
   </div>
   <div class="course-goals">
         <h3 id="course-goals">My Goals</h3>
   </div>
   <div class="info-box">
-    <ul id="goal-list">
+    <ul id="goals-list">
       <!-- List of tasks will go here -->
       <li>Goal 1</li>
     </ul>
@@ -155,12 +151,38 @@
   <div class="course-tasks">
       <h3 id="course-tasks">Tasks</h3>
   </div>
-  <div class="info-box">
-    <ul id="task-list">
-      <!-- List of tasks will go here -->
-       <li>Task 1</li>
-    </ul>
-  </div>
+  
+  <section class="task-box">
+    <div class="scroll">
+      <ul id="tasks-list">
+        <!-- List of tasks will go here -->
+
+         <li class="disabled">Dummy list</li>
+         <li>Task 1</li>
+         <li>Task 2</li>
+         <li>Task 3</li>
+      </ul>
+    </div>
+    <div class="input">
+      <!-- javascript is using a prompt instead -->
+
+      <!-- <input
+      type="text"
+      class="input-field"
+      id="taskInput"
+      placeholder="Add a new task"
+      /> -->
+      <button class="addBtn">Add Task</button>
+    </div>
+    <!-- future implementation -->
+    <!-- <div class="del-container">
+      <button class="delBtn">Delete All</button>
+    </div> -->
+  </section>
+
+  <!-- Add task modal -->
+  
+
   
   
     

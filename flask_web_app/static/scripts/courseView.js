@@ -53,36 +53,36 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Function to update the dropdown menu
-    function updateDropdownMenu(courses) {
-        let dropdownHTML = '';
-        courses.forEach(course => {
-            dropdownHTML += `<a class="dropdown-item" href="#" data-value="${course}">${course}</a>`;
-        });
-        dropdownMenu.innerHTML = dropdownHTML;
-    }
+    // function updateDropdownMenu(courses) {
+    //     let dropdownHTML = '';
+    //     courses.forEach(course => {
+    //         dropdownHTML += `<a class="dropdown-item" href="#" data-value="${course}">${course}</a>`;
+    //     });
+    //     dropdownMenu.innerHTML = dropdownHTML;
+    // }
 
     // Event delegation for dropdown items
-    dropdownMenu.addEventListener("click", function(event) {
-        if (event.target.classList.contains("dropdown-item")) {
-            event.preventDefault();
+    // dropdownMenu.addEventListener("click", function(event) {
+    //     if (event.target.classList.contains("dropdown-item")) {
+    //         event.preventDefault();
 
-            const selectedValue = event.target.getAttribute("data-value");
-            courseDropdown.innerText = selectedValue;
+    //         const selectedValue = event.target.getAttribute("data-value");
+    //         courseDropdown.innerText = selectedValue;
 
-            localStorage.setItem("selectedCourse", selectedValue);
-            selectedCourseElement.innerText = "Selected Course: " + selectedValue;
+    //         localStorage.setItem("selectedCourse", selectedValue);
+    //         selectedCourseElement.innerText = "Selected Course: " + selectedValue;
 
-            fetchCourseData(selectedValue)
-                .then(courseData => {
-                    updateCourseCard(courseData);
-                    updateTasksList(courseData.tasks);
-                    updateGoalsList(courseData.goals);
-                })
-                .catch(error => {
-                    console.error("Error fetching course data:", error);
-                });
-        }
-    });
+    //         fetchCourseData(selectedValue)
+    //             .then(courseData => {
+    //                 updateCourseCard(courseData);
+    //                 updateTasksList(courseData.tasks);
+    //                 updateGoalsList(courseData.goals);
+    //             })
+    //             .catch(error => {
+    //                 console.error("Error fetching course data:", error);
+    //             });
+    //     }
+    // });
 
     // Function to update the course card
     function updateCourseCard(courseData) {
@@ -104,6 +104,12 @@ document.addEventListener("DOMContentLoaded", function() {
         tasks.forEach(task => {
             const taskItem = document.createElement("li");
             taskItem.innerHTML = `<input type="checkbox"> ${task}`;
+
+            //toggles the "disabled" class when clicked
+            taskItem.addEventListener("click", function() {
+                taskItem.classList.toggle("disabled");
+            });
+
             tasksList.appendChild(taskItem);
         });
     }
@@ -143,4 +149,29 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => {
             console.error("Error fetching course list:", error);
         });
+
+
+
+        // Function to add a new task
+
+        const addBtn = document.getElementById("addBtn");
+
+        function addTask(courseName) {
+            const taskName = prompt("Enter the task name:");
+            if (taskName) {
+                // Add the new task to the course data
+                courseData[courseName].tasks.push(taskName);
+                // Update the task list in the UI
+                updateTasksList(courseData[courseName].tasks);
+                // Update the total tasks count
+                courseData[courseName].totalTasks += 1;
+                // Refresh the course card to reflect the new total tasks count
+                updateCourseCard(courseData[courseName]);
+            }
+        }
+
+        addBtn.addEventListener("click", function() {
+            addTask(selectedCourse);
+        });
+    
 });

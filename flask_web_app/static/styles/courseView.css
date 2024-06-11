@@ -233,7 +233,7 @@ main {
 }
 
 
-.course-selection p {
+/* .course-selection p {
 font-size: 30px;
 }
 
@@ -247,13 +247,13 @@ font-size: 30px;
 
 .tasks-button-box {
     width: max-content;
-}
+} */
 
 
 
 
 /* goals and tasks lists */
-.list-section {
+/* .list-section {
     width: 100%;
 margin-bottom: 20px;
 }
@@ -335,17 +335,17 @@ border-radius: 5px;
     margin-left: 20px;
 }
 
-.course-progress p {
-    font-size: 1rem;
-    font-weight: 700;
-    margin: 0 0 10px 0px;
-}
 
 .progress-bar {
-    background-color: #007bff;
-}
-    
-
+  background-color: #007bff;
+  }
+  
+  .course-progress p {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 10px 0px;
+  } */
+  
 
 Footer a {
     color: #0bc6e2;
@@ -354,27 +354,156 @@ Footer a {
 Footer a{
     color: #5ce1f5;
 }
+
+
 /*  */
- .flex-container {
-    display: flex;
-    justify-content: space-between; /* This will space the boxes nicely */
-    max-width: 800px;
-    margin: auto;
-  }
-  .info-box {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px; /* Space between rows */
-    width: 48%; /* Adjust width for spacing */
-  }
+.info-box {
+  background-color: #fff;
+  border: 2px solid rgb(0, 89, 255);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px; /* Space between rows */
+  width: 48%; /* Adjust width for spacing */
+}
+
+.task-box{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fff;
+  border: 2px solid rgb(0, 89, 255);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  height: 60%;
+  width: 80%; /* Adjust width for spacing */
+  margin-bottom: 20px; /* Space between rows */
+  max-width: 30rem;
+}
+
+.del-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.desc {
+  display: flex;
+  column-gap: 20px;
+}
+
+.addBtn, .delBtn {
+  position: relative;
+  display: flex;
+  max-width: fit-content;
+  padding: 2px 2px;
+  color: white;
+  background-color: rgb(0, 89, 255);
+  border:none;
+  border-radius: 3px;
+}
+
+.input {
+  position: relative;
+  display: flex;
+  margin-bottom: 20px;
+  height: 30px;
+}
+
+.input-field {
+  width: 80%;
+  border: 0.2rem solid rgb(0, 89, 255);
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  margin: 0 10px 0 0;
+}
+
+.input-field:focus {
+  border:none;
+}
+
+input[type="text"]::placeholder {
+  color: gray;
+}
+
+.task-box li{
+  padding: 0;
+  margin: 0;
+}
+
+.task-box ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 3px;
+  overflow-y: scroll;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+.tasks-box li:hover {
+  color:rgb(0, 89, 255);
+  cursor: pointer;
+}
+
+#tasks-list .disabled{
+  color: gray;
+  display: flex;
+  text-decoration: line-through;
+}
+
+.disabled {
+  display: flex;
+  text-decoration: line-through;
+}
+
+input[type="checkbox"]::before{
+  content: "\2713";
+  display:inline-block;
+  width: 2rem;
+  font-size: 1.7rem;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 50%;
+  color: transparent;
+}
+
+input[type="checkbox"]:checked::before{
+  color: white;
+  background-color: green;
+  border: 2px solid green;
+  border-radius: 50%;
+}
+
+.scroll {
+  height: 10rem;
+  scrollbar-width: thin;
+}
+
+.scroll::-webkit-scrollbar-track {
+  display: none;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 89, 255);
+  border-radius: 3px;
+}
+
+
+
+
   h1, h2 {
     color: #333;
   }
   p, li {
     color: #666;
   }
+  
   #course-progress {
     width: 100%;
     height: 20px;
