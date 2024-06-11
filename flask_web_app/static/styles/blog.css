@@ -1,0 +1,279 @@
+/* General Styles */
+section {
+  background-image: url("../../static/images/background.png");
+  background-size: cover;
+  background-position: center;
+  height: max-content;
+  margin: 20px 50px 50px 50px;
+}
+
+#introduction
+{
+    margin-top: 100px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-weight: 800;
+  text-align: center;
+}
+
+p {
+  font-style: normal;
+  font-weight: 400;
+}
+
+#about .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.head h2,
+.head h3 {
+  font-weight: 700;
+}
+
+.head p {
+  font-size: 18px;
+}
+
+#about .about-description {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.little_bar {
+  background: linear-gradient(45deg, #4ebffc, #69fce9);
+  width: 50px;
+  height: 5px;
+  border-radius: 50px;
+}
+
+.team-card {
+  box-shadow: 0 0px 21px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  list-style: none;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.html {
+  background-color: #e34c26; /* HTML5 brand color */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card a {
+  color: #007bff; /* Link color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card p {
+  margin-top: 10px;
+}
+
+.btn {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.html {
+  border: 2px solid #e34c26; /* CSS3 brand color */
+}
+.html .btn {
+  color: #fff;
+  background-color: #e34c26;
+}
+
+.css {
+  border: 2px solid #1572b6; /* CSS3 brand color */
+}
+
+.css .btn {
+  color: #fff;
+  background-color: #1572b6;
+}
+
+.bootstrap {
+  border: 2px solid #563d7c; /* Bootstrap 4 brand color */
+}
+.bootstrap .btn {
+  color: #fff;
+  background-color: #563d7c;
+}
+
+.javascript {
+  border: 2px solid #f7df1e; /* JavaScript brand color */
+}
+.javascript .btn {
+  color: #fff;
+  background-color: #f7df1e;
+}
+
+.ajax {
+  border: 2px solid #1f70c1; /* AJAX brand color */
+}
+.ajax .btn {
+  color: #fff;
+  background-color: #1f70c1;
+}
+
+.sqlalchemy {
+  border: 2px solid #111111; /* SQLAlchemy brand color */
+}
+.sqlalchemy .btn {
+  color: #fff;
+  background-color: #111111;
+}
+
+.mysql {
+  border: 2px solid #4479a1; /* MySQL brand color */
+}
+.mysql .btn {
+  color: #fff;
+  background-color: #4479a1;
+}
+
+.nginx {
+  border: 2px solid #009639; /* Nginx brand color */
+}
+.nginx .btn {
+  color: #fff;
+  background-color: #009639;
+}
+
+.gunicorn {
+  border: 2px solid #00875a; /* Gunicorn brand color */
+}
+.gunicorn .btn {
+  color: #fff;
+  background-color: #00875a;
+}
+
+.ubuntu {
+  border: 2px solid #dd4814; /* Ubuntu brand color */
+}
+.ubuntu .btn {
+  color: #fff;
+  background-color: #dd4814;
+}
+
+#about {
+  background-image: url("../images/background.png");
+}
+
+#about {
+  padding-top: 50px;
+}
+
+#about .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+#about .about-description {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+#about .about-description a {
+  color: #0bc6e2;
+}
+
+#about .about-description a:hover {
+  color: #5ce1f5;
+}
+
+.team-card {
+  box-shadow: 0 0px 21px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
