@@ -128,6 +128,9 @@
     border-radius: 5px;
     background-color: rgb(236 228 95);
   }
+  .edit {
+    margin-left: 100px;
+  }
 
   .user-section {
     display: flex;
@@ -372,11 +375,11 @@ Footer a{
   flex-direction: column;
   justify-content: space-around;
   background-color: #fff;
-  /* border: 2px solid rgb(0, 89, 255); */
+  border: 2px solid rgb(0, 89, 255);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 2rem;
-  height: 60%;
+  /* height: 60%; */
   width: 80%; /* Adjust width for spacing */
   margin-bottom: 20px; /* Space between rows */
   max-width: 30rem;
@@ -522,8 +525,14 @@ input[type="checkbox"]:checked::before{
 
 .delete-button {
     display: none;
+    border: solid 1px red;
+    border-radius: 50%;
+    margin-left: 40px;
 }
 
 .task:hover .delete-button {
     display: inline;
+}
+.task {
+    margin-bottom: 10px;
 }
