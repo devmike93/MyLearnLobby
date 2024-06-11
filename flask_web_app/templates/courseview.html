@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../static/styles/courseView.css">
   <link rel="stylesheet" href="../static/styles/header.css">
   <link rel="stylesheet" href="../static/styles/footer.css">
-  <link rel="shortcut icon" href="../images/icon.png">
+  <link rel="shortcut icon" href="../static/images/icon.png">
   
 </head>
 <body>
@@ -38,7 +38,7 @@
     </div>
   </header>
   <!-- End HEADER -->
-  <div class="container mt-4 mb-4">
+  <!-- <div class="container mt-4 mb-4">
     <div class="tab-content p-3">
       <div class="row sub-header">
         <div class="col left_section">
@@ -55,12 +55,12 @@
             <a class="btn menu-button dropdown-toggle" href="#" role="button" id="course-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Select a Course
             </a>
-            <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="course-dropdown">
+            <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="course-dropdown"> -->
               <!-- Dropdown items will be populated by JS -->
-            </div>
-          </div>
+            <!-- </div>
+          </div> -->
           <!-- Display the selected course here -->
-          <p id="selected-course" class="mb-0"></p>
+          <!-- <p id="selected-course" class="mb-0"></p>
         </div>
       </div>
 
@@ -110,6 +110,35 @@
         </div>
       </div>
 
+    </div>
+  </div> -->
+
+  <div class="course-info">
+    <div class="info-box">
+      <h1 id="course-title">Course Title</h1>
+    </div>
+    <div class="info-box">
+      <p id="course-description">Course Description</p>
+    </div>
+    <div class="info-box">
+      <p>Start Date: <span id="start-date">YYYY-MM-DD</span></p>
+      <p>End Date: <span id="end-date">YYYY-MM-DD</span></p>
+    </div>
+    <div class="info-box">
+      <h2>Tasks</h2>
+      <ul id="task-list">
+        <!-- List of tasks will go here -->
+      </ul>
+    </div>
+    <div class="info-box">
+      <h2>Goals</h2>
+      <ul id="goal-list">
+        <!-- List of goals will go here -->
+      </ul>
+    </div>
+    <div class="info-box">
+      <h2>Progress</h2>
+      <progress id="course-progress" value="0" max="100"></progress>
     </div>
   </div>
 

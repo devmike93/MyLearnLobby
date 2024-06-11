@@ -354,3 +354,25 @@ Footer a {
 Footer a{
     color: #5ce1f5;
 }
+/*  */
+.info-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px; /* Space between boxes */
+  }
+  .course-info {
+    max-width: 800px;
+    margin: auto;
+  }
+  h1, h2 {
+    color: #333;
+  }
+  p, li {
+    color: #666;
+  }
+  #course-progress {
+    width: 100%;
+    height: 20px;
+  }
