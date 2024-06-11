@@ -355,16 +355,19 @@ Footer a{
     color: #5ce1f5;
 }
 /*  */
-.info-box {
+ .flex-container {
+    display: flex;
+    justify-content: space-between; /* This will space the boxes nicely */
+    max-width: 800px;
+    margin: auto;
+  }
+  .info-box {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin-bottom: 20px; /* Space between boxes */
-  }
-  .course-info {
-    max-width: 800px;
-    margin: auto;
+    margin-bottom: 20px; /* Space between rows */
+    width: 48%; /* Adjust width for spacing */
   }
   h1, h2 {
     color: #333;
