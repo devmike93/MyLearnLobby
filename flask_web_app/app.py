@@ -132,11 +132,17 @@ def notes():
     return render_template("notes.html", cache_id=uuid.uuid4())
     
 
-
 @app.route("/about", methods=["GET"], strict_slashes=False)
 def about():
     """ Render a add course html form"""
     return render_template("about/index.html", cache_id=uuid.uuid4())
+
+
+@app.route("/blog", methods=["GET"], strict_slashes=False)
+def blog():
+    """ Render a add blog post"""
+    return render_template("blog/index.html", cache_id=uuid.uuid4())
+
 
 @app.route("/AddCourseForm/<user_id>", methods=["GET"], strict_slashes=False)
 def add_course(user_id):
@@ -148,6 +154,7 @@ def add_course(user_id):
         return render_template("addcourse.html", user_id=user_id, cache_id=uuid.uuid4())
     else:
         return redirect(url_for("landing_page"))
+
 
 @app.route("/OpenCourseView/<course_id>", methods=["GET"], strict_slashes=False)
 def open_course_view(course_id):
