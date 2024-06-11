@@ -198,5 +198,5 @@ function updateProgress(inputElement, courseId) {
 }
 
 function openCourseView(user_id, courseId) {
-    window.location.href = `http://mylearnlobby.me/OpenCourseView/${user_id}/${courseId}`;
+    window.location.href = `http://mylearnlobby.me/OpenCourseView/${courseId}?check=${user_id}`;
 }

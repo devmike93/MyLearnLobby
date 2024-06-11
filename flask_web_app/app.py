@@ -142,17 +142,18 @@ def about():
 def add_course(user_id):
     """ Render a add course html form"""
     # Check if the user is logged in
-    print("Add course route")
+    # print("Add course route")
     user_obj = storage.get(User, user_id)
     if user_obj and user_obj.loged_in is True:
         return render_template("addcourse.html", user_id=user_id, cache_id=uuid.uuid4())
     else:
         return redirect(url_for("landing_page"))
 
-@app.route("/OpenCourseView/<user_id>/<course_id>", methods=["GET"], strict_slashes=False)
-def open_course_view(user_id, course_id):
+@app.route("/OpenCourseView/<course_id>", methods=["GET"], strict_slashes=False)
+def open_course_view(course_id):
     """ Render a course view html form"""
     # Check if the user is logged in
+    user_id = request.args.get("check")
     user_obj = storage.get(User, user_id)
     if user_obj and user_obj.loged_in is True:
         return render_template("courseview.html", user_id=user_id, course_id=course_id, cache_id=uuid.uuid4())
