@@ -372,7 +372,7 @@ Footer a{
   flex-direction: column;
   justify-content: space-around;
   background-color: #fff;
-  border: 2px solid rgb(0, 89, 255);
+  /* border: 2px solid rgb(0, 89, 255); */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 2rem;
@@ -518,4 +518,12 @@ input[type="checkbox"]:checked::before{
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle depth effect */
   padding: 20px;
   border-radius: 8px; /* Optional: for rounded corners */
+}
+
+.delete-button {
+    display: none;
+}
+
+.task:hover .delete-button {
+    display: inline;
 }
