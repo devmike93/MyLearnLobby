@@ -33,7 +33,7 @@
         <a class="btn-get-started" title="Edit profile" href="landingPage.html">Home</a>
         <a class="btn-get-started" title="Edit profile" href="profile.html">Profile</a>
         <a class="btn-get-started" title="Edit profile" href="dashboard.html">Dashboard</a>
-        <a class="btn-get-started" title="Edit profile" href="courseView.html">Course View</a>
+        <a class="btn-get-started" title="Edit profile" href="courseView.html">Edit This Page</a>
         <button class="btn-logout" title="Logout">Log Out</button>
       </div>
     </div>
@@ -125,14 +125,25 @@
     <h3 id="course-title">Course Title</h3>
   </div> -->
   <div class="wrapper">
-    <div class="col-8">
-        <button class="btn-logout edit">Edit</button>
-      </div>
     <h2 id="course-title"></h2>
-    <p>Progress</p>
-    <div class="info-box">
-      <progress id="course-progress" value="0" max="100"></progress>
+    
+    <div class="col cours-progress">
+        <p>Progress:</p>
+        <div class="progress">
+            <div
+              id="progressBarId"
+              class="progress-bar"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+            </div>
+        </div>
+        <div class="col">
+          <p>I have done <input type="number" id="progressInputId" min="0" max="100" onclick="updateProgress(this, '${course.id}')"></input>% of this course</p>
+        </div>
     </div>
+
     <h3 id="course-description">Course Description</h3>
     <div class="desc">
       <div class="info-box">

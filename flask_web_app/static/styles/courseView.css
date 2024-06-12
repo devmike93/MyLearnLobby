@@ -517,10 +517,7 @@ input[type="checkbox"]:checked::before{
     color: #666;
   }
   
-  #course-progress {
-    width: 100%;
-    height: 20px;
-  }
+  
 
   .wrapper {
   width: 90%; /* Or the max-width you prefer */
@@ -548,3 +545,24 @@ input[type="checkbox"]:checked::before{
 /* .task {
     margin-bottom: 10px;
 } */
+
+/* progress slider */
+.cours-progress {
+margin-left: 20px;
+}
+
+.cours-progress p {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 10px 0px;
+}
+
+input[type=number] {
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+}
+
+input[type="number"]:focus,
+input[type="number"]:hover {
+  border: 2px solid #275360;
+}
