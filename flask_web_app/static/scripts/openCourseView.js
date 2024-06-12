@@ -140,13 +140,13 @@ $(document).ready(function() {
         // Append tasks to the DOM here
         let tasksUl = document.getElementById("tasks-list");
         const newTaskItem = document.createElement('li');
-        newTaskItem.textContent = taskContent;
         newTaskItem.className = "task";
         let input = document.createElement('input');
         input.type = "checkbox";
         input.id = "input-" + taskId;
 
         newTaskItem.appendChild(input);
+        newTaskItem.textContent = taskContent;
 
         let button = document.createElement('button');
         button.className = "delete-button";
