@@ -146,11 +146,6 @@ $(document).ready(function() {
         input.type = "checkbox";
         input.id = "input-" + taskId;
 
-        if (task.done === true) {
-            input.checked = true;
-            li.className = "task disabled";
-        }
-
         newTaskItem.appendChild(input);
 
         let button = document.createElement('button');
