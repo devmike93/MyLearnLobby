@@ -55,36 +55,6 @@ $(document).ready(function() {
             // Append the li element to the ul element
             ul.appendChild(li);
         });
-
-        // Iterate over the array of tasks
-        // let tasksUl = document.getElementById("tasks-list");
-        // tasksList.forEach(function(task) {
-        //     // Create a new input element
-        //     let input = document.createElement('input');
-        //     input.type = "checkbox";
-        //     input.id = "input-" + task.id;
-
-        //     // If the task is done, check the checkbox and add the 'task disabled' class to the li element
-        //     if (task.done === true) {
-        //         input.checked = true;
-        //         li.className = "task disabled";
-        //     }
-
-        //     li.appendChild(input);
-
-        //     // Create a new button element
-        //     let button = document.createElement('button');
-        //     button.className = "delete-button";
-        //     button.textContent = "x";
-
-        //     // Set the text content of the li element
-        //     li.appendChild(document.createTextNode(task.title));
-        //     li.appendChild(button);
-
-        //     // Append the li element to the ul element
-        //     tasksUl.appendChild(li);
-
-        // });
     })
     .catch(error => {
         console.error('Error fetching course:', error);
@@ -133,6 +103,50 @@ $(document).ready(function() {
             console.error('Error fetching tasks:', error);
         });
     }
+
+    // Event listener for the Add Task button
+    document.getElementById('addTaskButton').addEventListener('click', () => {
+        const taskContent = prompt('Enter the new task:');
+        if (taskContent) {
+        addNewTask(taskContent);
+        }
+    });
+
+    function addNewTask(taskContent) {
+
+        // Append tasks to the DOM here
+        let tasksUl = document.getElementById("tasks-list");
+        const newTaskItem = document.createElement('li');
+        newTaskItem.textContent = taskContent;
+        newTaskItem.className = "task";
+        let input = document.createElement('input');
+        input.type = "checkbox";
+        input.id = "input-" + task.id;
+
+        if (task.done === true) {
+            input.checked = true;
+            li.className = "task disabled";
+        }
+
+        newTaskItem.appendChild(input);
+
+        let button = document.createElement('button');
+        button.className = "delete-button";
+        button.textContent = "x";
+        newTaskItem.appendChild(button);
+
+        tasksUl.appendChild(li);
+
+        // Check if there are any tasks already in the list
+        if (tasksList.firstChild) {
+            // Insert the new task before the first task
+            tasksList.insertBefore(newTaskItem, tasksList.firstChild);
+        } else {
+            // If the list is empty, just append the new task
+            tasksList.appendChild(newTaskItem);
+        }
+    }
+
 
 });
 

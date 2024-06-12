@@ -539,7 +539,7 @@ input[type="checkbox"]:checked::before{
     margin-left: 280px;
     text-align: center;
 }
-.add-course {
+.add-task {
     margin-bottom: 20px;
 }
 
