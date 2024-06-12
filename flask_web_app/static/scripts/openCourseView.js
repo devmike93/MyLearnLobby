@@ -57,6 +57,7 @@ $(document).ready(function() {
         });
 
         // Iterate over the array of tasks
+        let tasksUl = document.getElementById("tasks-list");
         tasksList.forEach(function(task) {
             // Create a new li element
             let li = `
@@ -74,7 +75,7 @@ $(document).ready(function() {
                 `;
             }
             // Append the li element to the ul element
-            ul.innerHTML += li; // Use '+=' to append
+            tasksUl.innerHTML += li; // Use '+=' to append
 
         });
     })
