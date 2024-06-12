@@ -28,7 +28,18 @@ $(document).ready(function() {
         $("#progressInputId").change(function() {
             updateProgress(this, courseObject.id);
         });
-        $("#course-description-details").text(courseObject.description);      
+        $("#course-description-details").text(courseObject.description);
+        let courseStartDateObj = new Date(course.start_date);
+        let courseEndDateObj = new Date(course.excepted_end_date);
+        start_date_month = courseStartDateObj.toLocaleString('default', { month: 'long' });
+        start_date_day = courseStartDateObj.toLocaleDateString('default', { day: '2-digit' });
+        start_date_year = courseStartDateObj.toLocaleDateString('default', { year: 'numeric' });
+
+        end_date_month = courseEndDateObj.toLocaleString('default', { month: 'long' });
+        end_date_day = courseEndDateObj.toLocaleDateString('default', { day: '2-digit' });
+        end_date_year = courseEndDateObj.toLocaleDateString('default', { year: 'numeric' });
+        $("#start-date").text(`${start_date_month} - ${start_date_day} - ${start_date_year}`); 
+        $("#end-date").text(`${end_date_month} - ${end_date_day} - ${end_date_year}`);     
     })
     .catch(error => {
         console.error('Error fetching course:', error);
