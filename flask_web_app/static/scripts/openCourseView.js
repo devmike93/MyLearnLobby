@@ -59,23 +59,30 @@ $(document).ready(function() {
         // Iterate over the array of tasks
         let tasksUl = document.getElementById("tasks-list");
         tasksList.forEach(function(task) {
-            // Create a new li element
-            let li = `
-            <li class="task">
-            <input type="checkbox"> ${task.title}
-            <button class="delete-button">x</button>
-            </li>
-            `;
+            // Create a new input element
+            let input = document.createElement('input');
+            input.type = "checkbox";
+            input.id = task.id;
+
+            // If the task is done, check the checkbox and add the 'task disabled' class to the li element
             if (task.done === true) {
-                li = `
-                <li class="task disabled">
-                <input type="checkbox"> ${task.title}
-                <button class="delete-button">x</button>
-                </li>
-                `;
+                input.checked = true;
+                li.className = "task disabled";
             }
+
+            li.appendChild(input);
+
+            // Create a new button element
+            let button = document.createElement('button');
+            button.className = "delete-button";
+            button.textContent = "x";
+
+            // Set the text content of the li element
+            li.appendChild(document.createTextNode(task.title));
+            li.appendChild(button);
+
             // Append the li element to the ul element
-            tasksUl.innerHTML += li; // Use '+=' to append
+            tasksUl.appendChild(li);
 
         });
     })
