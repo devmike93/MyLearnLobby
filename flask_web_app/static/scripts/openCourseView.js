@@ -44,7 +44,7 @@ $(document).ready(function() {
         let goals = courseObject.goals.split('\n');
         let ul = document.getElementById("goals-list");
 
-        // Iterate over the array
+        // Iterate over the array of goals
         goals.forEach(function(goal) {
             // Create a new li element
             let li = document.createElement('li');
@@ -54,6 +54,28 @@ $(document).ready(function() {
 
             // Append the li element to the ul element
             ul.appendChild(li);
+        });
+
+        // Iterate over the array of tasks
+        tasksList.forEach(function(task) {
+            // Create a new li element
+            let li = `
+            <li class="task">
+            <input type="checkbox"> ${task.title}
+            <button class="delete-button">x</button>
+            </li>
+            `;
+            if (task.done === true) {
+                li = `
+                <li class="task disabled">
+                <input type="checkbox"> ${task.title}
+                <button class="delete-button">x</button>
+                </li>
+                `;
+            }
+            // Append the li element to the ul element
+            ul.innerHTML += li; // Use '+=' to append
+
         });
     })
     .catch(error => {
