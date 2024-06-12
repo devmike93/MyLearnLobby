@@ -129,7 +129,7 @@
     background-color: rgb(236 228 95);
   }
   .edit {
-    margin-left: 100px;
+    margin-left: 1000px;
   }
 
   .user-section {
@@ -442,6 +442,7 @@ input[type="text"]::placeholder {
   overflow-y: scroll;
 }
 
+
 input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
@@ -472,9 +473,17 @@ input[type="checkbox"]::before{
   /* width: 2rem; */
   font-size: 1.7rem;
   text-align: center;
-  border: 2px solid grey;
+  /* border: 2px solid grey; */
   /* border-radius: 50%; */
   color: transparent;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+input[type="checkbox"]:hover{
+  background-color: #ccc;
 }
 
 input[type="checkbox"]:checked::before{
@@ -524,10 +533,12 @@ input[type="checkbox"]:checked::before{
 }
 
 .delete-button {
+    color: white;
+    background-color: red;
     display: none;
     border: solid 1px red;
-    border-radius: 50%;
-    margin-left: 40px;
+    border-radius: 100%;
+    margin-left: 280px;
 }
 
 .task:hover .delete-button {
