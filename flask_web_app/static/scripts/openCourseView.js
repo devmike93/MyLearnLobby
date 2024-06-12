@@ -84,7 +84,7 @@ $(document).ready(function() {
         //     // Append the li element to the ul element
         //     tasksUl.appendChild(li);
 
-        });
+        // });
     })
     .catch(error => {
         console.error('Error fetching course:', error);
