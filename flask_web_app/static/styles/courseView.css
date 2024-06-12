@@ -129,7 +129,7 @@
     background-color: rgb(236 228 95);
   }
   .edit {
-    margin-left: 1000px;
+    margin-left: 800px;
   }
 
   .user-section {
@@ -539,11 +539,12 @@ input[type="checkbox"]:checked::before{
     border: solid 1px red;
     border-radius: 100%;
     margin-left: 280px;
+    text-align: center;
 }
 
 .task:hover .delete-button {
     display: inline;
 }
-.task {
+/* .task {
     margin-bottom: 10px;
-}
+} */
