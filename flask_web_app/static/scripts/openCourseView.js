@@ -108,11 +108,34 @@ $(document).ready(function() {
     document.getElementById('addTaskButton').addEventListener('click', () => {
         const taskContent = prompt('Enter the new task:');
         if (taskContent) {
-        addNewTask(taskContent);
+            // make a POST request to the API to add the new task
+            let url_post_task_api = `http://mylearnlobby.me/api/v1/${course_id}/tasks`;
+
+            fetch(url_post_task_api, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ title: taskContent })
+            })
+            .then(response => {
+                if (!response.ok) { // Check if response went through
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                } else {
+                    return response.json();
+                }
+            })
+            .then(data => {
+                console.log(data.message);
+                addNewTask(taskContent, data.task_id);
+            })
+            .catch(error => {
+                console.error('Error adding task:', error);
+            });
         }
     });
 
-    function addNewTask(taskContent) {
+    function addNewTask(taskContent, taskId) {
 
         // Append tasks to the DOM here
         let tasksUl = document.getElementById("tasks-list");
@@ -121,7 +144,7 @@ $(document).ready(function() {
         newTaskItem.className = "task";
         let input = document.createElement('input');
         input.type = "checkbox";
-        input.id = "input-" + task.id;
+        input.id = "input-" + taskId;
 
         if (task.done === true) {
             input.checked = true;
