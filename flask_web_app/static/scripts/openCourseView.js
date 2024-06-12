@@ -146,7 +146,9 @@ $(document).ready(function() {
         input.id = "input-" + taskId;
 
         newTaskItem.appendChild(input);
-        newTaskItem.textContent = taskContent;
+        // Create a text node for the task content and append it
+        let taskTextNode = document.createTextNode(taskContent);
+        newTaskItem.appendChild(taskTextNode);
 
         let button = document.createElement('button');
         button.className = "delete-button";
