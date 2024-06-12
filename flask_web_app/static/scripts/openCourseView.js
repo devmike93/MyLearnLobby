@@ -108,6 +108,7 @@ $(document).ready(function() {
             let tasksUl = document.getElementById("tasks-list");
             tasksList.forEach(function(task) {
                 let li = document.createElement('li');
+                li.className = "task";
                 let input = document.createElement('input');
                 input.type = "checkbox";
                 input.id = "input-" + task.id;
