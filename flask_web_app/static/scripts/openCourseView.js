@@ -153,15 +153,13 @@ $(document).ready(function() {
         button.textContent = "x";
         newTaskItem.appendChild(button);
 
-        tasksUl.appendChild(newTaskItem);
-
         // Check if there are any tasks already in the list
         if (tasksList.firstChild) {
             // Insert the new task before the first task
-            tasksList.insertBefore(newTaskItem, tasksList.firstChild);
+            tasksUl.insertBefore(newTaskItem, tasksList.firstChild);
         } else {
             // If the list is empty, just append the new task
-            tasksList.appendChild(newTaskItem);
+            tasksUl.appendChild(newTaskItem);
         }
     }
 
