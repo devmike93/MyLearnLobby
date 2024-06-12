@@ -153,7 +153,7 @@ $(document).ready(function() {
         button.textContent = "x";
         newTaskItem.appendChild(button);
 
-        tasksUl.appendChild(li);
+        tasksUl.appendChild(newTaskItem);
 
         // Check if there are any tasks already in the list
         if (tasksList.firstChild) {
