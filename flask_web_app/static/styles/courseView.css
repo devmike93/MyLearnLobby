@@ -539,6 +539,9 @@ input[type="checkbox"]:checked::before{
     margin-left: 280px;
     text-align: center;
 }
+.add-course {
+    margin-bottom: 20px;
+}
 
 .task:hover .delete-button {
     display: inline;
