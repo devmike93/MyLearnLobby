@@ -57,32 +57,32 @@ $(document).ready(function() {
         });
 
         // Iterate over the array of tasks
-        let tasksUl = document.getElementById("tasks-list");
-        tasksList.forEach(function(task) {
-            // Create a new input element
-            let input = document.createElement('input');
-            input.type = "checkbox";
-            input.id = task.id;
+        // let tasksUl = document.getElementById("tasks-list");
+        // tasksList.forEach(function(task) {
+        //     // Create a new input element
+        //     let input = document.createElement('input');
+        //     input.type = "checkbox";
+        //     input.id = "input-" + task.id;
 
-            // If the task is done, check the checkbox and add the 'task disabled' class to the li element
-            if (task.done === true) {
-                input.checked = true;
-                li.className = "task disabled";
-            }
+        //     // If the task is done, check the checkbox and add the 'task disabled' class to the li element
+        //     if (task.done === true) {
+        //         input.checked = true;
+        //         li.className = "task disabled";
+        //     }
 
-            li.appendChild(input);
+        //     li.appendChild(input);
 
-            // Create a new button element
-            let button = document.createElement('button');
-            button.className = "delete-button";
-            button.textContent = "x";
+        //     // Create a new button element
+        //     let button = document.createElement('button');
+        //     button.className = "delete-button";
+        //     button.textContent = "x";
 
-            // Set the text content of the li element
-            li.appendChild(document.createTextNode(task.title));
-            li.appendChild(button);
+        //     // Set the text content of the li element
+        //     li.appendChild(document.createTextNode(task.title));
+        //     li.appendChild(button);
 
-            // Append the li element to the ul element
-            tasksUl.appendChild(li);
+        //     // Append the li element to the ul element
+        //     tasksUl.appendChild(li);
 
         });
     })
@@ -103,11 +103,36 @@ $(document).ready(function() {
         .then(tasks => {
             console.log('Tasks fetched:', tasks);
             tasksList = tasks;
+
+            // Append tasks to the DOM here
+            let tasksUl = document.getElementById("tasks-list");
+            tasksList.forEach(function(task) {
+                let li = document.createElement('li');
+                let input = document.createElement('input');
+                input.type = "checkbox";
+                input.id = "input-" + task.id;
+
+                if (task.done === true) {
+                    input.checked = true;
+                    li.className = "task disabled";
+                }
+
+                li.appendChild(input);
+                li.appendChild(document.createTextNode(task.title));
+
+                let button = document.createElement('button');
+                button.className = "delete-button";
+                button.textContent = "x";
+                li.appendChild(button);
+
+                tasksUl.appendChild(li);
+            });
         })
         .catch(error => {
             console.error('Error fetching tasks:', error);
         });
     }
+
 });
 
 function updateProgress(inputElement, courseId) {
