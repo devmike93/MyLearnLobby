@@ -19,6 +19,7 @@ $(document).ready(function() {
         console.log('Course fetched:', course);
         courseObject = course;
         get_course_tasks(courseObject.id);
+        $("#course-title").text(courseObject.title);
         
     })
     .catch(error => {
