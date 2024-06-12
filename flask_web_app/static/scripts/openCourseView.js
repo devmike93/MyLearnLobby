@@ -20,9 +20,9 @@ $(document).ready(function() {
         courseObject = course;
         get_course_tasks(courseObject.id);
         $("#course-title").text(courseObject.title);
-        $("#progressBarId").style.width = courseObject.counter + '%';
-        $("#progressBarId").setAttribute('aria-valuenow', courseObject.counter);
-        $("#progressBarId").textContent = courseObject.counter + '%';
+        $("#progressBarId").css('width', courseObject.counter + '%');
+        $("#progressBarId").attr('aria-valuenow', courseObject.counter);
+        $("#progressBarId").text(courseObject.counter + '%');
         
     })
     .catch(error => {
