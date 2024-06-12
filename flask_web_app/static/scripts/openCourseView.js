@@ -23,6 +23,7 @@ $(document).ready(function() {
         $("#progressBarId").css('width', courseObject.counter + '%');
         $("#progressBarId").attr('aria-valuenow', courseObject.counter);
         $("#progressBarId").text(courseObject.counter + '%');
+        $("#progressInputId").val(courseObject.counter);
         
     })
     .catch(error => {
@@ -48,3 +49,33 @@ $(document).ready(function() {
         });
     }
 });
+
+function updateProgress(inputElement, courseId) {
+    let newProgress = inputElement.value;
+    let progressBar = document.getElementById("progressBarId");
+    progressBar.style.width = newProgress + '%';
+    progressBar.setAttribute('aria-valuenow', newProgress);
+    progressBar.textContent = newProgress + '%';
+
+
+    let url_update_course_api = `http://mylearnlobby.me/api/v1/courses/${courseId}`;
+    fetch(url_update_course_api, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ counter: newProgress })
+    })
+    .then(response => {
+        if (!response.ok) { // Check if response went through
+            throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Counter updated:', data);
+    })
+    .catch(error => {
+        console.error('Error updating counter:', error);
+    });
+}
