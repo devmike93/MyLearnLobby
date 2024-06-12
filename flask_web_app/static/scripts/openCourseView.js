@@ -24,10 +24,11 @@ $(document).ready(function() {
         $("#progressBarId").attr('aria-valuenow', courseObject.counter);
         $("#progressBarId").text(courseObject.counter + '%');
         $("#progressInputId").val(courseObject.counter);
-        $("#progressInputId").attr("onclick", `updateProgress(this, '${courseObject.id}')`);
+        // $("#progressInputId").attr("onclick", `updateProgress(this, '${courseObject.id}')`);
         $("#progressInputId").change(function() {
             updateProgress(this, courseObject.id);
-        });        
+        });
+        $("#course-description-details").text(courseObject.description);      
     })
     .catch(error => {
         console.error('Error fetching course:', error);
