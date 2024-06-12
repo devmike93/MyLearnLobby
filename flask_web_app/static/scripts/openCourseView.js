@@ -39,7 +39,22 @@ $(document).ready(function() {
         end_date_day = courseEndDateObj.toLocaleDateString('default', { day: '2-digit' });
         end_date_year = courseEndDateObj.toLocaleDateString('default', { year: 'numeric' });
         $("#start-date").text(`${start_date_month} - ${start_date_day} - ${start_date_year}`); 
-        $("#end-date").text(`${end_date_month} - ${end_date_day} - ${end_date_year}`);     
+        $("#end-date").text(`${end_date_month} - ${end_date_day} - ${end_date_year}`);
+        
+        let goals = courseObject.goals.split('\n');
+        let ul = document.getElementById("goals-list");
+
+        // Iterate over the array
+        goals.forEach(function(goal) {
+            // Create a new li element
+            let li = document.createElement('li');
+
+            // Set the text content of the li element
+            li.textContent = goal;
+
+            // Append the li element to the ul element
+            ul.appendChild(li);
+        });
     })
     .catch(error => {
         console.error('Error fetching course:', error);
