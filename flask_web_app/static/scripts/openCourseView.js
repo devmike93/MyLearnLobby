@@ -194,8 +194,11 @@ $(document).ready(function() {
     }
 
     // Event listener for the Add Task button
-    document.getElementById('addTaskButton').addEventListener('click', () => {
-        const taskContent = prompt('Enter the new task:');
+    addButton = $("#add-task")
+    inputBox = $("#input-box")
+
+    addButton.click(function() {
+        let taskContent = inputBox.val();
         if (taskContent) {
             // make a POST request to the API to add the new task
             let url_post_task_api = `http://mylearnlobby.me/api/v1/${course_id}/tasks`;
@@ -217,6 +220,7 @@ $(document).ready(function() {
             .then(data => {
                 console.log(data.message);
                 addNewTask(taskContent, data.task_id);
+                inputBox.val("");
             })
             .catch(error => {
                 console.error('Error adding task:', error);
@@ -227,31 +231,14 @@ $(document).ready(function() {
     function addNewTask(taskContent, taskId) {
 
         // Append tasks to the DOM here
-        let tasksUl = document.getElementById("tasks-list");
-        const newTaskItem = document.createElement('li');
-        newTaskItem.className = "task";
-        let input = document.createElement('input');
-        input.type = "checkbox";
-        input.id = "input-" + taskId;
+        let tasksUl = $("#list-container");
+        let li = $("<li></li>").text(taskContent);
+        li.attr("taskId", taskId);
+        let span = $("<span></span>").text("x");
+        span.attr("taskId", taskId);
 
-        newTaskItem.appendChild(input);
-        // Create a text node for the task content and append it
-        let taskTextNode = document.createTextNode(taskContent);
-        newTaskItem.appendChild(taskTextNode);
-
-        let button = document.createElement('button');
-        button.className = "delete-button";
-        button.textContent = "x";
-        newTaskItem.appendChild(button);
-
-        // Check if there are any tasks already in the list
-        if (tasksUl.firstChild) {
-            // Insert the new task before the first task
-            tasksUl.insertBefore(newTaskItem, tasksUl.firstChild);
-        } else {
-            // If the list is empty, just append the new task
-            tasksUl.appendChild(newTaskItem);
-        }
+        li.append(span);
+        li.append(span);
     }
 
 
