@@ -49,11 +49,42 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     user_id = $("body").attr('user_id');
+
+    // Fetch the user's name
+    url_to_get_user = `http://mylearnlobby.me/api/v1/users/${user_id}`;
+    fetch(url_to_get_user)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        } else {
+            return response.json();
+        }
+    })
+    .then(user => {
+        username = user.first_name + " " + user.last_name;
+        $(".username").text(username);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+
     // Go to add course page
     // url_to_add_course = `http://localhost/AddCourseForm/${user_id}`;
     url_to_add_course = `http://mylearnlobby.me/AddCourseForm/${user_id}`;
     $("#addCourseBtn").click(function() {
         window.location.href = url_to_add_course;
+    });
+
+    // log out a user
+    $(".btn-logout").click(function() {
+        // window.location.href = `http://localhost/Logout/${user_id}`;
+        window.location.href = `http://mylearnlobby.me/Logout/${user_id}`;
+    });
+
+    // Go to profile page
+    $(".btn-profile").click(function() {
+        event.preventDefault(); // Prevent the default action
+        window.location.href = `http://mylearnlobby.me/Profile/${user_id}`;
     });
 
     // //progressslider value
