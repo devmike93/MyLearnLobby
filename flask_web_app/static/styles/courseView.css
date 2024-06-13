@@ -95,6 +95,9 @@ main {
 .course-goals {
   margin-bottom: 30px;
 }
+.course-resources {
+  margin-bottom: 30px;
+}
 
 /*  */
 .info-box {
@@ -238,6 +241,9 @@ button i {
 }
 
 #goals-list {
+  list-style: none;
+}
+#resources-list {
   list-style: none;
 }
 
