@@ -1,9 +1,9 @@
 $(document).ready(function() {
     user_id = $("body").attr('user_id');
     course_id = $("body").attr('course_id');
-    let url_get_tasks_api = `http://mylearnlobby.me/api/v1/${course_id}/tasks`
-    let url_delete_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${task_id}`
-    let url_update_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${task_id}`
+    // let url_get_tasks_api = `http://mylearnlobby.me/api/v1/${course_id}/tasks`
+    // let url_delete_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${task_id}`
+    // let url_update_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${task_id}`
 
 
 
@@ -93,28 +93,36 @@ $(document).ready(function() {
             tasksList = tasks;
 
             // Append tasks to the DOM here
-            let tasksUl = document.getElementById("list-container");
+            // let tasksUl = document.getElementById("list-container");
+            // tasksList.forEach(function(task) {
+            //     let li = document.createElement('li');
+            //     li.className = "task";
+            //     let input = document.createElement('input');
+            //     input.type = "checkbox";
+            //     input.id = "input-" + task.id;
+
+            //     if (task.done === true) {
+            //         input.checked = true;
+            //         li.className = "task disabled";
+            //     }
+
+            //     li.appendChild(input);
+            //     li.appendChild(document.createTextNode(task.title));
+
+            //     let button = document.createElement('button');
+            //     button.className = "delete-button";
+            //     button.textContent = "x";
+            //     li.appendChild(button);
+
+            //     tasksUl.appendChild(li);
+            // });
+
+            let tasksUl = $("#list-container");
             tasksList.forEach(function(task) {
-                let li = document.createElement('li');
-                li.className = "task";
-                let input = document.createElement('input');
-                input.type = "checkbox";
-                input.id = "input-" + task.id;
-
-                if (task.done === true) {
-                    input.checked = true;
-                    li.className = "task disabled";
-                }
-
-                li.appendChild(input);
-                li.appendChild(document.createTextNode(task.title));
-
-                let button = document.createElement('button');
-                button.className = "delete-button";
-                button.textContent = "x";
-                li.appendChild(button);
-
-                tasksUl.appendChild(li);
+                let li = $("<li></li>").text(task.title);
+                let span = $("<span></span>").text("x");
+                li.append(span);
+                tasksUl.append(li);
             });
         })
         .catch(error => {

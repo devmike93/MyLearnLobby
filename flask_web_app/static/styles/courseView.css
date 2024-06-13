@@ -216,6 +216,7 @@ button i {
   position: absolute;
   right: 0;
   top: 50%;
+  margin-right: 50px;
   transform: translateY(-50%);
   width: 30px;
   height: 30px;
@@ -251,3 +252,4 @@ ul{
   max-height: 300px;
     overflow: auto;
 }
+
