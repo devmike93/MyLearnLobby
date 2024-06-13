@@ -154,7 +154,7 @@ $(document).ready(function() {
                         console.log(data);
                         $(this).parent().remove(); // Remove the li element from the DOM
                     })
-                    cache((error) => {
+                    .catch((error) => {
                         console.error('Error:', error);
                     });
                 });
