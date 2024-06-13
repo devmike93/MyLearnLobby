@@ -112,4 +112,16 @@ $(document).ready(function() {
         }
     }
 
+    // log out a user
+    $(".logout-btn").click(function() {
+        // window.location.href = `http://localhost/Logout/${user_id}`;
+        window.location.href = `http://mylearnlobby.me/Logout/${user_id}`;
+    });
+
+    // Go to Dashboard
+    $(".dashboard").click(function() {
+        event.preventDefault(); // Prevent the default action
+        window.location.href = dashboard_url;
+    });
+
 });
