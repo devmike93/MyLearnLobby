@@ -1,6 +1,11 @@
 $(document).ready(function() {
     user_id = $("body").attr('user_id');
     course_id = $("body").attr('course_id');
+    let url_get_tasks_api = `http://mylearnlobby.me/api/v1/${course_id}/tasks`
+    let url_delete_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${task_id}`
+    let url_update_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${task_id}`
+
+
 
     courseObject = {}
     tasksList = []
