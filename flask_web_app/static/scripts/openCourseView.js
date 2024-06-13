@@ -64,6 +64,7 @@ $(document).ready(function() {
             let a = document.createElement('a');
             a.href = resource;
             a.textContent = resource;
+            a.target = "_blank"; // Add this line
             li.appendChild(a);
             ulResources.appendChild(li);
         });
@@ -87,7 +88,7 @@ $(document).ready(function() {
             tasksList = tasks;
 
             // Append tasks to the DOM here
-            let tasksUl = document.getElementById("tasks-list");
+            let tasksUl = document.getElementById("list-container");
             tasksList.forEach(function(task) {
                 let li = document.createElement('li');
                 li.className = "task";
