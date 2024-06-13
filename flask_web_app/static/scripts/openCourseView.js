@@ -1,6 +1,8 @@
 $(document).ready(function() {
     user_id = $("body").attr('user_id');
     course_id = $("body").attr('course_id');
+    dashboard_url = `http://mylearnlobby.me/Dashboard/${user_id}`
+
     // let url_get_tasks_api = `http://mylearnlobby.me/api/v1/${course_id}/tasks`
     // let url_delete_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${task_id}`
     // let url_update_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${task_id}`
@@ -188,6 +190,42 @@ $(document).ready(function() {
         addEventListenersToTasks(span, li);
 
     }
+
+    // Fetch the user's name
+    url_to_get_user = `http://mylearnlobby.me/api/v1/users/${user_id}`;
+    fetch(url_to_get_user)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        } else {
+            return response.json();
+        }
+    })
+    .then(user => {
+        username = user.first_name + " " + user.last_name;
+        $(".user-name").text(username);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+
+    // log out a user
+    $(".logout-btn").click(function() {
+        // window.location.href = `http://localhost/Logout/${user_id}`;
+        window.location.href = `http://mylearnlobby.me/Logout/${user_id}`;
+    });
+
+    // Go to Dashboard
+    $(".dashboard").click(function() {
+        event.preventDefault(); // Prevent the default action
+        window.location.href = dashboard_url;
+    });
+
+    // Go to profile page
+    $(".btn-profile").click(function() {
+        event.preventDefault(); // Prevent the default action
+        window.location.href = `http://mylearnlobby.me/Profile/${user_id}`;
+    });
 
 
 });
