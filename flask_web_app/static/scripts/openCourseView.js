@@ -238,7 +238,7 @@ $(document).ready(function() {
         span.attr("taskId", taskId);
 
         li.append(span);
-        li.append(span);
+        tasksUl.prepend(li);
     }
 
 
