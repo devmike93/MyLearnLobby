@@ -56,10 +56,18 @@ $(document).ready(function() {
             // Create a new li element
             let li = document.createElement('li');
 
-            // Set the text content of the li element
-            li.textContent = goal;
+    	    // Create the icon element
+            let icon = document.createElement('i');
+            icon.className = 'fa-solid fa-check';
 
-            // Append the li element to the ul element
+   	    // Append the icon to the li element
+	    li.appendChild(icon);
+
+	    // Create a text node for the goal and append it to the li element
+     	    let textNode = document.createTextNode(goal);
+    	    li.appendChild(textNode);
+            
+    	    // Append the li element to the ul element
             ulGoals.appendChild(li);
         });
 
