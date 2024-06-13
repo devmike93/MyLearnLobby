@@ -131,6 +131,34 @@ $(document).ready(function() {
                 li.append(span);
                 tasksUl.append(li);
 
+                // Add click event listener to span element
+                span.click(function(event) {
+                    event.stopPropagation(); // Prevent the li click event from firing
+
+                    let taskId = $(this).attr("taskId");
+
+                    fetch(`http://mylearnlobby.me/api/v1/tasks/${taskId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    })
+                    .then(response => {
+                        if (!response.ok) { // Check if response went through
+                            throw new Error('Network response was not ok: ' + response.statusText);
+                        }
+                        return response.json();
+                    
+                    })
+                    .then(data => {
+                        console.log(data);
+                        $(this).parent().remove(); // Remove the li element from the DOM
+                    })
+                    cache((error) => {
+                        console.error('Error:', error);
+                    });
+                });
+
                 // Add click event listener to li element
                 li.click(function() {
                     // Toggle "checked" class
@@ -156,6 +184,7 @@ $(document).ready(function() {
                     });
                     
                 });
+
     
             });
         })
