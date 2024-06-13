@@ -120,7 +120,37 @@ $(document).ready(function() {
             let tasksUl = $("#list-container");
             tasksList.forEach(function(task) {
                 let li = $("<li></li>").text(task.title);
+                li.attr("taskId", task.id);
                 let span = $("<span></span>").text("x");
+                span.attr("taskId", task.id);
+
+                if (task.done === true) {
+                    li.addClass("checked");
+                }
+
+                // Add click event listener to li element
+                li.click(function() {
+                    // Toggle "checked" class
+                    $(this).toggleClass("checked");
+                    let taskId = $(this).attr("taskId");
+
+                    $.ajax({
+                        url: `http://mylearnlobby.me/api/v1/tasks/${taskId}`,
+                        type: "PUT",
+                        contentType: "application/json", // Set request header to application/json
+                        data: JSON.stringify({ // Convert request data to JSON
+                            done: $(this).hasClass("checked")
+                        }),
+                        success: function(response) {
+                            console.log(response);
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        }
+                    });
+
+                });
+    
                 li.append(span);
                 tasksUl.append(li);
             });
