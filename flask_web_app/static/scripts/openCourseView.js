@@ -130,61 +130,7 @@ $(document).ready(function() {
 
                 li.append(span);
                 tasksUl.append(li);
-
-                // Add click event listener to span element
-                span.click(function(event) {
-                    event.stopPropagation(); // Prevent the li click event from firing
-
-                    let taskId = $(this).attr("taskId");
-
-                    fetch(`http://mylearnlobby.me/api/v1/tasks/${taskId}`, {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                    })
-                    .then(response => {
-                        if (!response.ok) { // Check if response went through
-                            throw new Error('Network response was not ok: ' + response.statusText);
-                        }
-                        return response.json();
-                    
-                    })
-                    .then(data => {
-                        console.log(data);
-                        $(this).parent().remove(); // Remove the li element from the DOM
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
-                });
-
-                // Add click event listener to li element
-                li.click(function() {
-                    // Toggle "checked" class
-                    $(this).toggleClass("checked");
-                    let taskId = $(this).attr("taskId");
-
-                    url_update_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${taskId}`;
-                    fetch(url_update_tasks_api, {
-                        method: 'PUT', // or 'POST'
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            done: $(this).hasClass("checked")
-                        }),
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
-                    
-                });
-
+                addEventListenersToTasks(span, li);
     
             });
         })
@@ -239,6 +185,8 @@ $(document).ready(function() {
 
         li.append(span);
         tasksUl.prepend(li);
+        addEventListenersToTasks(span, li);
+
     }
 
 
@@ -271,5 +219,61 @@ function updateProgress(inputElement, courseId) {
     })
     .catch(error => {
         console.error('Error updating counter:', error);
+    });
+}
+
+function addEventListenersToTasks(span, li) {
+    // Add click event listener to span element
+    span.click(function(event) {
+        event.stopPropagation(); // Prevent the li click event from firing
+
+        let taskId = $(span).attr("taskId");
+
+        fetch(`http://mylearnlobby.me/api/v1/tasks/${taskId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => {
+            if (!response.ok) { // Check if response went through
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.json();
+        
+        })
+        .then(data => {
+            console.log(data);
+            $(this).parent().remove(); // Remove the li element from the DOM
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+
+    // Add click event listener to li element
+    li.click(function() {
+        // Toggle "checked" class
+        $(this).toggleClass("checked");
+        let taskId = $(li).attr("taskId");
+
+        url_update_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${taskId}`;
+        fetch(url_update_tasks_api, {
+            method: 'PUT', // or 'POST'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                done: $(this).hasClass("checked")
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+        
     });
 }
