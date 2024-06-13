@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(user => {
         username = user.first_name + " " + user.last_name;
-        $(".username").text(username);
+        $(".user-name").text(username);
     })
     .catch(error => {
         console.error("Error:", error);
