@@ -61,7 +61,10 @@ $(document).ready(function() {
 
         resources.forEach(function(resource) {
             let li = document.createElement('li');
-            li.textContent = resource;
+            let a = document.createElement('a');
+            a.href = resource;
+            a.textContent = resource;
+            li.appendChild(a);
             ulResources.appendChild(li);
         });
     })
