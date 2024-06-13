@@ -83,7 +83,7 @@ def update(user_id):
         abort(400, description="Not a JSON")
 
     data = request.get_json()
-    attrs = ['first_name', 'email', 'password']
+    attrs = ['first_name', 'last_name', 'email', 'password']
 
     for key, value in data.items():
         # if key == 'password':
