@@ -128,31 +128,35 @@ $(document).ready(function() {
                     li.addClass("checked");
                 }
 
+                li.append(span);
+                tasksUl.append(li);
+
                 // Add click event listener to li element
                 li.click(function() {
                     // Toggle "checked" class
                     $(this).toggleClass("checked");
                     let taskId = $(this).attr("taskId");
 
-                    $.ajax({
-                        url: `http://mylearnlobby.me/api/v1/tasks/${taskId}`,
-                        type: "PUT",
-                        contentType: "application/json", // Set request header to application/json
-                        data: JSON.stringify({ // Convert request data to JSON
+                    url_update_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${taskId}`;
+                    fetch(url_update_course_api, {
+                        method: 'PUT', // or 'POST'
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
                             done: $(this).hasClass("checked")
                         }),
-                        success: function(response) {
-                            console.log(response);
-                        },
-                        error: function(error) {
-                            console.log(error);
-                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
                     });
-
+                    
                 });
     
-                li.append(span);
-                tasksUl.append(li);
             });
         })
         .catch(error => {
