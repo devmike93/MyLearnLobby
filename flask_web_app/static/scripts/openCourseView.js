@@ -42,7 +42,7 @@ $(document).ready(function() {
         $("#end-date").text(`${end_date_month} - ${end_date_day} - ${end_date_year}`);
         
         let goals = courseObject.goals.split('\n');
-        let ul = document.getElementById("goals-list");
+        let ulGoals = document.getElementById("goals-list");
 
         // Iterate over the array of goals
         goals.forEach(function(goal) {
@@ -53,7 +53,16 @@ $(document).ready(function() {
             li.textContent = goal;
 
             // Append the li element to the ul element
-            ul.appendChild(li);
+            ulGoals.appendChild(li);
+        });
+
+        let resources = courseObject.resources.split('\n');
+        let ulResources = document.getElementById("resources-list");
+
+        resources.forEach(function(resource) {
+            let li = document.createElement('li');
+            li.textContent = resource;
+            ulResources.appendChild(li);
         });
     })
     .catch(error => {
