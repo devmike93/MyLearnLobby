@@ -210,7 +210,7 @@ $(document).ready(function() {
     });
 
     // log out a user
-    $(".logout-btn").click(function() {
+    $(".btn-logout").click(function() {
         // window.location.href = `http://localhost/Logout/${user_id}`;
         window.location.href = `http://mylearnlobby.me/Logout/${user_id}`;
     });
