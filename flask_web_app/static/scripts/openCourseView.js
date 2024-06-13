@@ -138,7 +138,7 @@ $(document).ready(function() {
                     let taskId = $(this).attr("taskId");
 
                     url_update_tasks_api = `http://mylearnlobby.me/api/v1/tasks/${taskId}`;
-                    fetch(url_update_course_api, {
+                    fetch(url_update_task_api, {
                         method: 'PUT', // or 'POST'
                         headers: {
                             'Content-Type': 'application/json',
